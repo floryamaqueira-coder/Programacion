@@ -1,0 +1,216 @@
+/* Reinicia márgenes y rellenos por defecto de todos los elementos */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+/* Estilos generales de la página */
+body{
+    background:#f5f7fa;
+    color:#333;
+}
+
+/* Encabezado principal */
+header{
+    background:linear-gradient(10deg,#2A7B9B,#5957C7, #53EDC6);
+    color:white;
+    padding:20px 50px;
+}
+
+/* Barra de navegación */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+/* Lista de enlaces del menú */
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:20px;
+}
+
+/* Enlaces del menú */
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+}
+/* Títulos de las secciones */
+.dashboard h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+/* Creación de torneos */
+.dashboard p{
+    max-width:1200px;
+    margin:50px auto;
+    padding:0 20px;
+    text-align:center;
+}
+/*Botón de creación de torneos*/
+.dashboard input[type="button"]{
+    display:block;
+    margin:20px auto;
+    padding:10px 20px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:1rem;
+    transition:.3s;
+}
+/* Contenedor de estadísticas y tablas */
+.dashboard{
+    max-width:1200px;
+    margin:50px auto;
+    padding:0 20px;
+}
+
+
+/* Cuadrícula de estadísticas */
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+/* Tarjetas de estadísticas */
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Número destacado de cada tarjeta */
+.card h3{
+    font-size:2rem;
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+/* Contenedor general de módulos */
+.modules{
+    max-width:1200px;
+    margin:60px auto;
+    padding:0 20px;
+}
+
+/* Título de cada módulo */
+.modules h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+/* Cuadrícula adaptable para los módulos */
+.module-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+/* Tarjeta individual de módulo */
+.module{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Título dentro del módulo */
+.module h3{
+    margin-bottom:10px;
+    color:#2563eb;
+}
+
+/* Pie de página */
+footer{
+    margin-top:50px;
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* Tabla de posiciones */
+.ranking-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Encabezado de la tabla */
+.ranking-table th{
+    background:#2563eb;
+    color:white;
+    padding:15px;
+}
+
+/* Celdas de la tabla */
+.ranking-table td{
+    padding:15px;
+    text-align:center;
+    border-bottom:1px solid #eee;
+}
+
+/* Efecto al pasar el mouse sobre una fila */
+.ranking-table tr:hover{
+    background:#f8fafc;
+}
+
+/* Desplazamiento suave entre secciones */
+html{
+    scroll-behavior:smooth;
+}
+
+/* Módulos clickeables */
+.module{
+    text-decoration:none;
+    color:inherit;
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.3s;
+    display:block;
+}
+
+/* Animación al pasar el mouse */
+.module:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(37,99,235,.25);
+}
+
+/* Evita subrayados en títulos */
+.module h3{
+    text-decoration:none;
+}
+
+/* Estilo de textos secundarios */
+.module p{
+    text-decoration:none;
+    color:#555;
+}
+
+/* Quita el estilo azul típico de los enlaces */
+a.module{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* Distribución de los módulos en columnas */
+.module-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}

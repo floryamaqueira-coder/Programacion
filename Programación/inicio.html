@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración básica de la página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>Inicio - SPL</title>
+    <!-- Vinculación con el archivo CSS -->
+    <link rel="stylesheet" href="inicio.css">
+</head>
+<body>
+<!-- Encabezado principal -->
+<header>
+    <!-- Barra de navegación -->
+    <nav>
+        <h2>SPL</h2>
+        <!-- Menú con enlaces internos -->
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#estadisticas">Estadísticas</a></li>
+            <li><a href="#modulos">Módulos</a></li>
+        </ul>
+    </nav>
+    <!-- Mensaje de bienvenida -->
+    <div class="welcome">
+        <h1>Bienvenido a SPL</h1>
+        <p>
+            Gestiona torneos, equipos, jugadores y partidos
+            desde una sola plataforma.
+        </p>
+    </div>
+</header>
+<!-- Sección de estadísticas generales -->
+<section class="dashboard" id="estadisticas">
+    <h2>Resumen General</h2>
+    <div class="stats">
+        <div class="card">
+            <h3>12</h3>
+            <p>Torneos Activos</p>
+        </div>
+        <div class="card">
+            <h3>84</h3>
+            <p>Partidos Programados</p>
+        </div>
+        <div class="card">
+            <h3>48</h3>
+            <p>Equipos Registrados</p>
+        </div>
+        <div class="card">
+            <h3>720</h3>
+            <p>Jugadores</p>
+        </div>
+    </div>
+</section>
+<!-- Panel principal con accesos rápidos -->
+<section class="modules" id="modulos">
+    <h2>Panel de Gestión</h2>
+    <!-- Módulos clickeables -->
+    <div class="module-grid">
+        <a href="#estadisticas" class="module">
+            <h3>📊 Estadísticas</h3>
+            <p>Consultar rendimiento y posiciones.</p>
+        </a>
+        <a href="#partidos" class="module">
+            <h3>⚽ Partidos</h3>
+            <p>Programar encuentros y registrar resultados.</p>
+        </a>
+        <a href="#partidos" class="module">
+            <h3>📅 Calendario</h3>
+            <p>Ver fechas y horarios de competición.</p>
+        </a>
+        <a href="#tabla" class="module">
+            <h3>🏆 Tabla de Posiciones</h3>
+            <p>Ver clasificación actual.</p>
+        </a>
+        <a href="#actividad" class="module">
+            <h3>📢 Actividad Reciente</h3>
+            <p>Últimos movimientos del torneo.</p>
+        </a>
+        <a href="#equipos" class="module">
+            <h3>👥 Equipos</h3>
+            <p>Administrar equipos participantes.</p>
+        </a>
+        <a href="#jugadores" class="module">
+            <h3>👤 Jugadores</h3>
+            <p>Consultar plantillas y jugadores.</p>
+        </a>
+        <a href="#torneos" class="module">
+            <h3>🏆 Torneos</h3>
+            <p>Gestionar torneos activos.</p>
+        </a>
+        <a href="#canchas" class="module">
+            <h3>🏟️ Canchas</h3>
+            <p>Ver sedes y campos deportivos.</p>
+        </a>
+        <a href="#configuracion" class="module">
+            <h3>⚙️ Configuración</h3>
+            <p>Opciones generales del sistema.</p>
+        </a>
+    </div>
+</section>
+<!-- Tabla de posiciones -->
+<section class="dashboard" id="tabla">
+    <h2>🏆 Tabla de Posiciones</h2>
+    <table class="ranking-table">
+        <!-- Encabezados de la tabla -->
+        <thead>
+            <tr>
+                <th>Pos</th>
+                <th>Equipo</th>
+                <th>PTS</th>
+                <th>PJ</th>
+                <th>PG</th>
+            </tr>
+        </thead>
+        <!-- Datos de los equipos -->
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Sauceños</td>
+                <td>24</td>
+                <td>10</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Tigres United</td>
+                <td>21</td>
+                <td>10</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Águilas</td>
+                <td>18</td>
+                <td>10</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Halcones</td>
+                <td>15</td>
+                <td>10</td>
+                <td>5</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+<!-- Calendario de próximos partidos -->
+<section class="modules" id="partidos">
+    <h2>📅 Calendario</h2>
+    <div class="module-grid">
+        <div class="module">
+            <h3>Sauceños vs Tigres United</h3>
+            <p>25/06/2026 - 19:00 hs</p>
+        </div>
+        <div class="module">
+            <h3>Águilas vs Halcones</h3>
+            <p>26/06/2026 - 17:30 hs</p>
+        </div>
+        <div class="module">
+            <h3>Sauceños vs Águilas</h3>
+            <p>28/06/2026 - 20:00 hs</p>
+        </div>
+    </div>
+</section>
+<!-- Actividad reciente del sistema -->
+<section class="modules" id="actividad">
+    <h2>📢 Actividad Reciente</h2>
+    <div class="module-grid">
+        <div class="module">
+            <h3>Nuevo Equipo</h3>
+            <p>Halcones FC fue registrado en el torneo.</p>
+        </div>
+        <div class="module">
+            <h3>Resultado Cargado</h3>
+            <p>Tigres United 3 - 1 Águilas.</p>
+        </div>
+        <div class="module">
+            <h3>Próxima Fecha</h3>
+            <p>La jornada 6 comienza el 25/06/2026.</p>
+        </div>
+    </div>
+</section>
+<!-- Equipos participantes -->
+<section class="modules" id="equipos">
+    <h2>👥 Equipos Participantes</h2>
+    <div class="module-grid">
+        <div class="module"><h3>Sauceños</h3></div>
+        <div class="module"><h3>Tigres United</h3></div>
+        <div class="module"><h3>Águilas</h3></div>
+        <div class="module"><h3>Halcones</h3></div>
+    </div>
+</section>
+<!-- Jugadores destacados -->
+<section class="modules" id="jugadores">
+    <h2>👤 Jugadores Destacados</h2>
+    <div class="module-grid">
+        <div class="module"><h3>Gahel Bordon</h3><p>100 goles</p></div>
+        <div class="module"><h3>Florencia Yanibelli</h3><p>50 goles</p></div>
+        <div class="module"><h3>Valerie Blancos</h3><p>40 goles</p></div>
+    </div>
+</section>
+<!-- Torneos activos -->
+<section class="modules" id="torneos">
+    <h2>🏆 Torneos Activos</h2>
+    <div class="module-grid">
+        <div class="module"><h3>Liga Sauceña</h3></div>
+        <div class="module"><h3>Copa SPL</h3></div>
+    </div>
+</section>
+<!-- Canchas registradas -->
+<section class="modules" id="canchas">
+    <h2>🏟️ Canchas</h2>
+    <div class="module-grid">
+        <div class="module"><h3>Estadio Sauceño</h3></div>
+        <div class="module"><h3>Gimnasio de la ITS</h3></div>
+        <div class="module"><h3>Arena SPL</h3></div>
+    </div>
+</section>
+<!-- Configuración del sistema -->
+<section class="modules" id="configuracion">
+    <h2>⚙️ Configuración</h2>
+    <div class="module-grid">
+        <div class="module">
+            <h3>Sistema SPL</h3>
+            <p>Versión 1.0</p>
+        </div>
+    </div>
+</section>

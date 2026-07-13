@@ -1,0 +1,143 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    background:#f5f7fa;
+    color:#333;
+}
+
+
+header{
+    background:linear-gradient(10deg,#2A7B9B,#5957C7, #53EDC6);
+    color:rgb(255, 255, 255);
+    min-height:70vh;
+}
+
+.hero{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    height:60vh;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:1.2rem;
+    max-width:700px;
+    margin:auto;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:20px;
+
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+}
+
+/* INFO */
+
+.info{
+    text-align:center;
+    padding:80px 10%;
+}
+
+.info h2{
+    margin-bottom:20px;
+    color:#0f172a;
+    font-size:2rem;
+}
+
+.info p{
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+}
+
+.stats{
+    margin-top:50px;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.stat{
+    background:white;
+    padding:30px;
+    width:220px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.stat h3{
+    color:#2563eb;
+    font-size:2rem;
+}
+
+/* FUNCIONES */
+
+.features{
+    padding:80px 10%;
+    background:white;
+}
+
+.features h2{
+    text-align:center;
+    margin-bottom:50px;
+    font-size:2rem;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#f8fafc;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    margin-bottom:15px;
+    color:#2563eb;
+}
+
+/* FOOTER */
+
+footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
