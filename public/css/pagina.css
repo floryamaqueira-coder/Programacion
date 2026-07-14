@@ -2,39 +2,66 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Segoe UI', sans-serif;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
 }
 
 body{
-    background:#f5f7fa;
+        background: linear-gradient(#020A17, #020A17, #01595A);
     color:#333;
 }
 
-
 header{
-    background:linear-gradient(10deg,#2A7B9B,#5957C7, #53EDC6);
-    color:rgb(255, 255, 255);
+    color:#ffffff;
     min-height:70vh;
 }
 
-.hero{
+.despliegue{
+    display:none;
+    font-size:35px;
+    color:white;
+    cursor:pointer;
+}
+
+
+#menu-toggle{
+    display:none;
+}
+
+.fondo{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.principal{
     display:flex;
     justify-content:center;
     align-items:center;
-    text-align:center;
-    height:60vh;
+    text-align:left;
+    height:50vh;
     padding:20px;
+    flex-direction: column;
 }
 
-.hero h1{
+.principal h1{
     font-size:3rem;
     margin-bottom:20px;
 }
 
-.hero p{
-    font-size:1.2rem;
+.principal p{
+    font-size:1.1rem;
     max-width:700px;
     margin:auto;
+}
+
+.boton-principal{
+    display: flex;
+    gap: 30px;
+    padding: 20px, 20px;
+    
 }
 
 nav{
@@ -60,6 +87,7 @@ nav a{
 /* INFO */
 
 .info{
+    background-color: #010B15;
     text-align:center;
     padding:80px 10%;
 }
@@ -140,4 +168,56 @@ footer{
     color:white;
     text-align:center;
     padding:25px;
+}
+
+@media screen and (max-width: 768px) {
+   nav {
+        position: relative;
+    }
+
+    .fondo {
+        display: none;
+    }
+
+    .principal {
+        background: linear-gradient(#020A17, #021a14, #01595A);
+    }
+
+    /* Mostramos el icono */
+    .despliegue {
+        display: block;
+        font-size: 35px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .menu {
+        display: none; /* Oculto por defecto en móvil */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Aparece justo debajo de la barra de navegación */
+        left: 0;
+        width: 100%;
+        background-color: #020A17; /* Fondo oscuro integrado con tu header */
+        padding: 20px 0;
+        z-index: 100;
+        gap: 0; /* Quitamos el espacio de escritorio */
+    }
+
+    .menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu li a {
+        display: block;
+        padding: 15px;
+        color: white;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria sutil */
+    }
+
+    #menu-toggle:checked ~ .menu {
+        display: flex;
+    }
 }
