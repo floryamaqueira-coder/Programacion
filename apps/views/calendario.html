@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../public/css/calendario.css">
+</head>
+<body>
+ <header>
+        <nav>
+            <img class="logo" src="../../public/img/logonuevo.png" alt="logo spl" 
+            width="100px" height="100px">
+
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="despliegue">☰</label>
+            
+            <ul class="menu">
+                <li><a href="pagina.html">Inicio</a></li>
+                <li><a href="torneos.html">Torneos</a></li>
+                <li><a href="iniciosesion.html">Acceder</a></li>
+                <li><a href="#">Ranking</a></li>
+            </ul>
+        </nav>
+    </header>
+
+  <section>
+    <div class="calendario">
+  <!-- Cabecera con el mes actual y botones de navegación -->
+  <div class="calendario-header">
+    <button id="prev-mes">&lt;</button>
+    <h2 id="mes-año">Julio 2026</h2>
+    <button id="next-mes">&gt;</button>
+  </div>
+
+  <!-- Nombres de los días de la semana -->
+  <div class="dias-semana">
+    <div>Dom</div>
+    <div>Lun</div>
+    <div>Mar</div>
+    <div>Mié</div>
+    <div>Jue</div>
+    <div>Vie</div>
+    <div>Sáb</div>
+  </div>
+
+  <!-- Contenedor donde JavaScript meterá los números de los días -->
+  <div class="dias-grid" id="dias-contenedor">
+
+  </div>
+</div>
+  </section>
+
+  <footer>
+        <p> 2026 SPL | Sistema de Gestión de Torneos y Partidos</p>
+  </footer>
+  
+</body>
+</html>

@@ -1,74 +1,27 @@
 *{
     margin:0;
     padding:0;
-    box-sizing:border-box;
-    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    box-sizing:border-box; 
 }
 
 body{
-        background: linear-gradient(#020A17, #020A17, #01595A);
+    background: linear-gradient(#020A17, #020A17, #01595A);
     color:#333;
 }
 
 header{
-    color:#ffffff;
-    min-height:70vh;
+    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
 }
-
-.despliegue{
-    display:none;
-    font-size:35px;
-    color:white;
-    cursor:pointer;
-}
-
 
 #menu-toggle{
     display:none;
-}
-
-.fondo{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
-.principal{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:left;
-    height:50vh;
-    padding:20px;
-    flex-direction: column;
-}
-
-.principal h1{
-    font-size:3rem;
-    margin-bottom:20px;
-}
-
-.principal p{
-    font-size:1.1rem;
-    max-width:700px;
-    margin:auto;
-}
-
-.boton-principal{
-    display: flex;
-    gap: 30px;
-    padding: 20px, 20px;
-    
 }
 
 nav{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 10%;
+    padding-right: 50px;
 }
 
 nav ul{
@@ -84,17 +37,86 @@ nav a{
     font-weight:500;
 }
 
+.fondo{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+
+.principal{
+    display:flex;
+    padding:20px;
+    flex-direction: column;
+    color:white;
+}
+
+.principal h1{
+    font-size:3rem;
+    padding-left:5px ;
+}
+
+.color{
+    color:#AEBF2A; 
+}
+
+.principal p{
+    padding:10px;
+    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif; 
+    letter-spacing: 1px;
+}
+
+.explorador, .creador{
+  font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 10px;
+  transition:.3s;
+  padding: 12px 12px;
+  width:fit-content;
+  margin: 6px;
+  justify-content:left;
+}
+
+/* Descubre torneos sin distinción de clasificación */
+button.explorador {
+  background-color: #441259;
+  border: none;
+  color: white;
+  text-align: left;
+  text-decoration: none;
+  display: flex;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+}
+/* Crea torneos */
+button.creador{
+  background-color: transparent;
+  border-color: #82A633;
+  color: #82A633;
+  text-align: left;
+  text-decoration: none;
+  display: flex;
+  cursor: pointer;
+}
+
 /* INFO */
 
 .info{
     background-color: #010B15;
     text-align:center;
     padding:80px 10%;
+    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .info h2{
     margin-bottom:20px;
-    color:#0f172a;
+    color:#AEBF2A;
     font-size:2rem;
 }
 
@@ -102,63 +124,168 @@ nav a{
     max-width:800px;
     margin:auto;
     line-height:1.8;
-}
-
-.stats{
-    margin-top:50px;
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    flex-wrap:wrap;
-}
-
-.stat{
-    background:white;
-    padding:30px;
-    width:220px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
-}
-
-.stat h3{
-    color:#2563eb;
-    font-size:2rem;
+    color: white;
 }
 
 /* FUNCIONES */
 
-.features{
-    padding:80px 10%;
-    background:white;
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 12px;
+    padding: 10px;
+    width: 100%; 
+    box-sizing: border-box;
 }
 
-.features h2{
-    text-align:center;
-    margin-bottom:50px;
-    font-size:2rem;
+/* Base de las tarjetas */
+.cardfut, .cardbasquet, .cardvoley, .cardmas {
+    padding: 12px 8px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+    transition: .3s;
+    text-align: center;
+    
+    /* Centrado vertical y horizontal */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
+/* tamaño de las imágenes */
+.cardfut img, .cardfut svg,
+.cardbasquet img, .cardbasquet svg,
+.cardvoley img, .cardvoley svg,
+.cardmas img, .cardmas svg {
+    width: 100px;       
+    height: 100px;      
+    object-fit: contain;
+}
+/* Colores de fondo */
+.cardfut { background-color: #0f141680; }
+.cardbasquet { background-color: #0f141680; }
+.cardvoley { background-color: #0f141680; }
+.cardmas { background-color: #0f141680; }
+
+/* Efecto hover (sirve para detectar cuándo el usuario pasa el cursor del mouse por encima de un elemento 
+(como un botón, una tarjeta, un enlace o una imagen) y aplicarle un estilo diferente mientras el mouse esté ahí.)*/
+.cardfut:hover, .cardbasquet:hover, .cardvoley:hover, .cardmas:hover {
+    transform: translateY(-4px);
 }
 
-.card{
-    background:#f8fafc;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-    transition:.3s;
+.card-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 12px;
+    padding: 10px;
+    width: 100%; 
+    box-sizing: border-box;
+}   
+
+.card-info p{
+    text-align: left;
 }
 
-.card:hover{
-    transform:translateY(-8px);
+.card-funcionamiento,
+.card-usuarios,
+.card-sistemas,
+.card-preguntas {
+  background-color: transparent; /* El !important asegura que no haya otra regla molestando */
+  border: 1px solid #1e1b30;
+  border-radius: 16px;
+  padding: 24px;
+  
+  width: 100%;
+  margin-left: auto ;
+  margin-right: auto ;
+  
+  box-sizing: border-box;
+  font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+  color: #ffffff;
 }
 
-.card h3{
-    margin-bottom:15px;
-    color:#2563eb;
+.titulo {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.titulo h2 {
+  font-size: 15px;
+  color: #c0f20c; 
+  margin: 0;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.item {
+  border-bottom: 1px solid #1e293b;
+  width: 100%;
+  text-align: left; 
+}
+
+.item:last-child {
+  border-bottom: none; /* Sin línea divisoria en la última pregunta */
+}
+
+/* Quitar flecha nativa */
+.item summary::-webkit-details-marker {
+  display: none;
+}
+.item summary {
+  list-style: none;
+}
+
+/* Pregunta interactiva (summary) */
+.pregunta-fila {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 16px 0;
+  font-size: 14px;
+  color: #ffffff;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 500;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Flecha morada */
+.flecha {
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #a78bfa;
+  border-bottom: 2px solid #a78bfa;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease-in-out;
+  flex-shrink: 0; /* Evita que la flecha se deforme */
+  margin-left: 10px;
+}
+
+/* Rotación al abrir */
+.item[open] .flecha {
+  transform: rotate(-135deg);
+}
+
+/* Respuesta revelada */
+.respuesta {
+  padding-bottom: 16px;
+  text-align: left;
+}
+
+.respuesta p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #8d8989;
 }
 
 /* FOOTER */
@@ -168,6 +295,7 @@ footer{
     color:white;
     text-align:center;
     padding:25px;
+    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
 }
 
 @media screen and (max-width: 768px) {
@@ -178,9 +306,15 @@ footer{
     .fondo {
         display: none;
     }
-
-    .principal {
-        background: linear-gradient(#020A17, #021a14, #01595A);
+    .fondotelefono{
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        filter: blur(3px);
     }
 
     /* Mostramos el icono */
@@ -220,4 +354,57 @@ footer{
     #menu-toggle:checked ~ .menu {
         display: flex;
     }
+
+    .logo{
+        display: flex;
+        width: 200px;
+        height: 150px;
+    }
+
+    .cardfut img, .cardfut svg,
+    .cardbasquet img, .cardbasquet svg,
+    .cardvoley img, .cardvoley svg,
+    .cardmas img, .cardmas svg {
+    width: 100px;       
+    height: 50px;      
+    object-fit: contain;
+    }
+
+    .card-info {
+    /* En PC, se distribuyen en columnas que se adaptan y se centran */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content: center; /* Centra la grilla completa en pantallas grandes */
+    justify-items: center;    /* Centra cada tarjeta dentro de su espacio */
+    gap: 24px;
+    padding: 32px;
+  }
+
+  .card-funcionamiento,
+  .card-usuarios,
+  .card-sistemas,
+  .card-preguntas {
+    margin: 0 auto;
+  }
+
+  .titulo h2 {
+    font-size: 16px;
+  }
+
+  .pregunta-fila {
+    font-size: 15px;
+    padding: 20px 0; /* Mayor área de click para el cursor de la PC */
+  }
+
+  .respuesta p {
+    font-size: 14px;
+  }
+
+}
+
+@media screen and (min-width: 1024px){
+    .fondotelefono{
+        display: none;
+    }
+
+@media screen and (min-wdith: )
 }

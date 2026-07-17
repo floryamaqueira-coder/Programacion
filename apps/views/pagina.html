@@ -14,98 +14,163 @@
 
                 <input type="checkbox" id="menu-toggle">
                 <label for="menu-toggle" class="despliegue">☰</label>
-            
+
             <ul class="menu">
                 <li><a href="pagina.html">Inicio</a></li>
                 <li><a href="torneos.html">Torneos</a></li>
                 <li><a href="iniciosesion.html">Acceder</a></li>
+                <li><a href="#">Ranking</a></li>
+                <li><a href="calendario.html">Calendario</a></li>
             </ul>
         </nav>
-        <div class="principal">
-                <img class="fondo" src="../../public/img/Background.png" alt="fondo">
-            <div class="principal-text">
-                <h1>COMPITE</h1>
-                <h1>CONECTA</h1>
-                <h1>TRIUNFA</h1>
-                <p>
-                    Organiza competiciones, administra equipos,
-                    registra resultados y consulta estadísticas en tiempo real.
-                </p>
-            </div>
-           <div class="boton-principal">
-                <button>Explora torneos</button>
-                <button>Crear torneo</button>
-           </div>
-        </div>
     </header>
 
+<section class="inicio">
+    <div class="principal">
+                <img class="fondo" src="../../public/img/Background.png" alt="fondo">
+                <img class="fondotelefono" src="../../public/img/pruebafondotelefono.png" alt="fondotelefono">
+                
+            <h1>COMPITE</h1>
+            <h1>CONECTA</h1>
+            <h1 class="color">TRIUNFA</h1>
+        <p>
+                    Organiza competiciones, administra equipos,
+                    registra resultados y consulta estadísticas en tiempo real.
+        </p>
+                
+                <button class="explorador">Explora torneos</button>
+                <button class="creador">Crea tu torneo</button>
+
+     <div class="cards">
+<!-- Ver torneos activos solo futbol -->
+            <div class="cardfut">
+                <img src="../../public/img/logofutbol.png" alt="futbol">
+            </div>
+<!-- Ver torneos activos solo basquet -->
+            <div class="cardbasquet">
+                <img src="../../public/img/logobasquet.png" alt="basquet">
+            </div>
+<!-- Ver torneos activos solo voley -->
+             <div class="cardvoley">
+                <img src="../../public/img/logovoley.png" alt="voley">
+            </div>
+<!-- Ver torneos activos -->
+             <div class="cardmas">
+                <img src="../../public/img/maslogo.png" alt="mas">
+            </div>
+    </div>
+
+</section>
+<!-- Acá comienza información general de la página-->
     <section id="info" class="info">
         <h2>¿Qué es SPL?</h2>
-
         <p>
             SPL es una plataforma diseñada para organizar torneos
-            deportivos de cualquier disciplina. Permite administrar equipos,
-            jugadores, calendarios, resultados y estadísticas desde un único sistema.
+            deportivos de cualquier disciplina. 
         </p>
 
-        <div class="stats">
-            <div class="stat">
-                <h3>0</h3>
-                <p>Torneos gestionados</p>
+<!-- Se divide la información por "tarjetas"-->
+<div class="card-info">
+    <div class="card-funcionamiento">
+        <h2>¿Cómo funciona?</h2>
+        <p>
+            1. Crea una cuenta
+        </p>
+        <p>
+            2. Crea o únete a un torneo.
+        </p>
+        <p>
+            3. Consulta resultados y ranking.
+        </p>
+    </div>
+    <div class="card-usuarios">
+            <h2>¿Para quién está destinado SPL?</h2>
+            <p>
+                • Jugadores
+                </p>
+            <p>
+                • Organizadores
+                </p>
+            <p>
+                • Clubes/Federaciónes
+                </p>
+            <p>
+                • Docentes
+                </p>
+            <p>
+                • Organizadores independientes
+                </p>
+            <p>
+                • Comunidades
+            </p>
+    </div>
+    <div class="card-sistemas">
+            <h2>Sistemas de Competición</h2>
+            <p>
+                • Liga
+            </p>
+            <p>
+                • Eliminacón directa
+            </p>
+            <p>
+                • Sistema Suizo
+            </p>
+    </div>
+    <div class="card-preguntas">
+    <!-- Cabecera sin icono -->
+    <div class="titulo">
+            <h2>Preguntas frecuentes</h2>
+    </div>
+    <!-- Lista -->
+    <div class="lista">
+        <!-- Pregunta 1 -->
+        <details class="item"> <!-- Details: es una etiqueta interactiva de HTML que 
+            sirve para crear bloques de información que el usuario puede ocultar o mostrar con un solo clic.
+            Se utiliza frecuentemente para crear lo que se le dice "acordeón" o "colapsable"
+            (en otras palabras; en este caso el desplegable de info.)-->
+            <summary class="pregunta-fila"> <!-- Summary: Acompaña obligatoriamente a <details>. Define
+                el título o la cabecera visible del colapsable (desplegable). Cuando la tarjeta
+                de preguntas se encuentra cerrada, todo el texto de la respuesta permanece oculto, excepto
+                lo que se encuentra dentro de <summary>-->
+                ¿Es gratis?
+                <span class="flecha"></span> <!-- Span: Etiqueta utilizada como contenedor
+                en línea. Es una herramienta utilizada para seleccionar y aislar un pedazo del texto
+                u elemento dentro de un bloque grande. Es un elemento "en linea"(inline) que se diferencia de <div> o 
+                <p> al ocupar solamente el espacio estricto y necesario y no la totalidad del ancho
+                de pantalla o contenedor.-->
+            </summary>
+            <div class="respuesta">
+                <p>Sí, registrarte y explorar la plataforma es totalmente 
+                    gratuito para todos los usuarios.</p>
             </div>
-
-            <div class="stat">
-                <h3>0</h3>
-                <p>Partidos registrados</p>
+        </details>
+        <!-- Pregunta 2 -->
+        <details class="item">
+            <summary class="pregunta-fila">
+                ¿Puedo organizar torneos privados?
+                <span class="flecha"></span>
+            </summary>
+            <div class="respuesta">
+                <p>¡Por supuesto! Al crear un torneo puedes configurarlo 
+                    como privado para que solo accedan con invitación.</p>
             </div>
-
-            <div class="stat">
-                <h3>0</h3>
-                <p>Jugadores administrados</p>
+        </details>
+        <!-- Pregunta 3 -->
+        <details class="item">
+            <summary class="pregunta-fila">
+                ¿Puedo editar un torneo?
+                <span class="flecha"></span>
+            </summary>
+            <div class="respuesta">
+                <p>Sí, puedes editar la información, fechas y participantes de tus torneos desde tu panel 
+                    de administrador.</p>
             </div>
-        </div>
+        </details>
+    </div>
+</div>
+</div>
     </section>
-
-    <section id="funciones" class="features">
-
-        <h2>Funciones Principales</h2>
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>🏆 Gestión de Torneos</h3>
-                <p>Crea y administra competiciones de forma sencilla.</p>
-            </div>
-
-            <div class="card">
-                <h3>⚽ Partidos</h3>
-                <p>Programa encuentros y registra resultados en tiempo real.</p>
-            </div>
-
-            <div class="card">
-                <h3>👥 Equipos</h3>
-                <p>Administra plantillas, entrenadores y jugadores.</p>
-            </div>
-
-            <div class="card">
-                <h3>📊 Estadísticas</h3>
-                <p>Visualiza tablas de posiciones y rendimiento deportivo.</p>
-            </div>
-
-            <div class="card">
-                <h3>📅 Calendario</h3>
-                <p>Consulta fechas y horarios de cada encuentro.</p>
-            </div>
-
-            <div class="card">
-                <h3>🔔 Notificaciones</h3>
-                <p>Envía avisos automáticos a participantes y organizadores.</p>
-            </div>
-
-        </div>
-
-    </section>
-
+<!--Fin de la página, solamente Footer-->
     <footer>
         <p> 2026 SPL | Sistema de Gestión de Torneos y Partidos</p>
     </footer>

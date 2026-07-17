@@ -1,0 +1,182 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box; 
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* Reemplaza este degradado por el color/valores exactos que estés usando */
+  background: linear-gradient(180deg, #020617 0%, #061e26 60%, #032d30 100%) !important;
+  background-attachment: fixed; /* Hace que el fondo se quede fijo al hacer scroll */
+  min-height: 100vh !important;
+  width: 100%;
+}
+
+header{
+    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-right: 50px;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:20px;
+
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+}
+
+.calendario {
+  max-width: 400px;
+  margin: 20px auto;
+  background: #0f172a; /* Fondo oscuro a juego con tu diseño */
+  border: 1px solid #1e1b30;
+  border-radius: 16px;
+  padding: 20px;
+  font-family: sans-serif;
+  color: #ffffff;
+}
+
+.calendario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendario-header h2 {
+  font-size: 18px;
+  margin: 0;
+  color: #c0f20c; /* Tu color amarillo/verde */
+}
+
+.calendario-header button {
+  background: transparent;
+  border: 1px solid #1e1b30;
+  color: #a78bfa; /* Tu flecha morada */
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.calendario-header button:hover {
+  background: #1e1b30;
+}
+
+/* Grillas de 7 columnas */
+.dias-semana, .dias-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  gap: 8px;
+}
+
+.dias-semana {
+  font-weight: bold;
+  color: #9ca3af;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* Estilo de cada día individual */
+.dia {
+  padding: 10px 0;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.dia:hover {
+  background: #1e1b30;
+}
+
+/* Día actual destacado */
+.dia.hoy {
+  background: #a78bfa;
+  color: #0f172a;
+  font-weight: bold;
+}
+
+/* Espacios vacíos para los días del mes anterior */
+.dia.vacio {
+  cursor: default;
+}
+.dia.vacio:hover {
+  background: transparent;
+}
+
+footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:25px;
+    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+   nav {
+        position: relative;
+    }
+    /* Mostramos el icono */
+    .despliegue {
+        display: block;
+        font-size: 35px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .menu {
+        display: none; /* Oculto por defecto en móvil */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Aparece justo debajo de la barra de navegación */
+        left: 0;
+        width: 100%;
+        background-color: #020A17; /* Fondo oscuro integrado con tu header */
+        padding: 20px 0;
+        z-index: 100;
+        gap: 0; /* Quitamos el espacio de escritorio */
+    }
+
+    .menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu li a {
+        display: block;
+        padding: 15px;
+        color: white;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria sutil */
+    }
+
+    #menu-toggle:checked ~ .menu {
+        display: flex;
+    }
+
+    .logo{
+        display: flex;
+        width: 200px;
+        height: 150px;
+    }
+
+    @media screen and (min-width: 1024px){
+        #menu-toggle{
+        display:none;
+      }
+    }
