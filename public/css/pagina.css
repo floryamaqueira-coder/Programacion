@@ -36,6 +36,10 @@ nav a{
     text-decoration:none;
     font-weight:500;
 }
+/* hover: Agrega efectos al pasar el mouse.*/
+nav a:hover {
+  color: #22c55e; 
+}
 
 .fondo{
     position: fixed;
@@ -298,9 +302,14 @@ footer{
     font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
 }
 
+/* Mobile y tablet pequeña */
 @media screen and (max-width: 768px) {
    nav {
         position: relative;
+    }
+
+    .logo{
+        width: 200px;
     }
 
     .fondo {
@@ -355,12 +364,6 @@ footer{
         display: flex;
     }
 
-    .logo{
-        display: flex;
-        width: 200px;
-        height: 150px;
-    }
-
     .cardfut img, .cardfut svg,
     .cardbasquet img, .cardbasquet svg,
     .cardvoley img, .cardvoley svg,
@@ -405,6 +408,20 @@ footer{
     .fondotelefono{
         display: none;
     }
+    .logo{
+        width: 200px;
+    }
 
-@media screen and (min-wdith: )
+    .card-info {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content: center; 
+    justify-items: center;    
+    gap: 25px;
+    padding: 32px;
+    }
+
+
+
+
+
 }

@@ -1,59 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calendario SPL</title>
     <link rel="stylesheet" href="../../public/css/calendario.css">
 </head>
 <body>
- <header>
+    <header>
         <nav>
-            <img class="logo" src="../../public/img/logonuevo.png" alt="logo spl" 
-            width="100px" height="100px">
+            <img class="logo" src="../../public/img/logonuevo.png" alt="logo spl" >
 
-                <input type="checkbox" id="menu-toggle">
-                <label for="menu-toggle" class="despliegue">☰</label>
-            
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="despliegue">☰</label> 
             <ul class="menu">
                 <li><a href="pagina.html">Inicio</a></li>
-                <li><a href="torneos.html">Torneos</a></li>
                 <li><a href="iniciosesion.html">Acceder</a></li>
-                <li><a href="#">Ranking</a></li>
+                <li><a href="torneos.html">Torneos</a></li>
             </ul>
         </nav>
     </header>
 
-  <section>
-    <div class="calendario">
-  <!-- Cabecera con el mes actual y botones de navegación -->
-  <div class="calendario-header">
-    <button id="prev-mes">&lt;</button>
-    <h2 id="mes-año">Julio 2026</h2>
-    <button id="next-mes">&gt;</button>
-  </div>
+    <section>
+        <div class="calendario">
+            <!-- Mes actual y botones "header" del calendario -->
+            <div class="calendario-header">
+                <button id="btn-prev">&lt;</button> <!-- &lt (less than): Entidad HTML
+                utilizado para indicar "menor que" en reemplazo a <> -->
+                <h2 id="mes-año">Cargando...</h2>
+                <button id="btn-next">&gt;</button> <!-- &gt (greater than): Entidad HTML
+                utilizada para indicar "mayor que" en reemplazo a <> -->
+            </div>
 
-  <!-- Nombres de los días de la semana -->
-  <div class="dias-semana">
-    <div>Dom</div>
-    <div>Lun</div>
-    <div>Mar</div>
-    <div>Mié</div>
-    <div>Jue</div>
-    <div>Vie</div>
-    <div>Sáb</div>
-  </div>
+            <!-- Días de la semana -->
+            <div class="dias-semana">
+                <div>Dom</div>
+                <div>Lun</div>
+                <div>Mar</div>
+                <div>Mié</div>
+                <div>Jue</div>
+                <div>Vie</div>
+                <div>Sáb</div>
+            </div>
 
-  <!-- Contenedor donde JavaScript meterá los números de los días -->
-  <div class="dias-grid" id="dias-contenedor">
+            <div class="dias-grid" id="dias-contenedor"></div>
+        </div>
+    </section>
 
-  </div>
-</div>
-  </section>
+    <!-- Script de JAVASCRIPT -->
+    <script>
+      // Const (Constante) es utilizado para declarar variables cuyos valores no son cambiantes 
+      //a lo largo de la ejecución del programa = Son constantes, no cambia el valor
+        const contenedorDias = document.getElementById("dias-contenedor");
+        const textoMesAño = document.getElementById("mes-año");
+        const btnPrev = document.getElementById("btn-prev");
+        const btnNext = document.getElementById("btn-next");
 
-  <footer>
-        <p> 2026 SPL | Sistema de Gestión de Torneos y Partidos</p>
-  </footer>
-  
+        const meses = [
+            "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+            "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+        ];
+
+        let fechaActual = new Date(); //Let es utilizado cuando el valor de la variable cambiará a futuro.
+        //En este caso, cuando el usuario presiona las flechas para avanzar de mes, es necesario modificar la
+        //variable para cambiar de fecha.
+        function renderizarCalendario() {   
+//Function: Utilizado para crear una función, se utiliza para realizar una tarea específica. En vez de repetir el código
+//lo "llamas" cada que lo necesitas.
+            contenedorDias.innerHTML = "";
+
+            const año = fechaActual.getFullYear();
+            const mes = fechaActual.getMonth();
+
+            textoMesAño.textContent = `${meses[mes]} ${año}`;
+            //Se utiliza $ para meter variables dentro de texto (en este caso)
+            //Eso hace que se vea como "Julio 2026"
+
+            const primerDiaIndex = new Date(año, mes, 1).getDay();
+            const ultimoDia = new Date(año, mes + 1, 0).getDate();
+            
+            const hoyReal = new Date(); 
+
+            for (let i = 0; i < primerDiaIndex; i++) {
+                const divVacio = document.createElement("div");
+                divVacio.classList.add("dia", "vacio");
+                contenedorDias.appendChild(divVacio);
+            }
+
+            for (let dia = 1; dia <= ultimoDia; dia++) {
+                const divDia = document.createElement("div");
+//createElement() se usa para crear un elemento HTML.
+                divDia.classList.add("dia");
+// add() se utiliza para que añada una clase y que tome el estilo del css.
+                divDia.textContent = dia;
+//Lee o cambia texto dentro de una etiqueta HTML
+
+                if (
+                    dia === hoyReal.getDate() &&
+                    mes === hoyReal.getMonth() &&
+                    año === hoyReal.getFullYear()
+                ) {
+                    divDia.classList.add("hoy");
+                }
+
+                contenedorDias.appendChild(divDia);
+//appendChild() mueve o inserta un elemento HTML dentro de otro. Es "añadir un hijo"
+            }
+        }
+
+        btnPrev.addEventListener("click", () => {
+//Escucha y reacciona a lo que hace el usuario en la página. Activa una función si x cosa sucede.
+            fechaActual.setMonth(fechaActual.getMonth() - 1);
+            renderizarCalendario();
+// renderizarCalendario() "Dibujar", "pintar", "generar" visualmente.
+        });
+
+        btnNext.addEventListener("click", () => {
+            fechaActual.setMonth(fechaActual.getMonth() + 1);
+            renderizarCalendario();
+        });
+
+        // Primera ejecución
+        renderizarCalendario();
+    </script>
+
+    <footer>
+        <p>© 2026 SPL | Sistema de Gestión de Torneos y Partidos</p>
+    </footer>
 </body>
 </html>

@@ -1,170 +1,310 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box; 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+  font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.fondoiniciosesion {
+  position: fixed; /*Evita que se mueva*/
+  top: 0;
+  left: 0;
+  width: 100vw; 
+  height: 100vh; 
+  object-fit: cover; /* Evita que la imagen se deforme o se estire */
+  z-index: -1; /* Envía la imagen al fondo de las capas */
+  pointer-events: none; /* Evita que el usuario pueda arrastrar o hacer clic accidentalmente en la imagen */
+  filter: blur(2px);
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(180deg, #020617 0%, #061e26 60%, #032d30 100%) !important;
-  background-attachment: fixed; 
-  min-height: 100vh !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #020617; 
+  color: white;
+  position: relative;
+}
+
+header {
+  width: 100%;
+  background: rgba(2, 6, 23, 0.7); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%; 
+}
+
+.logo {
+  width: 150px; 
+  height: auto;
+  display: block;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+
+.despliegue {
+  display: none; 
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #22c55e; 
+}
+
+section {
+  flex: 1; 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  padding: 40px 20px;     
+  width: 100%;             
+}
+
+.login-card {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  background: rgba(2, 6, 23, 0.55); 
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  backdrop-filter: blur(20px); 
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+}
+
+/* Campos de información*/
+.input-group {
+  position: relative;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.input-group input {
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+  outline: none;
+  font-size: 1rem;
+  color: #fff;
+  padding-right: 35px;
+  transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+  border-bottom-color: #fff;
+}
+
+/* Iconos de Ionicons */
+.input-group ion-icon {
+  position: absolute;
+  right: 5px;
+  bottom: 10px;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Recordarme y olvidé mi contraseña */
+.options-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  margin-bottom: 30px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.remember-me input {
+  cursor: pointer;
+  accent-color: #fff;
+}
+
+.options-row a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.options-row a:hover {
+  text-decoration: underline;
+}
+
+/* Botón de Login */
+.btn-submit {
+  width: 100%;
+  height: 50px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #020617; 
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  margin-bottom: 25px;
+}
+
+.btn-submit:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: scale(1.01);
+}
+
+.register-link {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.register-link a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* --- FOOTER --- */
+footer {
+  background: #0f172a;
+  color: white;
+  text-align: center;
+  padding: 25px;
   width: 100%;
 }
 
-header{
-    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
-}
-
-#menu-toggle{
-    display:none;
-}
-
-nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding-right: 50px;
-}
-
-nav ul{
-    list-style:none;
-    display:flex;
-    gap:20px;
-
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:500;
-}
-
-.login-section{
-    display:flex;
-    justify-content:center;
-    margin-top:-80px;
-}
-
-.login-card{
-    background:white;
-    width:400px;
-    padding:35px;
-    border-radius:15px;
-    box-shadow:0 15px 40px rgba(0,0,0,.15);
-}
-
-.login-card h2{
-    text-align:center;
-    margin-bottom:25px;
-    color:#2563eb;
-}
-
-.login-card input{
-    width:100%;
-    padding:14px;
-    margin-bottom:15px;
-    border:1px solid #ddd;
-    border-radius:8px;
-}
-
-.login-card button{
-    width:100%;
-    padding:14px;
-    border:none;
-    background:#2563eb;
-    color:white;
-    border-radius:8px;
-    cursor:pointer;
-    font-size:16px;
-}
-
-.login-card button:hover{
-    background:#1d4ed8;
-}
-.login-card hr{
-    margin:30px 0;
-    border:none;
-    height:1px;
-    background:#ddd;
-}
-.login-card form{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-}
-.login-card input{
-    padding:12px;
-    border:1px solid #ccc;
-    border-radius:8px;
-}
-.login-card button{
-    padding:12px;
-    border:none;
-    border-radius:8px;
-    background:#2563eb;
-    color:white;
-    cursor:pointer;
-    font-size:16px;
-    transition:0.3s;
-}
-.login-card button:hover{
-    background:#1d4ed8;
-}
-
-footer{
-    background:#0f172a;
-    color:white;
-    text-align:center;
-    padding:25px;
-}
-
+/* --- telefono*/
 @media screen and (max-width: 768px){
-     nav {
-        position: relative;
-    }
-    /* Mostramos el icono */
-    .despliegue {
-        display: block;
-        font-size: 35px;
-        color: white;
-        cursor: pointer;
-    }
+  nav {
+    position: relative;
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+   
+  .despliegue {
+    display: block;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
 
-    .menu {
-        display: none; /* Oculto por defecto en móvil */
-        flex-direction: column;
-        position: absolute;
-        top: 100%; /* Aparece justo debajo de la barra de navegación */
-        left: 0;
-        width: 100%;
-        background-color: #020A17; /* Fondo oscuro integrado con tu header */
-        padding: 20px 0;
-        z-index: 100;
-        gap: 0; /* Quitamos el espacio de escritorio */
-    }
+  .menu {
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    width: 100%;
+    background-color: #020617; 
+    padding: 10px 0;
+    z-index: 100;
+    gap: 0; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
 
-    .menu li {
-        width: 100%;
-        text-align: center;
-    }
+  .menu li {
+    width: 100%;
+    text-align: center;
+  }
 
-    .menu li a {
-        display: block;
-        padding: 15px;
-        color: white;
-        text-decoration: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria sutil */
-    }
+  .menu li a {
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
+  }
 
-    #menu-toggle:checked ~ .menu {
-        display: flex;
-    }
+  #menu-toggle:checked ~ .menu {
+    display: flex;
+  }
 
-    .logo{
-        display: flex;
-        width: 200px;
-        height: 150px;
-    }
+  .logo {
+    width: 120px; 
+    height: auto;
+  }
+  
+  .login-card {
+    padding: 30px 20px; 
+  }
 }
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+   nav {
+    padding: 0 4%;
+  }
+
+  nav ul {
+    gap: 20px;
+  }
+
+  .login-card {
+    max-width: 500px;      
+    padding: 50px 45px;    
+    border-radius: 28px;   
+  }
+  
+  
+  .input-group label {
+    font-size: 1.05rem;
+  }
+  
+  .input-group input {
+    height: 45px;          
+    font-size: 1.1rem;
+  }
+
+  h2 {
+    font-size: 2.3rem;     
+    margin-bottom: 35px;
+  }
+  
+}
+

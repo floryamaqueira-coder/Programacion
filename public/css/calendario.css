@@ -1,52 +1,78 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box; 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
 }
 
 body {
   margin: 0;
   padding: 0;
-  /* Reemplaza este degradado por el color/valores exactos que estés usando */
   background: linear-gradient(180deg, #020617 0%, #061e26 60%, #032d30 100%) !important;
-  background-attachment: fixed; /* Hace que el fondo se quede fijo al hacer scroll */
+  background-attachment: fixed;
   min-height: 100vh !important;
   width: 100%;
+  
+  display: flex;
+  flex-direction: column;
 }
 
-header{
-    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+header {
+  font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
 }
 
-nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding-right: 50px;
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 50px;
 }
 
-nav ul{
-    list-style:none;
-    display:flex;
-    gap:20px;
-
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:500;
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
 }
+
+nav a:hover {
+  color: #22c55e; 
+}
+
+section {
+  flex: 1; 
+  display: flex;
+  justify-content: center; 
+  align-items: flex-start;  
+  padding-top: 40px;    
+  width: 100%;             
+  box-sizing: border-box;  
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.logo {
+  width: 200px;
+}
+
 
 .calendario {
-  max-width: 400px;
+  width: 100%;
+  max-width: 800px; /* Tamaño máximo para PC */
   margin: 20px auto;
-  background: #0f172a; /* Fondo oscuro a juego con tu diseño */
+  background: #0f172a; 
   border: 1px solid #1e1b30;
   border-radius: 16px;
-  padding: 20px;
+  padding: 50px;
   font-family: sans-serif;
   color: #ffffff;
+  box-sizing: border-box;
 }
 
 .calendario-header {
@@ -57,15 +83,15 @@ nav a{
 }
 
 .calendario-header h2 {
-  font-size: 18px;
+  font-size: 25px;
   margin: 0;
-  color: #c0f20c; /* Tu color amarillo/verde */
+  color: #c0f20c; 
 }
 
 .calendario-header button {
   background: transparent;
   border: 1px solid #1e1b30;
-  color: #a78bfa; /* Tu flecha morada */
+  color: #a78bfa; 
   padding: 8px 12px;
   border-radius: 8px;
   cursor: pointer;
@@ -76,7 +102,7 @@ nav a{
   background: #1e1b30;
 }
 
-/* Grillas de 7 columnas */
+
 .dias-semana, .dias-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -88,95 +114,147 @@ nav a{
   font-weight: bold;
   color: #9ca3af;
   margin-bottom: 10px;
-  font-size: 14px;
+  font-size: 20px;
 }
 
-/* Estilo de cada día individual */
 .dia {
   padding: 10px 0;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 15px;
   cursor: pointer;
   transition: 0.2s;
+}
+
+.dia:not(.vacio):not(.hoy):hover {
+  background: #1e293b;
+  color: #ffffff;
 }
 
 .dia:hover {
   background: #1e1b30;
 }
 
-/* Día actual destacado */
 .dia.hoy {
   background: #a78bfa;
   color: #0f172a;
   font-weight: bold;
 }
 
-/* Espacios vacíos para los días del mes anterior */
 .dia.vacio {
   cursor: default;
 }
+
 .dia.vacio:hover {
   background: transparent;
 }
 
-footer{
-    background:#0f172a;
-    color:white;
-    text-align:center;
-    padding:25px;
-    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+
+footer {
+  background: #0f172a;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+  width: 100%;
 }
 
-@media screen and (max-width: 768px) {
-   nav {
-        position: relative;
-    }
-    /* Mostramos el icono */
-    .despliegue {
-        display: block;
-        font-size: 35px;
-        color: white;
-        cursor: pointer;
-    }
+/* TABLETS (768px a 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .calendario {
+    max-width: 700px;    
+    width: 90%;         
+    padding: 30px;      
+    margin: 20px auto;  
+  }
 
-    .menu {
-        display: none; /* Oculto por defecto en móvil */
-        flex-direction: column;
-        position: absolute;
-        top: 100%; /* Aparece justo debajo de la barra de navegación */
-        left: 0;
-        width: 100%;
-        background-color: #020A17; /* Fondo oscuro integrado con tu header */
-        padding: 20px 0;
-        z-index: 100;
-        gap: 0; /* Quitamos el espacio de escritorio */
-    }
+  .dias-grid, .dias-semana {
+    gap: 6px; 
+  }
 
-    .menu li {
-        width: 100%;
-        text-align: center;
-    }
+  .dia {
+    padding: 12px 0;   
+    font-size: 14px;    
+  }
 
-    .menu li a {
-        display: block;
-        padding: 15px;
-        color: white;
-        text-decoration: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria sutil */
-    }
+  .calendario-header h2 {
+    font-size: 20px;    
+  }
+}
 
-    #menu-toggle:checked ~ .menu {
-        display: flex;
-    }
+/* Telefono */
+@media screen and (max-width: 767px) {
+  nav {
+    position: relative;
+    padding-right: 20px;
+  }
 
-    .logo{
-        display: flex;
-        width: 200px;
-        height: 150px;
-    }
+  .despliegue {
+    display: block;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+  }
 
-    @media screen and (min-width: 1024px){
-        #menu-toggle{
-        display:none;
-      }
-    }
+  .menu {
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    width: 100%;
+    background-color: #020A17; 
+    padding: 20px 0;
+    z-index: 100;
+    gap: 0; 
+  }
+
+  .menu li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu li a {
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+  }
+
+  #menu-toggle:checked ~ .menu {
+    display: flex;
+  }
+
+  .logo {
+    display: flex;
+    width: 150px;
+    height: auto;
+  }
+
+  /* Ajustes del Calendario */
+  .calendario {
+    max-width: 90%;     
+    padding: 15px;      
+    margin: 15px auto;  
+  }
+
+  .dias-grid, .dias-semana {
+    gap: 4px; 
+  }
+
+  .dias-semana {
+    font-size: 14px;
+  }
+
+  .dia {
+    font-size: 12px;    
+    padding: 8px 0;     
+  }
+
+  .calendario-header h2 {
+    font-size: 16px;    
+  }
+}
+
+    
+  

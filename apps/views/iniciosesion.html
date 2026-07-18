@@ -3,47 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SPL - Iniciar Sesión</title>
+    <!-- scripts para que los iconos (ion-icon) se muestren -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
     <link rel="stylesheet" href="../../public/css/iniciosesion.css">
 </head>
 <body>
-     <header>
+    <img class="fondoiniciosesion" src="../../public/img/fondoRegistro.png">
+    <header>
         <nav>
-            <img src="../../public/img/logonuevo.png" alt="logo spl" width="150" height="150">
+            <img src="../../public/img/logonuevo.png" alt="logo spl" class="logo">
 
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="despliegue">☰</label>
 
-            <ul>
+            <ul class="menu">
                 <li><a href="pagina.html">Inicio</a></li>
-                <li><a href="torneos.html">Torneos</a></li>
                 <li><a href="iniciosesion.html">Acceder</a></li>
+                <li><a href="torneos.html">Torneos</a></li>
             </ul>
         </nav>
+    </header> 
 
-<section id="login" class="login-section">
-    <div class="login-card">
-        <h2>Registrarse</h2>
-        <form action="inicio.html">
-            <input type="text" placeholder="Nombre completo" required>
-            <input type="email" placeholder="Correo electrónico" required>
-            <input type="password" placeholder="Crear contraseña" required>
-            <input type="password" placeholder="Confirmar contraseña" required>
-            <button type="submit">Registrarse</button>
-        </form>
-        <h2>Iniciar Sesión</h2>
-        <form action="inicio.html">
-            <input type="email" placeholder="Correo electrónico" required>
-            <input type="password" placeholder="Contraseña" required>
-            <button type="submit">Ingresar</button>
-        </form>
-        <hr>
-    </div>
-</section>
-<br>
+    <section>
+        <div class="login-card">
+            <h2>Inicia Sesión</h2>
+            <form action="#">
+                
+                <!-- Email -->
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" required autocomplete="off">
+                    <!-- required autocomplete="off": Controla la memoria. Se encarga de no
+                     mostrar lo que escribió el usuario en otro momento anterior. (Esto
+                     podemos modificarlo)-->
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <!-- ion-icon: iconos bonitos-->
+                </div>
 
- <footer>
-        <p> 2026 SPL | Sistema de Gestión de Torneos y Partidos</p>
+                <!-- Contraseña -->
+                <div class="input-group">
+                    <label>Contraseña</label>
+                    <input type="password" required>
+                    <!-- required: indica que el campo no puede quedar vacío-->
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                </div>
+
+                <!-- Opciones intermedias -->
+                <div class="options-row">
+                    <label class="remember-me">
+                        <input type="checkbox"> Recuérdame
+                    </label>
+                    <a href="#">Olvidé mi contraseña</a>
+                </div>
+
+                <!-- Botón -->
+                <button type="submit" class="btn-submit">Acceder</button>
+
+                <!-- Registro -->
+                <div class="register-link">
+                    <p>¿No tienes una cuenta? <a href="#">Registrarse</a></p>
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>2026 SPL | Sistema de Gestión de Torneos y Partidos</p>
     </footer>
 
 </body>
