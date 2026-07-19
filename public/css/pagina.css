@@ -41,6 +41,10 @@ nav a:hover {
   color: #22c55e; 
 }
 
+.despliegue {
+        display: none;
+    }
+
 .fondo{
     position: fixed;
     top: 0;
@@ -48,6 +52,7 @@ nav a:hover {
     width: 100%;
     height: 100%;
     z-index: -1;
+    filter: blur(3px)
 }
 
 
@@ -419,9 +424,22 @@ footer{
     gap: 25px;
     padding: 32px;
     }
+}
 
+@media screen and (min-width: 820px) and (max-width: 1180px){
+    .fondotelefono{
+        display: none;
+    }
+    .logo{
+        width: 200px;
+    }
 
-
-
+    .card-info {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content: center; 
+    justify-items: center;    
+    gap: 25px;
+    padding: 32px;
+    }
 
 }

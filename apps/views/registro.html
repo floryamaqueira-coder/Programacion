@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPL - Iniciar Sesión</title>
+    <title>Document</title>
     <!-- scripts para que los iconos (ion-icon) se muestren -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    
-    <link rel="stylesheet" href="../../public/css/iniciosesion.css">
+
+    <link rel="stylesheet" href="../../public/css/registro.css">
 </head>
-<body>
     <img class="fondoiniciosesion" src="../../public/img/fondoRegistro.png">
     <img class="fondoInicioTelefono" src="../../public/img/IniciosesFOndo.png">
-    <header>
-        <nav>
-            <img class="logo" src="../../public/img/logonuevo.png" alt="logo spl">
+<body>
+     <nav>
+            <img src="../../public/img/logonuevo.png" alt="logo spl" class="logo">
 
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="despliegue">☰</label>
@@ -30,9 +29,23 @@
 
     <section>
         <div class="login-card">
-            <h2>Inicia Sesión</h2>
-            <form action="../../apps/views/inicioPostSesion.html">
+            <h2>Regístrate</h2>
+            <form action="#">
                 
+                 <!-- Nombre -->
+                <div class="input-group">
+                    <label>Nombre</label>
+                    <input type="nombre" required>
+                    <ion-icon name="person-outline"></ion-icon>
+                    <!-- ion-icon: iconos bonitos-->
+                </div>
+                 <!-- Nombre -->
+                <div class="input-group">
+                    <label>Apellido</label>
+                    <input type="apellido" required>
+                    <ion-icon name="person-outline"></ion-icon>
+                    <!-- ion-icon: iconos bonitos-->
+                </div>
                 <!-- Email -->
                 <div class="input-group">
                     <label>Email</label>
@@ -47,26 +60,20 @@
                 <!-- Contraseña -->
                 <div class="input-group">
                     <label>Contraseña</label>
-                    <input type="password" required>
+                    <input type="password" id="password" required>
                     <!-- required: indica que el campo no puede quedar vacío-->
                     <ion-icon name="lock-closed-outline"></ion-icon>
                 </div>
 
-                <!-- Opciones intermedias -->
-                <div class="options-row">
-                    <label class="remember-me">
-                        <input type="checkbox"> Recuérdame
-                    </label>
-                    <a href="#">Olvidé mi contraseña</a>
+                <!-- Contraseña -->
+                <div class="input-group">
+                    <label>Repite tu contraseña</label>
+                    <input type="password" id="confirm-password" required oniput="validarPassword()">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
                 </div>
 
                 <!-- Botón -->
-                    <button type="submit" class="btn-submit">Acceder</button>
-
-                <!-- Registro -->
-                <div class="register-link">
-                    <p>¿No tienes una cuenta? <a href="../../apps/views/registro.html">Registrarse</a></p>
-                </div>
+                <button type="submit" class="btn-submit">Acceder</button>
 
             </form>
         </div>
@@ -76,6 +83,23 @@
     <footer>
         <p>2026 SPL | Sistema de Gestión de Torneos y Partidos</p>
     </footer>
+
+<script>
+    function validarPassword(){
+        const password = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirm-password");
+
+        if (password.value !== confirmPassword.value){
+            // Si el valor de "CONTRASEÑA" es diferente a el valor de "CONFIRMACIÓN DE CONTRASEÑA":
+            confirmPassword.setCustomValidity("Las contraseñas no coinciden.");
+        }else {
+            //Si coinciden, no se envía el error
+            confirmPassword.setCustomValidity("");
+            //setCustomValidity(): Es utilizado para crear mensajes de error en formularios html.
+        }
+        }
+    
+</script>
 
 </body>
 </html>

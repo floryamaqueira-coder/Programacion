@@ -18,7 +18,7 @@
 }
 
 .fondoInicioTelefono{
-  display: none;
+    display: none;
 }
 
 body {
@@ -148,37 +148,6 @@ h2 {
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* Recordarme y olvidé mi contraseña */
-.options-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.85rem;
-  margin-bottom: 30px;
-}
-
-.remember-me {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-}
-
-.remember-me input {
-  cursor: pointer;
-  accent-color: #fff;
-}
-
-.options-row a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.options-row a:hover {
-  text-decoration: underline;
-}
-
 /* Botón de Login */
 .btn-submit {
   width: 100%;
@@ -232,7 +201,7 @@ footer {
     padding-left: 5%;
   }
 
-  .fondoiniciosesion{
+  .fondo{
     display: none;
   }
 
@@ -240,12 +209,13 @@ footer {
     position: fixed; /*Evita que se mueva*/
     top: 0;
     left: 0;
-    width: 100%; 
-    height: 100%; 
+    width: 100vw; 
+    height: 100vh; 
     object-fit: cover; /* Evita que la imagen se deforme o se estire */
     z-index: -1; /* Envía la imagen al fondo de las capas */
     pointer-events: none; /* Evita que el usuario pueda arrastrar o hacer clic accidentalmente en la imagen */
     filter: blur(2px);
+
   }
    
   .despliegue {
@@ -297,12 +267,21 @@ footer {
 }
 
   @media screen and (min-width: 768px) and (max-width: 1024px) {
-   nav {
-    padding: 0 4%;
+  
+    .fondoInicioTelefono{
+  position: fixed; /*Evita que se mueva*/
+  top: 0;
+  left: 0;
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; /* Evita que la imagen se deforme o se estire */
+  z-index: -1; /* Envía la imagen al fondo de las capas */
+  pointer-events: none; /* Evita que el usuario pueda arrastrar o hacer clic accidentalmente en la imagen */
+  filter: blur(2px);
   }
-
-  .fondoInicioTelefono{
-    display: none;
+  
+    nav {
+    padding: 0 4%;
   }
 
   nav ul {
@@ -331,4 +310,3 @@ footer {
   }
   
 }
-

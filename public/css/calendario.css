@@ -7,7 +7,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(180deg, #020617 0%, #061e26 60%, #032d30 100%) !important;
+  background: linear-gradient(to right, #0f172a, #240046, #210046,#240046, #0f172a);
   background-attachment: fixed;
   min-height: 100vh !important;
   width: 100%;
@@ -16,8 +16,13 @@ body {
   flex-direction: column;
 }
 
+.despliegue{
+  display: none;
+}
+
 header {
   font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+  background: #0f172a;
 }
 
 nav {
@@ -58,7 +63,7 @@ section {
 }
 
 .logo {
-  width: 200px;
+  width: 150px;
 }
 
 
@@ -85,13 +90,13 @@ section {
 .calendario-header h2 {
   font-size: 25px;
   margin: 0;
-  color: #c0f20c; 
+  color: #34CD90; 
 }
 
 .calendario-header button {
   background: transparent;
   border: 1px solid #1e1b30;
-  color: #a78bfa; 
+  color: #af01ff; 
   padding: 8px 12px;
   border-radius: 8px;
   cursor: pointer;
@@ -135,7 +140,7 @@ section {
 }
 
 .dia.hoy {
-  background: #a78bfa;
+  background: #34CD90;
   color: #0f172a;
   font-weight: bold;
 }

@@ -1,0 +1,304 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box; 
+    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #020617 0%, #061e26 60%, #032d30 100%);
+  background-attachment: fixed;
+  min-height: 100vh !important;
+  width: 100%;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+header{
+    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.logo{
+    width: 150px;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-right: 50px;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:20px;
+
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+}
+/* hover: Agrega efectos al pasar el mouse.*/
+nav a:hover {
+  color: #22c55e; 
+}
+
+.despliegue {
+        display: none;
+}
+
+#menu-toggle{
+    display:none;
+}
+
+/* Contenedor principal del perfil */
+.contenedor-perfil {
+    width: 100%;
+    max-width: fit-content;
+    margin: 30px auto; /* Lo centra horizontalmente en PC */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    flex: 1; /* Empuja el footer hacia abajo si hay poco contenido */
+}
+
+/* Cabecera del perfil (Avatar e Información al lado) */
+.header-perfil {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.info-principal {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    padding: 15px;
+}
+
+/* Contenedor de la foto (Portarretratos redondo) */
+.avatar-perfil {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #1e293b;
+    background-color: #0f172a;
+}
+
+.imagen-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Textos del usuario */
+.informacion-usuario h2 {
+    font-size: 1.4rem;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.informacion-usuario .username {
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+.informacion-usuario .rol {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    margin-top: 2px;
+}
+
+.informacion-usuario .age {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-top: 1px;
+}
+
+.informacion-usuario .location {
+    font-size: 0.8rem;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 4px;
+}
+
+/* Etiqueta de Certificado Médico */
+.informacion-usuario .certificado-medico {
+    display: inline-block;
+    font-size: 0.75rem;
+    background-color: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-top: 6px;
+    font-weight: 600;
+}
+
+/* Contenedor de las secciones inferiores */
+.estad-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Grid interno solo para Ranking y Puntos */
+@media screen and (max-width: 768px) {
+nav {
+        position: relative;
+    }
+
+.logo{
+        width: 100px;
+    }
+     /* Mostramos el icono */
+.despliegue {
+        display: block;
+        font-size: 35px;
+        color: white;
+        cursor: pointer;
+    }
+
+.menu {
+        display: none; /* Oculto por defecto en móvil */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Aparece justo debajo de la barra de navegación */
+        left: 0;
+        width: 100%;
+        background-color: #020A17; /* Fondo oscuro integrado con tu header */
+        padding: 20px 0;
+        z-index: 100;
+        gap: 0; /* Quitamos el espacio de escritorio */
+    }
+
+.menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+.menu li a {
+        display: block;
+        padding: 15px;
+        color: white;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria sutil */
+    }
+
+#menu-toggle:checked ~ .menu {
+        display: flex;
+    }
+
+.avatar-perfil {
+    width: 100px;  
+    height: 100px; 
+}
+
+.estad-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+.info-deportes, .info-equipo, .info-historial {
+        grid-column: span 2;
+    }
+}
+
+/* Tarjetas individuales de estadísticas */
+.estad-card {
+    background-color: rgba(15, 23, 42, 0.4);
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.estad-label {
+    font-size: 0.75rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.estad-valor {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* Encabezados de bloques (DEPORTES, CLUB / EQUIPO) */
+.info-deportes h3, .info-equipo h3, .info-historial h3{
+    font-size: 0.8rem;
+    color: #AEBF2A; /* Color amarillo/verde lima de tu paleta */
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+/* Contenedor de etiquetas de deportes */
+.contenedor-etiquetas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.etiqueta-item {
+    background-color: rgba(30, 41, 59, 0.5);
+    border: 1px solid #334155;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Item de Club/Equipo */
+.club-item, .historial-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #cbd5e1;
+    font-size: 0.9rem;
+}
+
+.club-item ion-icon, .historial-item ion-icon{
+    font-size: 18px;
+    color: #64748b;
+}
+
+footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:25px;
+    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@media screen and (min-width: 1024px) {
+    .contenedor-perfil {
+    width: 100%;
+    max-width: 900px; /* ◄ Sube este valor (ej: 550px o 600px) si quieres que la tarjeta sea más ancha en PC */
+    margin: 30px auto; 
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    flex: 1; 
+}
+}

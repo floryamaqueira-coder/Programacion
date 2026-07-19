@@ -1,0 +1,214 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box; 
+    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #020617 0%, #061e26 60%, #032d30 100%);
+  background-attachment: fixed;
+  min-height: 100vh ;
+  width: 100%;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+.logo{
+    width: 150px;
+}
+
+#menu-toggle{
+    display:none;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-right: 50px;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:20px;
+
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+}
+
+/* hover: Agrega efectos al pasar el mouse.*/
+nav a:hover {
+  color: #22c55e; 
+}
+
+.despliegue {
+        display: none;
+    }
+
+.card-info {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 12px;
+    padding: 10px;
+    width: 15%; 
+    box-sizing: border-box;
+    text-align: center;
+}   
+
+.card-consTor,
+.card-creaTor,
+.card-Rank,
+.card-Calen, .card-hist{
+  background-color: transparent; 
+  border: 1px solid #000000;
+  border-radius: 20px;
+  padding: 24px;
+  text-decoration: none;
+
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  
+  width: 100%;
+  margin-left: auto ;
+  margin-right: auto ;
+  
+  box-sizing: border-box;
+  font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+  color: #ffffff;
+}
+
+.card-Calen:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 10px #ff01f2;
+}
+
+.card-Calen h2{
+    padding: 5px;
+    color:#ff01f2; 
+}
+
+.card-consTor:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 10px #44D95D;
+}
+
+.card-consTor h2{
+    padding: 5px;
+    color: #44D95D;
+}
+
+.card-creaTor:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 10px #5D44D9;
+}
+
+.card-creaTor h2{
+    padding: 5px;
+    color: #5D44D9;
+}
+
+.card-Rank:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 10px #a244d9;
+}
+
+.card-Rank h2{
+    padding: 5px;
+    color: #a244d9;
+}
+
+.card-hist:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 10px #1DE2B1;
+}
+
+.card-hist h2{
+    padding: 5px;
+    color: #1DE2B1;
+}
+
+
+/* Pie de página */
+footer{
+    margin-top:50px;
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+@media screen and (max-width: 768px) {
+   nav {
+        position: relative;
+    }
+
+    .logo{
+        width: 200px;
+    }
+
+    /* Mostramos el icono */
+    .despliegue {
+        display: block;
+        font-size: 35px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .menu {
+        display: none; /* Oculto por defecto en móvil */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Aparece justo debajo de la barra de navegación */
+        left: 0;
+        width: 100%;
+        background-color: #020A17;
+        padding: 20px 0;
+        z-index: 100;
+        gap: 0; /* Quitamos el espacio de escritorio */
+    }
+
+    .menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu li a {
+        display: block;
+        padding: 15px;
+        color: white;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria */
+    }
+
+    #menu-toggle:checked ~ .menu {
+        display: flex;
+    }
+
+    .card-info {
+        grid-template-columns: 1fr; 
+        gap: 16px;         
+        padding: 20px;      
+        width: 100%;         /* Ocupa todo el ancho de la pantalla del celular */
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .card-Calen,
+    .card-consTor,
+    .card-creaTor,
+    .card-Rank, 
+    .card-hist {
+        width: 100%;        
+        margin: 0;
+        text-align: left;    
+    }
+}
