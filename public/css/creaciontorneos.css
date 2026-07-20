@@ -1,0 +1,236 @@
+/* ==========================================
+   TUS ESTILOS CONSERVADOS (Base, Nav y Fondo)
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+  font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #020617; 
+  color: white;
+  position: relative;
+}
+
+header {
+  width: 100%;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%; 
+}
+
+.logo {
+  width: px; 
+  height: auto;
+  display: block;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.despliegue {
+  display: none; 
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #22c55e; 
+}
+
+.fondo {
+  position: fixed; /* Evita que se mueva */
+  top: 0;
+  left: 0;
+  width: 100vw; 
+  height: 100vh; 
+  object-fit: cover; /* Evita que la imagen se deforme o se estire */
+  z-index: -1; /* Envía la imagen al fondo de las capas */
+  pointer-events: none; /* Evita que el usuario pueda arrastrar o hacer clic accidentalmente en la imagen */
+  filter: blur(2px);
+}
+
+section {
+  flex: 1; 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  padding: 40px 20px;     
+  width: 100%;             
+}
+
+
+/* ==========================================
+   NUEVOS ESTILOS (Tarjeta Login estilo Imagen)
+   ========================================== */
+
+/* Contenedor principal de la tarjeta */
+.login-card {
+  background-color: #050b18; /* Azul muy oscuro traslúcido opcional */
+  border: 1px solid #111827;
+  border-radius: 24px;
+  padding: 40px 30px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  z-index: 1; /* Asegura que quede por encima del fondo fijo */
+}
+
+.login-card h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #ffffff;
+}
+
+/* Grupos de Email y Contraseña */
+.input-group {
+  position: relative;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  color: #9ca3af;
+  margin-bottom: 8px;
+}
+
+.input-group input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #4b5563; /* Línea gris minimalista */
+  padding: 8px 30px 8px 0;
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+/* Color de la línea inferior cuando el usuario hace clic para escribir */
+.input-group input:focus {
+  border-bottom-color: #22c55e; /* Usamos tu color verde de hover */
+}
+
+/* Ajuste para los iconos de Ionicon a la derecha de la línea */
+.input-group ion-icon {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  color: #9ca3af;
+  font-size: 20px;
+  pointer-events: none;
+}
+
+/* Fila de Recuérdame y Olvidé mi contraseña */
+.options-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  margin-bottom: 35px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.remember-me input {
+  accent-color: #ffffff; /* Checkbox blanco */
+  width: 14px;
+  height: 14px;
+}
+
+.options-row a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.options-row a:hover {
+  text-decoration: underline;
+}
+
+/* El botón ovalado blanco "Acceder" */
+.btn-submit {
+  width: 100%;
+  background-color: #ffffff;
+  color: #020617; /* Texto con el color de tu fondo oscuro */
+  border: none;
+  padding: 14px;
+  border-radius: 50px; /* Bordes completamente redondeados */
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  margin-bottom: 25px;
+}
+
+.btn-submit:hover {
+  background-color: #e5e7eb; /* Gris claro al pasar el mouse */
+}
+
+.btn-submit:active {
+  transform: scale(0.98); /* Pequeño efecto de pulsado */
+}
+
+/* Enlace inferior para registrarse */
+.register-link p {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.register-link a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================
+   FOOTER (Estilo bloque inferior)
+   ========================================== */
+footer {
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  border-top: 1px solid #1e293b;
+}
+
+footer p {
+  font-size: 13px;
+  color: #ffffff;
+}

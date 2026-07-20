@@ -4,35 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="creaciontorneo.css">
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <link rel="stylesheet" href="../../public/css/creaciontorneos.css">
+
 </head>
 <body>
+        <img class="fondo" src="../../public/img/fondoCreaTorneo.png">
      <header>
         <nav>
-            <img src="logo.png" alt="logo spl" width="150" height="150">
+            <img src="../../public/img/logonuevo.png" alt="logo spl">
             <ul>
-                <li><a href="pagina.html">Inicio</a></li>
+                <li><a href="inicioPostSesion.html">Inicio</a></li>
                 <li><a href="torneos.html">Torneos</a></li>
-                <li><a href="iniciosesion.html">Acceder</a></li>
+                
             </ul>
         </nav>
-<section id="create" class="create-section">
+
+<section id="creador" class="create-torneo">
     <div class="create-card">
         <h2>Crear Torneo</h2>
-        <form action="inicio.html">
-            <input type="text" placeholder="Nombre del torneo" required>
-            <input type="text" placeholder="Tipo de torneo" required>
-            <input type="date" placeholder="Fecha de inicio" required>
-            <input type="number" placeholder="Número de participantes" required>
+        <form action="#"> <!--Que te envíe a confirmación -->
+            <div class="input-torneo">
+                <label>Nombre del torneo</label>
+                    <input type="text" placeholder="Ej: Copa de Verano" required>
+                        <ion-icon name="ribbon-outline"></ion-icon>
+            </div>
+            <div class="input-torneo">
+                <div class="deporte-apartado">
+                    <label for="deporte-selec">Deporte</label>
+                        <input type="text" id="deporte-selec" list="deportes-sugeridos" placeholder="Crea o selecciona
+                    una etiqueta.">
+
+                    <datalist id="deportes-sugeridos">
+                        <option value="Fútbol">
+                        <option value="Pádel">
+                        <option value="Tenis">
+                        <option value="Básquetbol">
+                        <option value="Voleibol">
+                        <option value="Videojuego">
+                    </datalist>
+
+                    <button type="button" id="btn-add-tag">+</button>
+                        <ion-icon name="trophy-outline"></ion-icon>
+                </div>
+                <div id="tags-container" class="tags-container">
+                    </div>
+                </div>
+            </div>
+
+             <div class="input-torneo">
+                <label>Fecha de inicio</label>
+                    <input type="date" placeholder="Fecha de inicio" required>
+                        <ion-icon name="today-outline"></ion-icon>
+            </div>
+            <div class="input-torneo">
+                <label>Número de Participantes</label>
+                    <input type="number" placeholder="Número de participantes" required>
+                        <ion-icon name="today-outline"></ion-icon>
+            </div>
+
             <button type="submit">Crear Torneo</button>
         </form>
     </div>
 </section>
 
-<br>
-
-    <footer>
-        <p> 2026 SPL | Sistema de Gestión de Torneos y Partidos</p>
-    </footer>
 </body>
 </html>

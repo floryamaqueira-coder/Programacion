@@ -16,13 +16,25 @@ body {
   flex-direction: column;
 }
 
+.fondo{
+    position: fixed; /*Evita que se mueva*/
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; /* Evita que la imagen se deforme o se estire */
+    z-index: -1; /* Envía la imagen al fondo de las capas */
+    pointer-events: none; /* Evita que el usuario pueda arrastrar o hacer clic accidentalmente en la imagen */
+    filter: blur(2px);
+}
+
 .despliegue{
   display: none;
 }
 
 header {
   font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
-  background: #0f172a;
+
 }
 
 nav {
@@ -155,7 +167,6 @@ section {
 
 
 footer {
-  background: #0f172a;
   color: white;
   text-align: center;
   padding: 25px;

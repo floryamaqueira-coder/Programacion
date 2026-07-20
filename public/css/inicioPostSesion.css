@@ -8,13 +8,25 @@
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(180deg, #020617 0%, #061e26 60%, #032d30 100%);
+
   background-attachment: fixed;
   min-height: 100vh ;
   width: 100%;
   
   display: flex;
   flex-direction: column;
+}
+
+.fondo{
+    position: fixed; /*Evita que se mueva*/
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; /* Evita que la imagen se deforme o se estire */
+    z-index: -1; /* Envía la imagen al fondo de las capas */
+    pointer-events: none; /* Evita que el usuario pueda arrastrar o hacer clic accidentalmente en la imagen */
+    filter: blur(2px);
 }
 
 .logo{
@@ -62,6 +74,8 @@ nav a:hover {
     width: 15%; 
     box-sizing: border-box;
     text-align: center;
+    flex-direction: column;
+    flex: 1;
 }   
 
 .card-consTor,
@@ -78,12 +92,14 @@ nav a:hover {
   transition: transform 0.3s ease;
   
   width: 100%;
-  margin-left: auto ;
+  margin-left: 30px ;
   margin-right: auto ;
   
   box-sizing: border-box;
   font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
   color: #ffffff;
+
+  
 }
 
 .card-Calen:hover{
@@ -140,7 +156,6 @@ nav a:hover {
 /* Pie de página */
 footer{
     margin-top:50px;
-    background:#0f172a;
     color:white;
     text-align:center;
     padding:20px;
