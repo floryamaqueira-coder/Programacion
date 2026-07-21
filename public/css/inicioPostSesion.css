@@ -15,6 +15,7 @@ body {
   
   display: flex;
   flex-direction: column;
+ 
 }
 
 .fondo{
@@ -68,9 +69,9 @@ nav a:hover {
 
 .card-info {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
-    padding: 10px;
+    padding: 5px;
     width: 15%; 
     box-sizing: border-box;
     text-align: center;
@@ -81,30 +82,37 @@ nav a:hover {
 .card-consTor,
 .card-creaTor,
 .card-Rank,
-.card-Calen, .card-hist{
+.card-Calen, .card-hist, .card-perfil{
   background-color: transparent; 
-  border: 1px solid #000000;
+  border: transparent;
   border-radius: 20px;
-  padding: 24px;
+  padding: 50px;
   text-decoration: none;
 
   cursor: pointer;
   transition: transform 0.3s ease;
   
   width: 100%;
-  margin-left: 30px ;
-  margin-right: auto ;
+  margin: 50px;
   
   box-sizing: border-box;
   font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
-  color: #ffffff;
+  color: #ffffff; 
+}
 
-  
+.card-perfil:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 10px 10px #0B0BF4;
+}
+
+.card-perfil h2{
+    padding: 5px;
+    color:#0B0BF4; 
 }
 
 .card-Calen:hover{
     transform:translateY(-8px);
-    box-shadow:0 10px 10px #ff01f2;
+    box-shadow:0 0 10px 10px #ff01f2;
 }
 
 .card-Calen h2{
@@ -114,7 +122,7 @@ nav a:hover {
 
 .card-consTor:hover{
     transform:translateY(-8px);
-    box-shadow:0 10px 10px #44D95D;
+    box-shadow:0 0 10px 10px #44D95D;
 }
 
 .card-consTor h2{
@@ -124,7 +132,7 @@ nav a:hover {
 
 .card-creaTor:hover{
     transform:translateY(-8px);
-    box-shadow:0 10px 10px #5D44D9;
+    box-shadow:0 0 10px 10px #5D44D9;
 }
 
 .card-creaTor h2{
@@ -134,17 +142,17 @@ nav a:hover {
 
 .card-Rank:hover{
     transform:translateY(-8px);
-    box-shadow:0 10px 10px #a244d9;
+    box-shadow:0 0 10px 10px #8700FF;
 }
 
 .card-Rank h2{
     padding: 5px;
-    color: #a244d9;
+    color: #8700FF;
 }
 
 .card-hist:hover{
     transform:translateY(-8px);
-    box-shadow:0 10px 10px #1DE2B1;
+    box-shadow:0 0 10px 10px #1DE2B1;
 }
 
 .card-hist h2{

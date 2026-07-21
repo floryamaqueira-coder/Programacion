@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+    <link rel="stylesheet" href="../../public/css/consultadetorneos.css">
+</head>
+<body>
+     <img class="fondo" src="../../public/img/fondoBuscadorTorneo.png">
+     <nav>
+            <img class="logo" src="../../public/img/logonuevo.png" alt="logo spl" >
+
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="despliegue">☰</label>
+
+            <ul class="menu">
+                <li><a href="../../apps/views/inicioPostSesion.html">Inicio</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+                <li><a href="#">Soporte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenedor-busqueda">
+        
+        <header class="encabezado-seccion">
+            <h1>Torneos Activos</h1>
+            <p>Encuentra torneos según tus deportes de interés</p>
+        </header>
+
+        <section class="panel-filtros">
+            <!-- Selector de qué busca input -->
+            <div class="grupo-campo">
+                <select id="select-criterio" class="select-filtro">
+                    <option value="todo">Buscar en Todo</option>
+                    <option value="deporte">Buscar por Deporte</option>
+                    <option value="nombre">Buscar por Nombre</option>
+                </select>
+            </div>
+
+            <!-- Texto libre (para nombres o deportes personalizados) -->
+            <div class="grupo-campo campo-principal">
+                <input type="text" id="input-busqueda" placeholder="Escribe un deporte (ej: Handball, Rugby...) o nombre..." class="input-busqueda">
+            </div>
+
+            <div class="grupo-campo">
+                <select id="select-deporte" class="select-filtro">
+                    <option value="todos">Todos los deportes</option>
+                    <option value="futbol">Fútbol</option>
+                    <option value="futbol-sala">Fútbol Sala</option>
+                    <option value="basquet">Básquetbol</option>
+                    <option value="padel">Padel</option>
+                    <option value="otro"> Otro deporte...</option>
+                </select>
+            </div>
+
+            <!-- Etiquetas con opción "Otro" -->
+            <div class="contenedor-etiquetas-filtro">
+                <span class="tag-filtro active" data-deporte="todos">Todos</span>
+                <span class="tag-filtro" data-deporte="futbol">
+                    <ion-icon name="football-outline"></ion-icon> Fútbol
+                </span>
+                <span class="tag-filtro" data-deporte="futbol-sala">
+                    <ion-icon name="football-outline"></ion-icon> Fútbol Sala
+                </span>
+                <span class="tag-filtro" data-deporte="basquet">
+                    <ion-icon name="basketball-outline"></ion-icon> Básquetbol
+                </span>
+                <span class="tag-filtro" data-deporte="padel">
+                    <ion-icon name="tennisball-outline"></ion-icon> Padel
+                </span>
+                <span class="tag-filtro tag-otro" data-deporte="otro">
+                    <ion-icon name="create-outline"></ion-icon> Escribir otro...
+                </span>
+            </div>
+        </section>
+
+        <section class="grilla-torneos" id="grilla-torneos">
+
+            <article class="tarjeta-torneo azul" data-deporte="futbol" data-nombre="copa montevideo 11">
+                <div class="badge-estado activo">En Inscripción</div>
+                <h2>Copa Montevideo 11</h2>
+                <p class="juego"><ion-icon name="football-outline"></ion-icon> Fútbol &bull; 11 vs 11</p>
+                <div class="detalles">
+                    <span><strong>Lugar:</strong> Montevideo</span>
+                    <span><strong>Cupos:</strong> 12/16</span>
+                    <span><strong>Inicio:</strong> 15 Ago</span>
+                </div>
+                <a href="#" class="btn-accion">Ver Torneo</a>
+            </article>
+
+            <article class="tarjeta-torneo cyan" data-deporte="futbol-sala" data-nombre="liga nocturna futsal">
+                <div class="badge-estado activo">En Inscripción</div>
+                <h2>Liga de Futbol Sala</h2>
+                <p class="juego"><ion-icon name="football-outline"></ion-icon> Fútbol Sala &bull; 5 vs 5</p>
+                <div class="detalles">
+                    <span><strong>Lugar:</strong> Montevideo</span>
+                    <span><strong>Cupos:</strong> 8/10</span>
+                    <span><strong>Inicio:</strong> 20 Ago</span>
+                </div>
+                <a href="#" class="btn-accion">Ver Torneo</a>
+            </article>
+
+            <!-- Ejemplo de Deporte Personalizado (Handball) -->
+            <article class="tarjeta-torneo morado" data-deporte="handball" data-nombre="torneo abierto handball">
+                <div class="badge-estado activo">En Inscripción</div>
+                <h2>Torneo Abierto Hockey</h2>
+                <p class="juego"><ion-icon name="trophy-outline"></ion-icon> Handball &bull; Masculino / Femenino</p>
+                <div class="detalles">
+                    <span><strong>Lugar:</strong> Canelones</span>
+                    <span><strong>Cupos:</strong> 6/8</span>
+                    <span><strong>Inicio:</strong> 10 Sep</span>
+                </div>
+                <a href="#" class="btn-accion">Ver Torneo</a>
+            </article>
+
+            <!-- Ejemplo de Deporte Personalizado (Vóley) -->
+            <article class="tarjeta-torneo magenta" data-deporte="voley" data-nombre="circuito voley playa">
+                <div class="badge-estado activo">En Inscripción</div>
+                <h2>Voley Playa</h2>
+                <p class="juego"><ion-icon name="trophy-outline"></ion-icon> Vóley &bull; Duplas</p>
+                <div class="detalles">
+                    <span><strong>Lugar:</strong> Maldonado</span>
+                    <span><strong>Cupos:</strong> 10/16</span>
+                    <span><strong>Inicio:</strong> 05 Sep</span>
+                </div>
+                <a href="#" class="btn-accion">Ver Torneo</a>
+            </article>
+
+        </section>
+
+        <div id="sin-resultados" class="sin-resultados" style="display: none;">
+            <p>No se encontraron torneos activos para tu búsqueda.</p>
+        </div>
+    </main>
+
+
+ <footer>
+        <p> 2026 SPL | Sistema de Gestión de Torneos y Partidos</p>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const inputBusqueda = document.getElementById('input-busqueda');
+    const selectDeporte = document.getElementById('select-deporte');
+    const selectCriterio = document.getElementById('select-criterio');
+    const tagsFiltro = document.querySelectorAll('.tag-filtro');
+    const tarjetasTorneo = document.querySelectorAll('.tarjeta-torneo');
+    const mensajeSinResultados = document.getElementById('sin-resultados');
+
+    let deporteSeleccionado = 'todos';
+
+    // 1. Evento de escritura en la barra de texto
+    inputBusqueda.addEventListener('input', () => {
+        filtrarTorneos();
+    });
+
+    // 2. Evento al cambiar el <select> de deportes
+    selectDeporte.addEventListener('change', (e) => {
+        deporteSeleccionado = e.target.value;
+        
+        if (deporteSeleccionado === 'otro') {
+            activarModoOtro();
+        } else {
+            desactivarModoOtro();
+        }
+
+        sincronizarEtiquetasVisuales(deporteSeleccionado);
+        filtrarTorneos();
+    });
+
+    // 3. Evento al cambiar el criterio (Todo, Deporte, Nombre)
+    selectCriterio.addEventListener('change', () => {
+        filtrarTorneos();
+    });
+
+    // 4. Evento al hacer clic en las etiquetas
+    tagsFiltro.forEach(tag => {
+        tag.addEventListener('click', () => {
+            deporteSeleccionado = tag.getAttribute('data-deporte');
+            selectDeporte.value = deporteSeleccionado;
+
+            if (deporteSeleccionado === 'otro') {
+                activarModoOtro();
+            } else {
+                desactivarModoOtro();
+            }
+
+            sincronizarEtiquetasVisuales(deporteSeleccionado);
+            filtrarTorneos();
+        });
+    });
+
+    // Función para activar el enfoque de texto personalizado
+    function activarModoOtro() {
+        inputBusqueda.placeholder = "Escribe el deporte que buscas (ej: Handball, Vóley)...";
+        inputBusqueda.classList.add('modo-otro');
+        inputBusqueda.focus();
+    }
+
+    function desactivarModoOtro() {
+        inputBusqueda.placeholder = "Escribe un deporte o nombre de torneo...";
+        inputBusqueda.classList.remove('modo-otro');
+    }
+
+    // Marca visualmente la etiqueta activa
+    function sincronizarEtiquetasVisuales(deporte) {
+        tagsFiltro.forEach(t => {
+            if (t.getAttribute('data-deporte') === deporte) {
+                t.classList.add('active');
+            } else {
+                t.classList.remove('active');
+            }
+        });
+    }
+
+    // Función Principal de Filtrado Dinámico
+    function filtrarTorneos() {
+        const textoEscrito = inputBusqueda.value.toLowerCase().trim();
+        const criterio = selectCriterio.value;
+        let visibles = 0;
+
+        tarjetasTorneo.forEach(tarjeta => {
+            const deporteTarjeta = (tarjeta.getAttribute('data-deporte') || '').toLowerCase();
+            const nombreTarjeta = (tarjeta.getAttribute('data-nombre') || '').toLowerCase();
+
+            let coincide = false;
+
+            // Si se eligió la opción "Otro" o la opción "Todos" con texto escrito
+            if (deporteSeleccionado === 'otro') {
+                // En modo "Otro", busca directamente si el deporte o nombre de la tarjeta coincide con lo que la persona tipeó
+                coincide = deporteTarjeta.includes(textoEscrito) || nombreTarjeta.includes(textoEscrito);
+            } 
+            else if (deporteSeleccionado === 'todos') {
+                // Búsqueda general
+                if (criterio === 'deporte') {
+                    coincide = deporteTarjeta.includes(textoEscrito);
+                } else if (criterio === 'nombre') {
+                    coincide = nombreTarjeta.includes(textoEscrito);
+                } else {
+                    coincide = deporteTarjeta.includes(textoEscrito) || nombreTarjeta.includes(textoEscrito);
+                }
+            } 
+            else {
+                // Deporte seleccionado desde las etiquetas/select estándar
+                const coincideDeporteBase = (deporteTarjeta === deporteSeleccionado);
+                const coincideTexto = deporteTarjeta.includes(textoEscrito) || nombreTarjeta.includes(textoEscrito);
+                
+                coincide = coincideDeporteBase && coincideTexto;
+            }
+
+            if (coincide) {
+                tarjeta.style.display = 'flex';
+                visibles++;
+            } else {
+                tarjeta.style.display = 'none';
+            }
+        });
+
+        // Mostrar o esconder el aviso si no hay coincidencias
+        mensajeSinResultados.style.display = (visibles === 0) ? 'block' : 'none';
+    }
+});
+
+</script>
+</body>
+</html>

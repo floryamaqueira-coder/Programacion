@@ -104,7 +104,7 @@ button.explorador {
   box-shadow: none;
 }
 /* Crea torneos */
-button.creador{
+button .creador{
   background-color: transparent;
   border-color: #82A633;
   color: #82A633;
@@ -112,6 +112,10 @@ button.creador{
   text-decoration: none;
   display: flex;
   cursor: pointer;
+}
+
+a {
+    text-decoration: none;
 }
 
 /* INFO */

@@ -1,0 +1,142 @@
+Comentarios de funciones y códigos nuevos.
+
+creaciontorneo.html, consultadetorneos.html, registro.html, calendario.html
+
+CREACION TORNEO 
+
+data-step: Atributo de datos personalizado guarda información o valores extra dentro de un elemento HTML. 
+También para identificarlo sencillamente en JS.
+
+Span: agrupa texto o elementos pequeños.
+
+Summary = Resumen (Mostramos la info ingresada en el formulario).
+
+Small: Representa texto secundario, notas, avisos legales o aclaraciones de menor importancia.
+
+// Si se eligió la opción "Otro" o la opción "Todos" con texto escrito
+            if (deporteSeleccionado === 'otro') 
+                // En modo "Otro", busca directamente si el deporte o nombre de la tarjeta coincide con lo que la persona tipeó
+                coincide = deporteTarjeta.includes(textoEscrito) || nombreTarjeta.includes(textoEscrito);
+
+ document.addEventListener("DOMContentLoaded", () => { //"Escucha eventos"--> Espera a que todo el HTML se cargue para ejecutar luego JS
+
+ getElementById: Busca y selecciona un único elemento HTML
+
+ Alternar campos según Modalidad (Equipo o Individual)
+        modalidadSelect.addEventListener("change", toggleModalidadFields);
+
+const: Variable cuyo valor no será reasignado/modificado
+
+querySelectorAll: Sirve para buscar y seleccionar TODOS los elementos HTML de la página que coincidan con  el selector CSS indicado.
+
+getElementByID: Solamente un elemento
+
+querySelectorAll: Devuelve un grupo completo de elementos
+
+Cambiado a "equipos" para coincidir con el <option value="equipos"> del HTML >
+
+          >  if (modo === "equipos") {
+                equipoFields.forEach(el => el.classList.remove("is-hidden"));
+
+Hace visibles los campos del formulario del HTML que ocultamos de equipos >
+
+             >   individualFields.forEach(el => el.classList.add("is-hidden"));
+
+Hace visibles los campos del formulario del HTML que ocultamos de individual >
+
+         >   } else {
+                equipoFields.forEach(el => el.classList.add("is-hidden")); 
+
+Mantiene ocultos los campos del formulario del HTML de equipos > 
+
+               > individualFields.forEach(el => el.classList.remove("is-hidden"));
+
+Mantiene ocultos los campos del formulario del HTML de individual
+
+updateStepView(); Con esto actualizamos la interfaz gráfica y la pantalla cada que el usuario avanza o retrocede en el formulario.
+
+Checked: Propiedad que indica si un elemento de opción está seleccionado o no.
+
+document.getElementById("torneoForm").submit();
+
+parseInt(): función de JS que convierte texto en un número entero.
+
+getAttribute(): Sirve para leer el valor de cualquier atributo HTML que tenga etiqueta (src, href, id, class, type, data-step, ...)
+
+Visibilidad botón Atrás
+btnPrev.style.display = currentStep === 1 ? "none" : "block";
+
+btnPrev.style.display = Accede a CSS del botón atrás para modificar cómo se muestra en pantalla
+
+currentStep === 1 : Evalúa si el usuario realmente se encuentra en el primer paso
+
+? "none" Si la condición es VERDADERA, display=none Esto oculta el botón  por completo de la pantalla, ya que no tiene sentido permitirle 
+retroceder si recién está en el inicio.
+
+: block Si la condición es FALSA y el usuario está en los pasos 2, 3 o 4 asigna display = "block" haciendo así visible el botón de retroceder
+
+Texto del botón Siguiente / Crear
+            if (currentStep === totalSteps) {
+                btnNext.textContent = "Crear Torneo";
+
+                populateSummary(); // recopia datos ingresados en el formulario y los escribe en pantalla
+
+            } else {
+                btnNext.textContent = "Siguiente";
+            }
+
+document.getElementById("resDeporteCat") = Busca en tu HTML la etiqueta donde quieres mostrar este dato.
+
+.textContent = ... Le indica a JavaScript que reemplace todo el texto que haya dentro de esa etiqueta por el nuevo valor formateado.
+
+Las comillas invertidas (``) y ${} Permiten intercalar variables de JavaScript dentro de un texto sin tener que estar sumando cadenas con el 
+signo. Le indica que es una variable que debe evaluar y no solamente texto.
+
+.value = Propiedad para obtener o cambiar el texto o dato ingresado dentro de un elemento de formulario de nuestro HTML
+
+let : Palabra clave para declarar variables cuyos valores serán modificados o reasignados
+
+Ejecución inicial para sincronizar vista con opción por defecto
+
+        toggleModalidadFields(); 
+        
+Revisa qué modalidad eligió el usuario en el desplegable (Equipo o individual)
+
+ion-icon: iconos bonitos
+
+required autocomplete="off": Controla la memoria. Se encarga de no mostrar lo que escribió el usuario en otro momento
+anterior. Esto podemos modificarlo
+
+required: indica que el campo no puede quedar vacío
+
+if (password.value !== confirmPassword.value){
+
+            // Si el valor de "CONTRASEÑA" es diferente a el valor de "CONFIRMACIÓN DE CONTRASEÑA":
+
+            confirmPassword.setCustomValidity("Las contraseñas no coinciden.");
+        }else {
+
+            //Si coinciden, no se envía el error
+
+            confirmPassword.setCustomValidity("");
+
+setCustomValidity(): Es utilizado para crear mensajes de error en formularios html.
+
+CALENDARIO
+
+&lt (less than): Entidad HTML utilizado para indicar "menor que" en reemplazo a <> 
+
+&gt (greater than): Entidad HTML utilizada para indicar "mayor que" en reemplazo a <>
+
+Function: Utilizado para crear una función, se utiliza para realizar una tarea específica. En vez de repetir el código
+lo "llamas" cada que lo necesitas.
+
+Se utiliza $ para meter variables dentro de texto (en este caso). Eso hace que se vea como "Julio 2026"
+
+createElement() se usa para crear un elemento HTML.
+        
+add() se utiliza para que añada una clase y que tome el estilo del css.
+
+appendChild() mueve o inserta un elemento HTML dentro de otro. Es "añadir un hijo"
+
+renderizarCalendario() "Dibujar", "pintar", "generar" visualmente.

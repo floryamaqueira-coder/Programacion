@@ -1,6 +1,3 @@
-/* ==========================================
-   TUS ESTILOS CONSERVADOS (Base, Nav y Fondo)
-   ========================================== */
 * {
   margin: 0;
   padding: 0;
@@ -17,6 +14,7 @@ body {
   position: relative;
 }
 
+/* ENCABEZADO Y NAVEGACIÓN */
 header {
   width: 100%;
   backdrop-filter: blur(10px);
@@ -32,7 +30,7 @@ nav {
 }
 
 .logo {
-  width: px; 
+  width: 150px; 
   height: auto;
   display: block;
 }
@@ -62,15 +60,17 @@ nav a:hover {
   color: #22c55e; 
 }
 
+/*Fin header*/
+
 .fondo {
-  position: fixed; /* Evita que se mueva */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw; 
   height: 100vh; 
-  object-fit: cover; /* Evita que la imagen se deforme o se estire */
-  z-index: -1; /* Envía la imagen al fondo de las capas */
-  pointer-events: none; /* Evita que el usuario pueda arrastrar o hacer clic accidentalmente en la imagen */
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none;
   filter: blur(2px);
 }
 
@@ -83,146 +83,307 @@ section {
   width: 100%;             
 }
 
-
-/* ==========================================
-   NUEVOS ESTILOS (Tarjeta Login estilo Imagen)
-   ========================================== */
-
-/* Contenedor principal de la tarjeta */
-.login-card {
-  background-color: #050b18; /* Azul muy oscuro traslúcido opcional */
-  border: 1px solid #111827;
-  border-radius: 24px;
-  padding: 40px 30px;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-  text-align: center;
-  z-index: 1; /* Asegura que quede por encima del fondo fijo */
-}
-
-.login-card h2 {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 40px;
-  color: #ffffff;
-}
-
-/* Grupos de Email y Contraseña */
-.input-group {
+/* CONTENEDOR PRINCIPAL DE LA TARJETA */
+.create-card {
   position: relative;
+  width: 100%;
+  max-width: 440px;
+  padding: 35px 30px;
+  background: rgba(2, 6, 23, 0.65); 
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  backdrop-filter: blur(20px); 
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+.create-card h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+/* STEPPER */
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 30px;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.step-number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid #4b5563;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: #9ca3af;
+  transition: all 0.3s ease;
+}
+
+.step-item span {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.step-line {
+  flex: 1;
+  height: 1px;
+  background: #4b5563;
+  margin: 0 4px;
+  margin-bottom: 15px;
+}
+
+/* Paso Activo = Indica en cuál  de los pasos del formulario se encuentra el usuario */
+.step-item.active .step-number {
+  background: #22c55e;
+  color: #020617;
+  border-color: #22c55e;
+  font-weight: bold;
+}
+
+.step-item.active span {
+  color: #22c55e;
+  font-weight: 600;
+}
+
+/* PASOS DEL FORMULARIO */
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+}
+
+/* CAMPOS DE ENTRADA A RELLENAR */
+.input-torneo {
+  position: relative;
+  margin-bottom: 25px;
   text-align: left;
 }
 
-.input-group label {
+.input-torneo label {
   display: block;
-  font-size: 14px;
+  font-size: 13px;
   color: #9ca3af;
   margin-bottom: 8px;
 }
 
-.input-group input {
+.input-torneo input,
+.input-torneo select,
+.input-torneo textarea {
   width: 100%;
   background: transparent;
   border: none;
-  border-bottom: 1px solid #4b5563; /* Línea gris minimalista */
+  border-bottom: 1px solid #4b5563;
   padding: 8px 30px 8px 0;
   color: #ffffff;
-  font-size: 16px;
+  font-size: 15px;
   outline: none;
   transition: border-color 0.3s ease;
+  border-radius: 0;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
-/* Color de la línea inferior cuando el usuario hace clic para escribir */
-.input-group input:focus {
-  border-bottom-color: #22c55e; /* Usamos tu color verde de hover */
+.input-torneo select option {
+  background-color: #020617;
+  color: #ffffff;
 }
 
-/* Ajuste para los iconos de Ionicon a la derecha de la línea */
-.input-group ion-icon {
+.input-torneo textarea {
+  resize: none;
+  padding-right: 0;
+}
+
+.input-torneo input:focus,
+.input-torneo select:focus,
+.input-torneo textarea:focus {
+  border-bottom-color: #22c55e;
+}
+
+/* Iconos de ion-icon */
+.input-torneo ion-icon {
   position: absolute;
   right: 0;
   bottom: 10px;
   color: #9ca3af;
-  font-size: 20px;
+  font-size: 18px;
   pointer-events: none;
 }
 
-/* Fila de Recuérdame y Olvidé mi contraseña */
-.options-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-  margin-bottom: 35px;
+/* Estilo específico para input number */
+.input-torneo input[type="number"] {
+  width: 100%;
+  padding: 8px 30px 8px 0;
+  border-bottom: 1px solid #4b5563;
+  font-size: 15px;
+  outline: none;
 }
 
-.remember-me {
+/* Línea 241 a 251: Ocultan las flechas por defecto de los navegadores */
+.input-torneo input[type="number"]::-webkit-inner-spin-button,
+.input-torneo input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-torneo input[type="number"]::-webkit-outer-spin-button,
+.input-torneo input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Quita las flechas en Firefox de forma estándar */
+.input-torneo input[type="number"] {
+  appearance: textfield; 
+}
+/* SELECTOR DE DÍAS Y HORARIOS */
+.days-selector {
+  display: flex;
+  gap: 4px;
+  margin-top: 5px;
+}
+
+.day-btn {
+  flex: 1;
+  padding: 6px 0;
+  background: transparent;
+  border: 1px solid #4b5563;
+  color: #9ca3af;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 11px;
+  transition: all 0.2s ease;
+}
+
+.day-btn.selected {
+  background-color: #22c55e;
+  color: #020617;
+  border-color: #22c55e;
+  font-weight: bold;
+}
+
+.time-row {
+  display: flex;
+  gap: 15px;
+}
+
+.time-row .input-torneo {
+  flex: 1;
+}
+
+/* TARJETA DE RESUMEN (Paso 4) */
+.summary-card {
+  text-align: left;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.summary-card h3 {
+  font-size: 15px;
+  color: #22c55e;
+  margin-bottom: 12px;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.summary-item ion-icon {
+  font-size: 18px;
+  color: #22c55e;
+}
+
+.summary-item small {
+  display: block;
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+.summary-item p {
+  font-size: 13px;
+  margin: 0;
+  color: #ffffff;
+}
+
+.checkbox-confirm {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #ffffff;
-  cursor: pointer;
-}
-
-.remember-me input {
-  accent-color: #ffffff; /* Checkbox blanco */
-  width: 14px;
-  height: 14px;
-}
-
-.options-row a {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.options-row a:hover {
-  text-decoration: underline;
-}
-
-/* El botón ovalado blanco "Acceder" */
-.btn-submit {
-  width: 100%;
-  background-color: #ffffff;
-  color: #020617; /* Texto con el color de tu fondo oscuro */
-  border: none;
-  padding: 14px;
-  border-radius: 50px; /* Bordes completamente redondeados */
-  font-size: 18px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  text-align: left;
   margin-bottom: 25px;
 }
 
-.btn-submit:hover {
-  background-color: #e5e7eb; /* Gris claro al pasar el mouse */
-}
-
-.btn-submit:active {
-  transform: scale(0.98); /* Pequeño efecto de pulsado */
-}
-
-/* Enlace inferior para registrarse */
-.register-link p {
-  font-size: 14px;
+.checkbox-confirm label {
+  font-size: 12px;
   color: #9ca3af;
 }
 
-.register-link a {
+.checkbox-confirm input[type="checkbox"] {
+  accent-color: #22c55e;
+}
+
+/* BOTONES DE NAVEGACIÓN */
+.step-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.boton {
+  width: 100%;
+  background-color: #ffffff;
+  color: #020617;
+  border: none;
+  padding: 12px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.boton:hover {
+  background-color: #e5e7eb;
+}
+
+.boton:active {
+  transform: scale(0.98);
+}
+
+.btn-atras {
+  background: transparent;
   color: #ffffff;
-  text-decoration: none;
-  font-weight: 700;
+  border: 1px solid #4b5563;
 }
 
-.register-link a:hover {
-  text-decoration: underline;
+.btn-atras:hover {
+  background: rgba(255, 255, 255, 0.05);
 }
 
-/* ==========================================
-   FOOTER (Estilo bloque inferior)
-   ========================================== */
+/* UTILIDADES Y FOOTER */
 footer {
   text-align: center;
   padding: 20px;
@@ -233,4 +394,85 @@ footer {
 footer p {
   font-size: 13px;
   color: #ffffff;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+/* teléfono*/
+@media screen and (max-width: 767px) {
+  
+  /*Header del teléfono*/
+  
+  nav {
+    position: relative;
+    padding-right: 20px;
+  }
+
+  .despliegue {
+    display: block;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+  }
+
+  nav ul {
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    width: 100%;
+    background-color: #020A17; 
+    padding: 20px 0;
+    z-index: 1000;
+    gap: 0; 
+  }
+
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+  }
+
+  #menu-toggle:checked ~ ul,
+  #menu-toggle:checked ~ .menu {
+    display: flex;
+  }
+
+  .logo {
+    display: flex;
+    width: 150px;
+    height: auto;
+  }
+}
+
+/* TABLET */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+  /* Modificamos el tamaño de nuestro formulario para tablet*/
+
+  section{
+    align-items: flex-start;
+    padding-top: 100px;
+  }
+  
+  .create-card {
+    max-width: 800px; 
+    padding: 40px 35px;
+  }
+
+  .grid-tablet {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
 }

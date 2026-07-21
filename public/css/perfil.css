@@ -163,6 +163,13 @@ nav a:hover {
     width: 100%;
 }
 
+footer{
+    color:white;
+    text-align:center;
+    padding:25px;
+    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+}
+
 /* Grid interno solo para Ranking y Puntos */
 @media screen and (max-width: 768px) {
 nav {
