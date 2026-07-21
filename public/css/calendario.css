@@ -61,13 +61,21 @@ nav a:hover {
 }
 
 section {
-  flex: 1; 
+ flex: 1; /* Esto hace que la sección se estire y empuje al footer al fondo */
   display: flex;
-  justify-content: center; 
-  align-items: flex-start;  
+  flex-direction: column; /* Recomendado: para mantener encabezados y el calendario ordenados verticalmente */
+  align-items: center; 
   padding-top: 40px;    
   width: 100%;             
-  box-sizing: border-box;  
+  box-sizing: border-box; 
+}
+
+.principal {
+  flex: 1 0 auto; /* Crece para empujar al footer al final */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 #menu-toggle {
@@ -78,18 +86,46 @@ section {
   width: 150px;
 }
 
+.encabezado-seccion {
+    text-align: center;
+    color: white;
+}
+
+.encabezado-seccion h1 {
+    font-size: 2.5rem;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.encabezado-seccion p {
+    color: #cccccc;
+    font-size: 1rem;
+}
+
 
 .calendario {
   width: 100%;
   max-width: 800px; /* Tamaño máximo para PC */
-  margin: 20px auto;
+  margin: 40px auto;
   background: #0f172a; 
   border: 1px solid #1e1b30;
   border-radius: 16px;
-  padding: 50px;
+  padding: 60px;
   font-family: sans-serif;
   color: #ffffff;
   box-sizing: border-box;
+  transform:translateY(-8px);
+  
+  border-radius: 20px;
+  border: 2px solid transparent;
+  background-image: 
+    linear-gradient(#0f172a, #0f172a), 
+    linear-gradient(to left, #34CD90, #9b51e0, #e056fd); 
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  /* Neón */
+  filter: drop-shadow(0 0 10px rgba(0, 255, 200, 0.35)) 
+          drop-shadow(0 0 15px rgba(155, 81, 224, 0.35));
 }
 
 .calendario-header {
@@ -172,6 +208,7 @@ footer {
   padding: 25px;
   font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
   width: 100%;
+  flex-shrink: 0; /* Evita que el footer se aplaste*/
 }
 
 /* TABLETS (768px a 1024px) */

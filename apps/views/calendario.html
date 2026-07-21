@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="../../public/css/calendario.css">
 </head>
 <body>
-    <img class="fondo" src="../../public/img/fondoCalendario.png">
+    <img class="fondo" src="../../public/img/fondoCalendario.png" alt="Fondo">
+    
     <header>
         <nav>
-            <img class="logo" src="../../public/img/logonuevo.png" alt="logo spl" >
-
+            <img class="logo" src="../../public/img/logonuevo.png" alt="logo spl">
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="despliegue">☰</label> 
             <ul class="menu">
@@ -22,111 +22,42 @@
         </nav>
     </header>
 
-    <section>
-        <div class="calendario">
-            <!-- Mes actual y botones "header" del calendario -->
-            <div class="calendario-header">
-                <button id="btn-prev">&lt;</button> <!-- &lt (less than): Entidad HTML
-                utilizado para indicar "menor que" en reemplazo a <> -->
-                <h2 id="mes-año">Cargando...</h2>
-                <button id="btn-next">&gt;</button> <!-- &gt (greater than): Entidad HTML
-                utilizada para indicar "mayor que" en reemplazo a <> -->
+    <!-- MAIN es el contenedor que debe crecer -->
+    <main class="principal">
+        <header class="encabezado-seccion">
+            <h1>Calendario</h1>
+            <p>No te pierdas ningún torneo</p>
+        </header>
+
+        <section>
+            <div class="calendario">
+                <!-- Mes actual y botones "header" del calendario -->
+                <div class="calendario-header">
+                    <button id="btn-prev">&lt;</button>
+                    <h2 id="mes-año">Cargando...</h2>
+                    <button id="btn-next">&gt;</button>
+                </div>
+
+                <!-- Días de la semana -->
+                <div class="dias-semana">
+                    <div>Dom</div>
+                    <div>Lun</div>
+                    <div>Mar</div>
+                    <div>Mié</div>
+                    <div>Jue</div>
+                    <div>Vie</div>
+                    <div>Sáb</div>
+                </div>
+
+                <div class="dias-grid" id="dias-contenedor"></div>
             </div>
-
-            <!-- Días de la semana -->
-            <div class="dias-semana">
-                <div>Dom</div>
-                <div>Lun</div>
-                <div>Mar</div>
-                <div>Mié</div>
-                <div>Jue</div>
-                <div>Vie</div>
-                <div>Sáb</div>
-            </div>
-
-            <div class="dias-grid" id="dias-contenedor"></div>
-        </div>
-    </section>
-
-    <!-- Script de JAVASCRIPT -->
-    <script>
-      // Const (Constante) es utilizado para declarar variables cuyos valores no son cambiantes 
-      //a lo largo de la ejecución del programa = Son constantes, no cambia el valor
-        const contenedorDias = document.getElementById("dias-contenedor");
-        const textoMesAño = document.getElementById("mes-año");
-        const btnPrev = document.getElementById("btn-prev");
-        const btnNext = document.getElementById("btn-next");
-
-        const meses = [
-            "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-            "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
-        ];
-
-        let fechaActual = new Date(); //Let es utilizado cuando el valor de la variable cambiará a futuro.
-        //En este caso, cuando el usuario presiona las flechas para avanzar de mes, es necesario modificar la
-        //variable para cambiar de fecha.
-        function renderizarCalendario() {   
-//Function: Utilizado para crear una función, se utiliza para realizar una tarea específica. En vez de repetir el código
-//lo "llamas" cada que lo necesitas.
-            contenedorDias.innerHTML = "";
-
-            const año = fechaActual.getFullYear();
-            const mes = fechaActual.getMonth();
-
-            textoMesAño.textContent = `${meses[mes]} ${año}`;
-            //Se utiliza $ para meter variables dentro de texto (en este caso)
-            //Eso hace que se vea como "Julio 2026"
-
-            const primerDiaIndex = new Date(año, mes, 1).getDay();
-            const ultimoDia = new Date(año, mes + 1, 0).getDate();
-            
-            const hoyReal = new Date(); 
-
-            for (let i = 0; i < primerDiaIndex; i++) {
-                const divVacio = document.createElement("div");
-                divVacio.classList.add("dia", "vacio");
-                contenedorDias.appendChild(divVacio);
-            }
-
-            for (let dia = 1; dia <= ultimoDia; dia++) {
-                const divDia = document.createElement("div");
-//createElement() se usa para crear un elemento HTML.
-                divDia.classList.add("dia");
-// add() se utiliza para que añada una clase y que tome el estilo del css.
-                divDia.textContent = dia;
-//Lee o cambia texto dentro de una etiqueta HTML
-
-                if (
-                    dia === hoyReal.getDate() &&
-                    mes === hoyReal.getMonth() &&
-                    año === hoyReal.getFullYear()
-                ) {
-                    divDia.classList.add("hoy");
-                }
-
-                contenedorDias.appendChild(divDia);
-//appendChild() mueve o inserta un elemento HTML dentro de otro. Es "añadir un hijo"
-            }
-        }
-
-        btnPrev.addEventListener("click", () => {
-//Escucha y reacciona a lo que hace el usuario en la página. Activa una función si x cosa sucede.
-            fechaActual.setMonth(fechaActual.getMonth() - 1);
-            renderizarCalendario();
-// renderizarCalendario() "Dibujar", "pintar", "generar" visualmente.
-        });
-
-        btnNext.addEventListener("click", () => {
-            fechaActual.setMonth(fechaActual.getMonth() + 1);
-            renderizarCalendario();
-        });
-
-        // Primera ejecución
-        renderizarCalendario();
-    </script>
+        </section>
+    </main>
 
     <footer>
         <p>© 2026 SPL | Sistema de Gestión de Torneos y Partidos</p>
     </footer>
+
+   <script src="../../public/js/calendario.js"></script>
 </body>
 </html>
