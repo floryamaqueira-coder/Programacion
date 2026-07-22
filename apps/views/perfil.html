@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Perfil de Usuario - SPL</title>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <link rel="stylesheet" href="../../public/css/perfil.css">
+
 </head>
-        <img class="fondo" src="../../public/img/fondoPerfil.png">
 <body>
+    <img class="fondo" src="../../public/img/fondoPerfil.png" alt="Fondo de Perfil">
+
     <header>
         <nav>
-            <img class="logo" src="../../public/img/logonuevo.png" alt="logo spl" >
+            <img class="logo" src="../../public/img/logonuevo.png" alt="logo spl">
 
-                <input type="checkbox" id="menu-toggle">
-                <label for="menu-toggle" class="despliegue">☰</label>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="despliegue">☰</label>
 
             <ul class="menu">
                 <li><a href="../../apps/views/inicioPostSesion.html">Inicio</a></li>
@@ -28,70 +30,66 @@
         </nav>
     </header>
 
-<main class="contenedor-perfil">
-    <!-- Acá tenemos la foto de perfil, nombre, apellido -->
-     <header class="header-perfil">
-        <div class="info-principal">
-            <div class="avatar-perfil">
-                <img class="imagen-avatar" src="../../public/img/usuariox.jpg" alt="avatar">
+    <main class="contenedor-perfil">
+        <!-- Foto de perfil e información del usuario -->
+        <header class="header-perfil">
+            <div class="info-principal">
+                <div class="avatar-perfil">
+                    <img class="imagen-avatar" src="../../public/img/usuariox.jpg" alt="avatar">
+                </div>
+                <div class="informacion-usuario">
+                    <h2>Valerie Blanco</h2>
+                    <p class="username">valerieblanco_</p>
+                    <p class="rol">Participante</p>
+                    <p class="age">17</p>
+                    <p class="location">
+                        <ion-icon name="location-outline"></ion-icon> Montevideo, Uruguay 🇺🇾
+                    </p>
+                    <p class="certificado-medico">Aprobado</p>
+                </div>
             </div>
-            <div class="informacion-usuario">
-                <h2>Valerie Blanco</h2>
-                <p class="username">valerieblanco_</p>
-                <p class="rol">Participante</p>
-                <p class="age">17</p>
-                <p class="location">
-                    <ion-icon name="location-outline"></ion-icon> Montevideo, Uruguay 🇺🇾
-                </p>
-                <p class="certificado-medico">Aprobado</p>
+        </header>
+
+        <!-- Sección de Estadísticas / Grid -->
+        <section class="estad-grid">
+            <div class="estad-card">
+                <span class="estad-label">Puntos</span>
+                <span class="estad-valor">1,890</span>
             </div>
-        </div>
-     </header>
 
-     <section class="estad-grid">
-        <div class="estad-card">
-            <span class="estad-label">Ranking Global</span>
-            <span class="estad-valor">#124</span>
-        </div>
-        <div class="estad-card">
-            <span class="estad-label">Puntos</span>
-            <span class="estad-valor">1,890</span>
-        </div>
-
-        <div class="info-deportes">
-            <h3>DEPORTES</h3>
-            <div class="contenedor-etiquetas">
-                <span class="etiqueta-item">
-                    <ion-icon name="football-outline"></ion-icon> Fútbol
-                </span>
-                <span class="etiqueta-item">
-                    <ion-icon name="football-outline"></ion-icon> Fútbol Sala
-                </span>
+            <div class="info-deportes">
+                <h3>DEPORTES</h3>
+                <div class="contenedor-etiquetas">
+                    <span class="etiqueta-item">
+                        <ion-icon name="football-outline"></ion-icon> Fútbol
+                    </span>
+                    <span class="etiqueta-item">
+                        <ion-icon name="football-outline"></ion-icon> Fútbol Sala
+                    </span>
+                </div>
             </div>
-        </div>
 
-        <div class="info-equipo">
-            <h3>CLUB / EQUIPO</h3>
-            <div class="club-item">
-                <ion-icon name="shield-outline"></ion-icon>
-                <span>Jugador Independiente</span>
+            <div class="info-equipo">
+                <h3>CLUB / EQUIPO</h3>
+                <div class="club-item">
+                    <ion-icon name="shield-outline"></ion-icon>
+                    <span>Jugador Independiente</span>
+                </div>
             </div>
-        </div>
 
-        <div class="info-historial">
-            <h3>HISTORIAL DE TORNEOS</h3>
-            <div class="historial-item">
-                <ion-icon name="reload-circle-outline"></ion-icon>
-                <span>Sin información</span>
+            <div class="info-historial">
+                <h3>HISTORIAL DE TORNEOS</h3>
+                <div class="historial-item">
+                    <ion-icon name="reload-circle-outline"></ion-icon>
+                    <a href="../../apps/views/mistorneos.html" class="btn-accion">Consulta aquí</a>
+                </div>
             </div>
-        </div>
+        </section>
+    </main>
 
-     </section>
-</main>
-
-<footer>
-        <p> 2026 SPL | Sistema de Gestión de Torneos y Partidos</p>
-</footer>
+    <footer>
+        <p>© 2026 SPL | Sistema de Gestión de Torneos y Partidos</p>
+    </footer>
 
 </body>
 </html>

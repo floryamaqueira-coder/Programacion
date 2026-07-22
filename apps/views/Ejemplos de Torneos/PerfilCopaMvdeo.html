@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Torneo</title>
+    <link rel="stylesheet" href="../../../public/css/perfildetorneo.css">
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <!-- Imagen de Fondo -->
+    <img class="fondo" src="../../../public/img/fondoCreaTorneo.png" alt="Fondo">
+
+    <!-- NAVBAR PRINCIPAL -->
+    <header class="navbar-header">
+        <nav>
+            <img src="../../../public/img/logonuevo.png" alt="SPL Logo" class="logo">
+            
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="despliegue">&#9776;</label>
+
+            <ul class="menu">
+                <li><a href="../inicioPostSesion.html">Inicio</a></li>
+                <li><a href="../.html">Torneos</a></li>
+                <li><a href="../calendario.html">Calendario</a></li>
+            </ul>
+        </nav>
+    </header>
+<main>
+
+    <div class="contenedor">
+        <section class="baner">
+            <span class="banner-arriba-eti">EN CURSO</span>
+        <div class="banner-contenido">
+            <div class="banner-info">
+                <h1 class="banner-titulo">Copa Montevideo 11</h1>
+                <div class="banner-meta">
+                    <span><ion-icon name="football-outline"></ion-icon> Fútbol • 11 vs 11</span>
+                    <span><ion-icon name="location-outline"></ion-icon> Montevideo, Uruguay</span>
+                </div>
+
+
+                <!-- Botones de acción -->
+                 <div class="banner-acciones">
+                    <button class="btn btn-primario">
+                        <ion-icon name="person-add-outline"></ion-icon> Inscribirse
+                    </button>
+                    <button class="btn btn-secundario">
+                        <ion-icon name="share-social-outline"></ion-icon> Compartir
+                    </button>
+                 </div>
+                </section>
+
+<!-- Navegador entre páginas de info, Participantes, Ranking, etc-->
+    <nav class="pag-contenedor">
+        <button class="pag-btn activo">
+            <ion-icon name="information-circle-outline"></ion-icon>
+        Información
+    </button>
+        <button class="pag-btn">
+        <ion-icon name="people-outline"></ion-icon>
+        Participantes
+    </button>
+    <button class="pag-btn">
+        <ion-icon name="bar-chart-outline"></ion-icon>
+        Ranking
+    </button>
+    <button class="pag-btn">
+        <ion-icon name="calendar-outline"></ion-icon>
+        Calendario
+    </button>
+    <button class="pag-btn">
+        <ion-icon name="football-outline"></ion-icon>
+        Resultados
+    </button>
+    <button class="pag-btn">
+        <ion-icon name="document-text-outline"></ion-icon>
+        Reglamento
+    </button>
+</nav>
+        <!-- Información General -->
+            <div class="card">
+                    <div class="card-title">
+                        Información general 
+                        <ion-icon name="information-circle-outline" class="icon-title"></ion-icon>
+                    </div>
+                    <div class="info-list">
+                        <div class="info-row"><span class="info-label">Organizador</span><span class="info-val">SPL Sports League</span></div>
+                        <div class="info-row"><span class="info-label">Estado</span><span class="info-val text-green">En curso</span></div>
+                        <div class="info-row"><span class="info-label">Formato</span><span class="info-val">Eliminación Directa</span></div>
+                        <div class="info-row"><span class="info-label">Duración partidos</span><span class="info-val">60 minutos</span></div>
+                        <div class="info-row"><span class="info-label">Equipos participantes</span><span class="info-val">16</span></div>
+                        <div class="info-row"><span class="info-label">Equipos inscritos</span><span class="info-val">12</span></div>
+                        <div class="info-row"><span class="info-label">Categoría</span><span class="info-val">Libre</span></div>
+                        <div class="info-row"><span class="info-label">Sistema de puntuación</span><span class="info-val">Victoria: 3 pts<br>Empate: 1 pt<br>Derrota: 0 pts</span></div>
+                        <div class="info-row"><span class="info-label">Sede</span><span class="info-val">Complejo Deportivo Carrasco</span></div>
+                        <div class="info-row"><span class="info-label">Zona horaria</span><span class="info-val">(UTC-03:00) Montevideo</span></div>
+                    </div>
+                </div>
+
+
+            <!-- Tarjeta 3: Tabla de Participantes -->
+                <div class="card">
+                    <div class="card-title">Participantes <span class="badge-conteo">(12/16)</span></div>
+                    <table class="data-table">
+                        <thead> <!-- Etiqueta que se usa para agrupar filas de encabezado en una tabla
+                            de datos -->
+                            <tr><th>#</th><th>Equipo</th><th>Ciudad</th></tr> <!-- tr: fila. th: celda de encabezado -->
+                        </thead>
+                        <tbody> <!-- Contenido de la tabla -->
+                            <tr><td>1</td><td><div class="team-cell"><ion-icon name="shield-half-outline">
+                            </ion-icon> Deportivo Norte</div></td><td>Montevideo</td></tr>
+
+                            <tr><td>2</td><td><div class="team-cell"><ion-icon name="flash-outline">
+                            </ion-icon> Spartans FC</div></td><td>Canelones</td></tr>
+
+                            <tr><td>3</td><td><div class="team-cell"><ion-icon name="ribbon-outline">
+                            </ion-icon> Club Victoria</div></td><td>Maldonado</td></tr>
+
+                            <tr><td>4</td><td><div class="team-cell"><ion-icon name="flame-outline">
+                            </ion-icon> Warriors</div></td><td>Montevideo</td></tr>
+
+                            <tr><td>5</td><td><div class="team-cell"><ion-icon name="skull-outline">
+                            </ion-icon> Los Halcones</div></td><td>Montevideo</td></tr>
+
+                            <tr><td>6</td><td><div class="team-cell"><ion-icon name="football-outline">
+                            </ion-icon> Atlético Sur</div></td><td>Canelones</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="texto-centro mt-3"> <!-- mt-3 : Margin top -3 -->
+                        <a href="#" class="link-more">Ver todos los equipos</a>
+                    </div>
+                </div>
+                <!--  ESTADÍSTICAS DEL TORNEO -->
+            <section>
+                <h3 class="section-header">Estadísticas del torneo</h3>
+                <div class="grid-4">
+                    <div class="estad-card">
+                        <div class="estad-icon">
+                            <ion-icon name="football-outline"></ion-icon></div>
+                        <div class="estad-info">
+                            <span>Goleador</span>
+                            <strong>Joaquin Perez</strong>
+                            <p>8 goles</p>
+                        </div>
+                    </div>
+
+                    <div class="estad-card">
+                        <div class="estad-icon">
+                            <ion-icon name="hand-left-outline"></ion-icon></div>
+                        <div class="estad-info">
+                            <span>Mejor Golero</span>
+                            <strong>Mateo Silva</strong>
+                            <p>2 goles recibidos</p>
+                        </div>
+                    </div>
+
+                    <div class="estad-card">
+                        <div class="estad-icon">
+                            <ion-icon name="flame-outline"></ion-icon></div>
+                        <div class="estad-info">
+                            <span>Mejor racha</span>
+                            <strong>Warriors</strong>
+                            <p>4 victorias</p>
+                        </div>
+                    </div>
+
+                    <div class="estad-card">
+                        <div class="estad-icon">
+                            <ion-icon name="star-outline"></ion-icon></div>
+                        <div class="estad-info">
+                            <span>MVP</span>
+                            <strong>Pedro Gómez</strong>
+                            <p>7.8 promedio</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+    <div class="card-title">
+        <span><ion-icon name="trophy-outline" class="icon-title"></ion-icon> Tabla de Posiciones</span>
+    </div>
+
+    <div class="tabla-responsive">
+        <table class="data-table ranking-table">
+            <thead>
+                <tr>
+                    <th>Pos</th>
+                    <th>Equipo</th>
+                    <th class="text-center">PJ</th> <!-- Partidos Jugados -->
+                    <th class="text-center">G</th> <!-- Ganados-->
+                    <th class="text-center">E</th> <!-- Empatados -->
+                    <th class="text-center">P</th> <!-- Perdidos -->
+                    <th class="text-center">DG</th> <!-- Diferencia de goles: 
+                    +: El equipo anotó más de lo que recibió
+                    Cero: Misma cantidad
+                    -: Más goles de los que logró anotar-->
+                    <th class="text-center">Pts</th> <!-- Puntos -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="top-3">
+                    <td class="pos-num pos-1">1</td>
+                    <td>
+                        <div class="team-cell">
+                            <ion-icon name="shield-half-outline"></ion-icon> Deportivo Norte
+                        </div>
+                    </td>
+                    <td class="text-center">5</td>
+                    <td class="text-center">4</td>
+                    <td class="text-center">1</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">+8</td>
+                    <td class="text-center **pts-highlight**">13</td>
+                </tr>
+                <tr class="top-3">
+                    <td class="pos-num pos-2">2</td>
+                    <td>
+                        <div class="team-cell">
+                            <ion-icon name="flash-outline"></ion-icon> Spartans FC
+                        </div>
+                    </td>
+                    <td class="text-center">5</td>
+                    <td class="text-center">3</td>
+                    <td class="text-center">1</td>
+                    <td class="text-center">1</td>
+                    <td class="text-center">+5</td>
+                    <td class="text-center **pts-highlight**">10</td>
+                </tr>
+                <tr class="top-3">
+                    <td class="pos-num pos-3">3</td>
+                    <td>
+                        <div class="team-cell">
+                            <ion-icon name="flame-outline"></ion-icon> Warriors
+                        </div>
+                    </td>
+                    <td class="text-center">5</td>
+                    <td class="text-center">3</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">2</td>
+                    <td class="text-center">+2</td>
+                    <td class="text-center **pts-highlight**">9</td>
+                </tr>
+                <tr>
+                    <td class="pos-num">4</td>
+                    <td>
+                        <div class="team-cell">
+                            <ion-icon name="ribbon-outline"></ion-icon> Club Victoria
+                        </div>
+                    </td>
+                    <td class="text-center">5</td>
+                    <td class="text-center">2</td>
+                    <td class="text-center">1</td>
+                    <td class="text-center">2</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center **pts-highlight**">7</td>
+                </tr>
+                <tr>
+                    <td class="pos-num">5</td>
+                    <td>
+                        <div class="team-cell">
+                            <ion-icon name="skull-outline"></ion-icon> Los Halcones
+                        </div>
+                    </td>
+                    <td class="text-center">5</td>
+                    <td class="text-center">1</td>
+                    <td class="text-center">1</td>
+                    <td class="text-center">3</td>
+                    <td class="text-center">-4</td>
+                    <td class="text-center **pts-highlight**">4</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+            <!-- ORGANIZADOR Y ANUNCIOS -->
+<section class="grid-2-bottom">  <!-- Contenedor principal de 2 columnas -->
+
+    <!-- Tarjeta del Organizador (Columna Izquierda) -->
+    <div class="card">
+        <div class="card-title">Organizador</div>
+        
+        <div class="org-card">
+            <img class="org-logo" src="../../../public/img/logonuevo.png" alt="Logo Organizador">
+            <div>
+                <h4 class="org-name">Sports League</h4>
+                <div class="org-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star-half"></ion-icon>
+                </div>
+            </div>
+        </div>
+
+        <div class="org-estats">
+            <div>
+                <div class="org-estats-val">45</div>
+                <div class="org-estats-lbl">Torneos organizados</div>
+            </div>
+            <div>
+                <div class="org-stat-val">2300</div>
+                <div class="org-stat-lbl">Participantes</div>
+            </div>
+        </div> <!-- Fin de .org-estats -->
+    </div> <!-- FIN DE LA PRIMERA CARD (Organizador) -->
+
+    <!-- Tarjeta de Anuncios (Columna Derecha) -->
+    <div class="card">
+        <div class="card-title">Anuncios</div>
+        
+        <div class="anuncio-item">
+            <div class="anuncio-tiempo">
+                <ion-icon name="notifications-outline"></ion-icon> Hace 2 horas
+            </div>
+            <div class="anuncio-text">Se modificó el horario de la semifinal.</div>
+        </div>
+
+        <div class="anuncio-item">
+            <div class="anuncio-tiempo">
+                <ion-icon name="notifications-outline"></ion-icon> Hace 1 día
+            </div>
+            <div class="anuncio-text">Recordá revisar el reglamento antes de cada partido.</div>
+        </div>
+    </div> <!-- FIN DE LA SEGUNDA CARD (Anuncios) -->
+
+</section> <!-- Fin de .grid-2-bottom -->
+</main>
+   
+    <footer>
+        <p>© 2026 SPL | Sistema de Gestión de Torneos y Partidos</p>
+    </footer>
+</body>
+</html>

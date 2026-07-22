@@ -1,85 +1,87 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box; 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
     font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(180deg, #020617 0%, #061e26 60%, #032d30 100%);
-  background-attachment: fixed;
-  min-height: 100vh !important;
-  width: 100%;
-  
-  display: flex;
-  flex-direction: column;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #020617 0%, #061e26 60%, #032d30 100%);
+    background-attachment: fixed;
+    min-height: 100vh !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-header{
+header {
     font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.fondo{
+.fondo {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
-    filter: blur(3px)
+    filter: blur(3px);
 }
 
-.logo{
+/* ==========================================
+   2. NAVEGACIÓN Y HEADER
+   ========================================== */
+.logo {
     width: 150px;
 }
 
-nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding-right: 50px;
 }
 
-nav ul{
-    list-style:none;
-    display:flex;
-    gap:20px;
-
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:500;
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
 }
-/* hover: Agrega efectos al pasar el mouse.*/
+
+/* hover: Agrega efectos al pasar el mouse */
 nav a:hover {
-  color: #22c55e; 
+    color: #22c55e; 
 }
 
 .despliegue {
-        display: none;
+    display: none;
 }
 
-#menu-toggle{
-    display:none;
+#menu-toggle {
+    display: none;
 }
 
-/* Contenedor principal del perfil */
+/* cont prin*/
 .contenedor-perfil {
     width: 100%;
     max-width: fit-content;
-    margin: 30px auto; /* Lo centra horizontalmente en PC */
+    margin: 30px auto; /* Centrado horizontal */
     padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 24px;
-    flex: 1; /* Empuja el footer hacia abajo si hay poco contenido */
+    flex: 1; /* Empuja el footer si hay poco contenido */
 }
 
-/* Cabecera del perfil (Avatar e Información al lado) */
+/* Cabecera del perfil */
 .header-perfil {
     display: flex;
     justify-content: space-between;
@@ -94,7 +96,7 @@ nav a:hover {
     padding: 15px;
 }
 
-/* Contenedor de la foto (Portarretratos redondo) */
+/* Foto de Perfil */
 .avatar-perfil {
     width: 85px;
     height: 85px;
@@ -110,7 +112,7 @@ nav a:hover {
     object-fit: cover;
 }
 
-/* Textos del usuario */
+/* Textos e información del usuario */
 .informacion-usuario h2 {
     font-size: 1.4rem;
     color: #ffffff;
@@ -143,7 +145,7 @@ nav a:hover {
     margin-top: 4px;
 }
 
-/* Etiqueta de Certificado Médico */
+/* Certificado Médico */
 .informacion-usuario .certificado-medico {
     display: inline-block;
     font-size: 0.75rem;
@@ -155,7 +157,7 @@ nav a:hover {
     font-weight: 600;
 }
 
-/* Contenedor de las secciones inferiores */
+/* Estad e info*/
 .estad-grid {
     display: flex;
     flex-direction: column;
@@ -163,77 +165,6 @@ nav a:hover {
     width: 100%;
 }
 
-footer{
-    color:white;
-    text-align:center;
-    padding:25px;
-    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
-}
-
-/* Grid interno solo para Ranking y Puntos */
-@media screen and (max-width: 768px) {
-nav {
-        position: relative;
-    }
-
-.logo{
-        width: 100px;
-    }
-     /* Mostramos el icono */
-.despliegue {
-        display: block;
-        font-size: 35px;
-        color: white;
-        cursor: pointer;
-    }
-
-.menu {
-        display: none; /* Oculto por defecto en móvil */
-        flex-direction: column;
-        position: absolute;
-        top: 100%; /* Aparece justo debajo de la barra de navegación */
-        left: 0;
-        width: 100%;
-        background-color: #020A17; /* Fondo oscuro integrado con tu header */
-        padding: 20px 0;
-        z-index: 100;
-        gap: 0; /* Quitamos el espacio de escritorio */
-    }
-
-.menu li {
-        width: 100%;
-        text-align: center;
-    }
-
-.menu li a {
-        display: block;
-        padding: 15px;
-        color: white;
-        text-decoration: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria sutil */
-    }
-
-#menu-toggle:checked ~ .menu {
-        display: flex;
-    }
-
-.avatar-perfil {
-    width: 100px;  
-    height: 100px; 
-}
-
-.estad-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-    
-.info-deportes, .info-equipo, .info-historial {
-        grid-column: span 2;
-    }
-}
-
-/* Tarjetas individuales de estadísticas */
 .estad-card {
     background-color: rgba(15, 23, 42, 0.4);
     border: 1px solid #1e293b;
@@ -257,16 +188,17 @@ nav {
     color: #ffffff;
 }
 
-/* Encabezados de bloques (DEPORTES, CLUB / EQUIPO) */
-.info-deportes h3, .info-equipo h3, .info-historial h3{
+/* Encabezados */
+.info-deportes h3, 
+.info-equipo h3, 
+.info-historial h3 {
     font-size: 0.8rem;
-    color: #AEBF2A; /* Color amarillo/verde lima de tu paleta */
+    color: #AEBF2A; 
     letter-spacing: 0.05em;
     margin-bottom: 8px;
     font-weight: 600;
 }
 
-/* Contenedor de etiquetas de deportes */
 .contenedor-etiquetas {
     display: flex;
     flex-wrap: wrap;
@@ -285,8 +217,8 @@ nav {
     gap: 6px;
 }
 
-/* Item de Club/Equipo */
-.club-item, .historial-item {
+.club-item, 
+.historial-item {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -294,27 +226,106 @@ nav {
     font-size: 0.9rem;
 }
 
-.club-item ion-icon, .historial-item ion-icon{
+.club-item ion-icon, 
+.historial-item ion-icon {
     font-size: 18px;
     color: #64748b;
 }
 
-footer{
-    color:white;
-    text-align:center;
-    padding:25px;
+
+footer {
+    color: white;
+    text-align: center;
+    padding: 25px;
     font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
 }
 
+
+@media screen and (max-width: 768px) {
+    nav {
+        position: relative;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    .despliegue {
+        display: block;
+        font-size: 35px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #020A17;
+        padding: 20px 0;
+        z-index: 100;
+        gap: 0;
+    }
+
+    .menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu li a {
+        display: block;
+        padding: 15px;
+        color: white;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    #menu-toggle:checked ~ .menu {
+        display: flex;
+    }
+
+    .avatar-perfil {
+        width: 100px;  
+        height: 100px; 
+    }
+
+    .estad-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .info-deportes, 
+    .info-equipo, 
+    .info-historial {
+        grid-column: span 2;
+    }
+
+    .filtros-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tabla-ranking th, 
+    .tabla-ranking td {
+        padding: 10px 5px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Pantallas Grandes / PC */
 @media screen and (min-width: 1024px) {
     .contenedor-perfil {
-    width: 100%;
-    max-width: 900px; /* ◄ Sube este valor (ej: 550px o 600px) si quieres que la tarjeta sea más ancha en PC */
-    margin: 30px auto; 
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    flex: 1; 
-}
+        width: 100%;
+        max-width: 900px;
+        margin: 30px auto; 
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        flex: 1; 
+    }
 }

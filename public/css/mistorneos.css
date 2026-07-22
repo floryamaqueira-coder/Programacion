@@ -1,0 +1,354 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #020617 0%, #061e26 60%, #032d30 100%);
+    background-attachment: fixed;
+    min-height: 100vh !important;
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(3px);
+    object-fit: cover;
+}
+
+
+.logo {
+    width: 150px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px 15px 20px;
+}
+
+nav .menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #22c55e; 
+}
+
+.despliegue {
+    display: none;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+ion-icon {
+    vertical-align: middle;
+}
+
+.principal {
+    flex: 1 0 auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.encabezado-seccion {
+    text-align: center;
+    color: white;
+    margin-top: 25px;
+    padding: 0 15px;
+}
+
+.encabezado-seccion h1 {
+    font-size: 2.2rem;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.encabezado-seccion p {
+    color: #94a3b8;
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+.tabs-torneos {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: #0f1629;
+    border: 1px solid #1e293b;
+    color: #94a3b8;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tab-btn ion-icon {
+    font-size: 1.2rem;
+}
+
+.tab-btn:hover {
+    color: #ffffff;
+    border-color: #3b82f6;
+}
+
+.tab-btn.activo {
+    background: linear-gradient(135deg, #2b4eff, #1d35b5);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(43, 78, 255, 0.4);
+}
+
+.tab-content {
+    display: none !important;
+}
+
+.tab-content.activo {
+    display: flex !important;
+}
+
+/* Tarjetas */
+.torneos-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 20px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.torneo-card {
+    background-color: #070b19;
+    border: 1px solid #131b31;
+    border-radius: 16px;
+    padding: 24px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.torneo-card:hover {
+    transform: translateY(-4px);
+    border-color: #22c55e;
+}
+
+/* Etiquetas */
+.badge {
+    align-self: flex-start;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.badge.en-inscripcion {
+    background-color: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.badge.en-curso {
+    background-color: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.badge.creador {
+    background-color: rgba(168, 85, 247, 0.15);
+    color: #a855f7;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+/* Textos e Información de la Tarjeta */
+.torneo-titulo {
+    color: #ffffff;
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.torneo-subtitulo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.torneo-subtitulo ion-icon {
+    font-size: 1.1rem;
+    color: #94a3b8;
+}
+
+/* Detalles */
+.torneo-detalles {
+    background-color: #0f1629;
+    border-radius: 10px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.torneo-detalles p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #cbd5e1;
+    margin: 0;
+    font-size: 0.88rem;
+}
+
+.torneo-detalles ion-icon {
+    font-size: 1.1rem;
+    color: #3b82f6;
+}
+
+.torneo-detalles strong {
+    color: #ffffff;
+}
+
+/* Botones de Acción dentro de las Tarjetas */
+.btn-ver-torneo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    border: 1px solid #232d45;
+    border-radius: 8px;
+    padding: 10px 0;
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-top: auto;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-ver-torneo:hover {
+    background-color: #162038;
+    border-color: #3b82f6;
+}
+
+.btn-admin {
+    border-color: rgba(168, 85, 247, 0.4);
+    color: #d8b4fe;
+}
+
+.btn-admin:hover {
+    background-color: #2e1065;
+    border-color: #c084fc;
+}
+
+footer {
+    flex-shrink: 0;
+    color: #94a3b8;
+    text-align: center;
+    padding: 25px;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+
+@media screen and (max-width: 767px) {
+    nav {
+        position: relative;
+        padding-right: 20px;
+    }
+
+    .despliegue {
+        display: block;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .menu {
+        display: none; 
+        flex-direction: column;
+        position: absolute;
+        top: 100%; 
+        left: 0;
+        width: 100%;
+        background-color: #020a17; 
+        padding: 15px 0;
+        z-index: 100;
+    }
+
+    .menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu li a {
+        display: block;
+        padding: 12px;
+        color: white;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
+    }
+
+    #menu-toggle:checked ~ .menu {
+        display: flex;
+    }
+
+    .tabs-torneos {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .tab-btn {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .torneo-card {
+        width: 100%;
+        max-width: 350px;
+    }
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Torneos - SPL</title>
+    <link rel="stylesheet" href="../../public/css/mistorneos.css">
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</head>
+<body>
+    <img class="fondo" src="../../public/img/fondoCalendario.png" alt="Fondo">
+    
+    <header>
+        <nav>
+            <img class="logo" src="../../public/img/logonuevo.png" alt="logo spl">
+            <input type="checkbox" id="menu-toggle">
+            
+            <!-- Ícono de Menú hamburguesa con ion-icon -->
+            <label for="menu-toggle" class="despliegue">
+                <ion-icon name="menu-outline"></ion-icon>
+            </label> 
+
+            <ul class="menu">
+                <li><a href="../../apps/views/inicioPostSesion.html">Inicio</a></li>
+                <li><a href="#">Perfil</a></li>
+                <li><a href="torneos.html">Torneos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="principal">
+        <header class="encabezado-seccion">
+            <h1>Mis Torneos</h1>
+            <p>Gestiona los torneos en los que participas y los que has creado</p>
+        </header>
+
+        <!-- Cambia entre vistas -->
+        <div class="tabs-torneos">
+            <button class="tab-btn activo" data-tab="participando"> <!-- data-tab: Etiqueta-->
+                <ion-icon name="trophy-outline"></ion-icon>
+                En los que participo
+            </button>
+            <button class="tab-btn" data-tab="creados">
+                <ion-icon name="add-circle-outline"></ion-icon>
+                Creados por mí
+            </button>
+        </div>
+
+        <!-- SECCIÓN 1: Torneos donde participa -->
+        <section id="participando" class="torneos-container tab-content activo">
+            <!-- Tarjeta 1 -->
+            <div class="torneo-card"> <!-- Badge: Insignia/Etiqueta-->
+                <span class="badge en-curso">EN CURSO</span> <!-- Con Badge marcamos la etiqueta
+                de "En curso" o "En Inscripción"-->
+                <h2 class="torneo-titulo">Copa Montevideo 11</h2>
+                
+                <div class="torneo-subtitulo">
+                    <ion-icon name="football-outline"></ion-icon>
+                    <span>Fútbol • 11 vs 11</span>
+                </div>
+
+                <div class="torneo-detalles">
+                    <p><ion-icon name="location-outline"></ion-icon> <strong>Lugar:</strong> Montevideo</p>
+                    <p><ion-icon name="shirt-outline"></ion-icon> <strong>Mi Equipo:</strong> La Toronja Mecánica</p>
+                    <p><ion-icon name="time-outline"></ion-icon> <strong>Próximo Partido:</strong> 15 Ago - 20:00 hs</p>
+                </div>
+
+                <a href="../../apps/views/Ejemplos de Torneos/PerfilCopaMvdeo.html" class="btn-ver-torneo">Ver Torneo</a>
+            </div>
+
+         <!-- Tarjeta 4 -->
+            <div class="torneo-card">
+                <span class="badge en-inscripcion">EN INSCRIPCIÓN</span>
+                <h2 class="torneo-titulo">Torneo de Primavera</h2>
+                
+                <div class="torneo-subtitulo">
+                    <ion-icon name="trophy-outline"></ion-icon>
+                    <span>Voleibol • 2 vs 2</span>
+                </div>
+
+                <div class="torneo-detalles">
+                    <p><ion-icon name="location-outline"></ion-icon> <strong>Lugar:</strong> Canelones</p>
+                    <p><ion-icon name="shirt-outline"></ion-icon> <strong>Mi Equipo:</strong> Karasuno</p>
+                    <p><ion-icon name="calendar-outline"></ion-icon> <strong>Inicio:</strong> 10 Sep</p>
+                </div>
+
+                <a href="#" class="btn-ver-torneo">Ver Torneo</a>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: Torneos creados por el usuario -->
+        <section id="creados" class="torneos-container tab-content">
+            <!-- Tarjeta Creado 1 -->
+            <div class="torneo-card torneo-propio">
+                <span class="badge en-inscripcion">EN INSCRIPCION</span>
+                <h2 class="torneo-titulo">Torneo Abierto Handball</h2>
+                
+                <div class="torneo-subtitulo">
+                    <ion-icon name="football-outline"></ion-icon>
+                    <span>Fútbol • 7 vs 7</span>
+                </div>
+
+                <div class="torneo-detalles">
+                    <p><ion-icon name="location-outline"></ion-icon> <strong>Lugar:</strong> Canelones</p>
+                    <p><ion-icon name="people-outline"></ion-icon> <strong>Inscriptos:</strong> 6/8</p>
+                    <p><ion-icon name="settings-outline"></ion-icon> <strong>Estado:</strong> En espera</p>
+                </div>
+
+                <a href="#" class="btn-ver-torneo btn-admin">
+                    <ion-icon name="create-outline"></ion-icon>
+                    Administrar Torneo
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 SPL | Sistema de Gestión de Torneos y Partidos</p>
+    </footer>
+
+    <script src="../../public/js/mistorneos.js"></script>
+</body>
+</html>

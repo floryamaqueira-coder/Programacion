@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <!-- Sección del Ranking / Tabla de Posiciones -->
+        <section>
+            <header class="encabezado-seccion">
+                <h1>Tabla de posiciones</h1>
+                <p>Clasificación del torneo actual</p>
+            </header>
+        
+            <section class="ranking-cont">
+                <!-- Barra de Filtros -->
+                <div class="filtros-bar">
+                    <div class="filtro-grupo">
+                        <label for="select-torneo">Torneo:</label>
+                        <select id="select-torneo">
+                            <option value="copa-montevideo">Copa Montevideo 11</option>
+                            <option value="liga-futsal">Liga de Fútbol Sala</option>
+                            <option value="torneo-handball">Torneo Abierto Handball</option>
+                        </select>
+                    </div>
+
+                    <label class="switch-label">
+                        <input type="checkbox" id="filtro-mis-torneos">
+                        <span>Mostrar solo torneos en los que participo</span>
+                    </label>
+                </div>
+
+                <div style="overflow-x: auto;">
+                    <table class="tabla-ranking">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th class="col-equipo">Equipo (Capitán)</th>
+                                <th>PJ</th> <!-- Partidos Jugados-->
+                                <th>PG</th> <!-- Partidos Ganados-->
+                                <th>PE</th> <!-- Partidos Empatados-->
+                                <th>PP</th> <!-- Partidos Perdidos-->
+                                <th>GF</th> <!-- Goles a favor-->
+                                <th>GC</th> <!-- Goles en contra-->
+                                <th>DIF</th> <!-- Diferencia de Goles-->
+                                <th class="col-pts">PTS</th>
+                            </tr>
+                        </thead>
+                        <tbody id="body-ranking">
+                            <!-- Se genera dinámicamente con el script JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+</body>
+</html>

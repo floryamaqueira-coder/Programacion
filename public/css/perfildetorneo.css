@@ -1,0 +1,651 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #070a12;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+    color: #f8fafc;
+    display: flex;
+    flex-direction: column;
+}
+
+.fondo {
+    position: fixed; /* Evita que se mueva */
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; /* Evita que la imagen se deforme o se estire */
+    z-index: -1; /* Envía la imagen al fondo de las capas */
+    pointer-events: none; /* Evita que el usuario pueda arrastrar o hacer clic accidentalmente */
+    opacity: 0.2;
+}
+
+
+.logo {
+    width: 150px;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+/* hover: Agrega efectos al pasar el mouse */
+nav a:hover {
+    color: #22c55e; 
+}
+
+.despliegue {
+    display: none;
+}
+
+/* Estructura */
+main {
+    flex: 1;
+    padding: 24px 16px;
+}
+
+.contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Baner de torneo*/
+.baner {
+    background: linear-gradient(135deg, #0f172a 0%, #090d16 100%);
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+.banner-arriba-eti {
+    align-self: flex-start;
+    background-color: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.banner-contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.banner-titulo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.banner-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+.banner-meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Botones de Acción */
+.banner-acciones {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+    margin: 10px;
+}
+
+.btn-primario {
+    background-color: #22c55e;
+    color: #070a12;
+}
+.btn-primario:hover {
+    background-color: #16a34a;
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.4);
+}
+
+.btn-secundario {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #334155;
+}
+.btn-secundario:hover {
+    background-color: #1e293b;
+    border-color: #475569;
+}
+
+/* Navegación secundaria */
+.pag-contenedor {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--card-bg, #0f1623);
+    border: 1px solid var(--border-color, #1e293b);
+    border-radius: 12px;
+    padding: 6px;
+    margin-bottom: 20px;
+    
+    /* Evitan que la pantalla se rompa o se desborde */
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch;
+}
+
+/*Oculta la barra de scroll*/
+.pag-contenedor::-webkit-scrollbar{
+    display: none;
+}
+
+.pag-btn {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.pag-btn:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.pag-btn.activo {
+    background-color: #1e293b;
+    color: #22c55e;
+}
+
+/* Tarjetas y datos */
+.card {
+    background-color: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon-title {
+    color: #94a3b8;
+    font-size: 18px;
+}
+
+/* Información General */
+.info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #1e293b;
+    font-size: 13px;
+}
+
+.info-label { color: #94a3b8; }
+.info-val { font-weight: 600; color: #f8fafc; text-align: right; }
+.text-green { color: #22c55e; }
+
+/* Tabla de Participantes */
+.badge-conteo {
+    font-size: 12px;
+    color: #94a3b8;
+    font-weight: normal;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.data-table th {
+    text-align: left;
+    color: #64748b;
+    font-weight: 600;
+    padding: 8px 4px;
+    border-bottom: 1px solid #1e293b;
+}
+
+.data-table td {
+    padding: 12px 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.team-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.team-cell ion-icon {
+    color: #22c55e;
+    font-size: 16px;
+}
+
+.texto-centro { text-align: center; }
+.mt-3 { margin-top: 14px; }
+
+.link-more {
+    color: #22c55e;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.link-more:hover { text-decoration: underline; }
+
+/* Estadísticas */
+.section-header {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 12px 0;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.estad-card {
+    background-color: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.estad-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.estad-info span { display: block; font-size: 11px; color: #94a3b8; }
+.estad-info strong { font-size: 14px; color: #ffffff; }
+.estad-info p { font-size: 11px; color: #64748b; }
+
+.tabla-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.ranking-table th {
+    padding: 10px 8px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ranking-table td {
+    padding: 10px 8px;
+}
+
+/* Destacado de Puntos */
+.pts-highlight {
+    font-weight: 700;
+    color: #22c55e;
+}
+
+/* Números de posición */
+.pos-num {
+    font-weight: 700;
+    width: 32px;
+    text-align: center;
+}
+
+/* Puestos de Podio (Oro, Plata, Bronce) */
+.pos-1 {
+    color: #f59e0b; /* Oro */
+}
+
+.pos-2 {
+    color: #94a3b8; /* Plata */
+}
+
+.pos-3 {
+    color: #b45309; /* Bronce */
+}
+
+/* Borde sutil a la izquierda para el top 3 */
+.ranking-table tr.top-3 td:first-child {
+    border-left: 3px solid transparent;
+}
+
+.ranking-table tr:has(.pos-1) td:first-child { border-left-color: #f59e0b; }
+.ranking-table tr:has(.pos-2) td:first-child { border-left-color: #94a3b8; }
+.ranking-table tr:has(.pos-3) td:first-child { border-left-color: #b45309; }
+
+/* Organizador y anuncios */
+
+.grid-2-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.org-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.org-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #1e293b;
+}
+
+.org-name { font-size: 15px; color: #ffffff; }
+
+.org-rating {
+    color: #f59e0b;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.org-estats {
+    display: flex;
+    gap: 24px;
+}
+
+.org-estats-val, .org-stat-val { font-weight: 700; font-size: 16px; color: #ffffff; }
+.org-estats-lbl, .org-stat-lbl { font-size: 11px; color: #94a3b8; }
+
+/* Anuncios */
+.anuncio-item {
+    background-color: #1e293b;
+    border-left: 3px solid #22c55e;
+    padding: 10px 12px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 10px;
+}
+
+.anuncio-tiempo {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.anuncio-text { font-size: 13px; font-weight: 500; }
+
+footer {
+    color: white;
+    text-align: center;
+    padding: 25px;
+    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
+    flex-shrink: 0; /* Evita que el footer se aplaste */
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 768px){
+    main{
+        padding: 12px 8px;
+    }
+    
+    nav {
+        position: relative;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    .despliegue {
+        display: block;
+        font-size: 35px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #020A17;
+        padding: 20px 0;
+        z-index: 100;
+        gap: 0;
+    }
+
+    .menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu li a {
+        display: block;
+        padding: 15px;
+        color: white;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    #menu-toggle:checked ~ .menu {
+        display: flex;
+    }
+
+    .container{
+        gap: 16px;
+    }
+
+    .grid-3,
+    .grid-4,
+    .grid-2-bottom{
+        grid-template-columns: 1fr;
+        gap:16px;
+    }
+
+    .banner {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .banner-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .banner-title {
+    font-size: 22px; /* Título más acorde a celulares */
+  }
+
+  .banner-meta {
+    flex-direction: column;
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  .banner-actions {
+    flex-direction: column; /* Botones uno encima del otro */
+    width: 100%;
+  }
+
+  .banner-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* 4. BARRA DE NAVEGACIÓN PESTAÑAS (TABS) */
+  .tabs-container {
+    padding: 4px 8px;
+    gap: 4px;
+    justify-content: flex-start;
+  }
+
+  .tab-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  /* 5. TARJETAS Y CONTENIDO INTERNO */
+  .card {
+    padding: 14px;
+    border-radius: 10px;
+  }
+
+  .card-title {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .info-row {
+    font-size: 12px;
+    gap: 8px;
+  }
+
+  .tabla-responsive {
+    width: 100%;
+    overflow-x: auto; /* Permite scroll horizontal si los datos no caben */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 8px 4px;
+    font-size: 11px;
+  }
+
+  .team-cell {
+    font-size: 11px;
+  }
+
+  /* 7. TARJETAS DE ESTADÍSTICAS */
+  .estad-card {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .estad-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+
+  /* 8. SECCIÓN ORGANIZADOR */
+  .org-stats {
+    gap: 16px;
+    justify-content: space-around;
+  }
+
+  .pag-contenedor{
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+  }
+
+  .pag-btn {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+}
+
+
+    
+
+
+
+

@@ -1,0 +1,75 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box; 
+    font-family: sans-serif, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  background-attachment: fixed;
+  min-height: 100vh ;
+  width: 100%;
+  
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.fondo{
+    position: fixed; /*Evita que se mueva*/
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; /* Evita que la imagen se deforme o se estire */
+    z-index: -1; /* Envía la imagen al fondo de las capas */
+    pointer-events: none; /* Evita que el usuario pueda arrastrar o hacer clic accidentalmente en la imagen */
+}
+
+.logo{
+    width: 150px;
+}
+
+#menu-toggle{
+    display:none;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-right: 50px;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:20px;
+
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+}
+
+/* hover: Agrega efectos al pasar el mouse.*/
+nav a:hover {
+  color: #22c55e; 
+}
+
+.despliegue {
+        display: none;
+    }
+
+/* Pie de página */
+footer{
+    margin-top:50px;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
