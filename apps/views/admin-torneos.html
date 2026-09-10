@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administrador - Torneos</title>
+  <link rel="stylesheet" href="../../public/css/vistaadmin.css">
+<body>
+ 
+   <!-- Barra superior (solo visible en mobile) -->
+  <div class="topbar-movil">
+    <button class="btn-menu-movil" onclick="toggleMenu()" aria-label="Abrir menú">&#9776;</button>
+    <span class="topbar-titulo">Admin Torneos</span>
+  </div>
+ 
+  <!-- Fondo oscuro al abrir el menú en mobile -->
+  <div class="overlay-menu" id="overlay-menu" onclick="cerrarMenu()"></div> <!-- onclick : funciones para que al clickear se abra o cierre el menú -->
+ 
+  <!-- Menú lateral fijo -->
+  <aside class="aside" id="aside-menu">
+    <h2>Admin Torneos</h2>
+ 
+    <ul>
+      <li><a class="activo" onclick="mostrarSeccion('inicio', this)">Inicio</a></li>
+    </ul>
+ 
+    <p class="grupo-menu">Gestión deportiva</p>
+    <ul>
+      <li><a onclick="mostrarSeccion('torneos', this)">Torneos</a></li>
+      <li><a onclick="mostrarSeccion('equipos', this)">Equipos</a></li>
+      <li><a onclick="mostrarSeccion('miembros', this)">Miembros</a></li>
+      <li><a onclick="mostrarSeccion('partidos', this)">Partidos</a></li>
+      <li><a onclick="mostrarSeccion('resultados', this)">Resultados</a></li>
+    </ul>
+ 
+    <p class="grupo-menu">Personas</p>
+    <ul>
+      <li><a onclick="mostrarSeccion('usuarios', this)">Usuarios</a></li>
+    </ul>
+ 
+    <p class="grupo-menu">Contenido</p>
+    <ul>
+      <li><a onclick="mostrarSeccion('categorias', this)">Categorías / Etiquetas</a></li>
+    </ul>
+ 
+    <p class="grupo-menu">Sistema</p>
+    <ul>
+      <li><a onclick="mostrarSeccion('notificaciones', this)">Notificaciones</a></li>
+      <li><a onclick="mostrarSeccion('informacion-sitio', this)">Información del sitio</a></li>
+      <li><a onclick="mostrarSeccion('estadisticas', this)">Estadísticas</a></li>
+      <li><a onclick="mostrarSeccion('configuracion', this)">Configuración</a></li>
+    </ul>
+  </aside>
+ 
+  <!-- Contenido principal -->
+  <div class="contenido">
+ 
+    <!--INICIO-->
+    <div id="sec-inicio" class="seccion visible">
+      <h1>Inicio</h1>
+      <div class="placeholder"> <!-- Le ponemos este nombre de clase ya que no va a contar con una funcionalidad como tal, podemos editarlo y agregar cont -->
+        <p>Bienvenido al panel de administrador. Elegí una sección del menú de la izquierda.</p>
+      </div>
+    </div>
+ 
+    <!--TORNEOS-->
+    <div id="sec-torneos" class="seccion">
+      <h1>Torneos</h1>
+ 
+      <div id="torneos-vista-lista" class="subvista visible">
+        <div class="buscador">
+          <input type="text" id="buscador-torneos" placeholder="Buscar por nombre o etiqueta..." onkeyup="filtrarTorneos()">
+        </div>
+        <div class="lista-torneos" id="lista-torneos"></div>
+      </div>
+ 
+      <div id="torneos-vista-detalle" class="subvista">
+        <button class="btn btn-cancelar" onclick="volverListadoTorneos()">&larr; Volver al listado</button>
+        <h2 id="detalle-torneo-nombre" style="margin: 15px 0;"></h2> <!-- Usamos el style en algunos casos para agregarles estilos específicos y no sea tan emborroso en css-->
+ 
+        <div class="tabs">
+          <button class="tab-btn activo" onclick="mostrarTabTorneo('info', this)">Información general</button>
+          <button class="tab-btn" onclick="mostrarTabTorneo('equipos', this)">Equipos</button>
+          <button class="tab-btn" onclick="mostrarTabTorneo('participantes', this)">Participantes</button>
+          <button class="tab-btn" onclick="mostrarTabTorneo('organizadores', this)">Organizadores</button>
+          <button class="tab-btn" onclick="mostrarTabTorneo('reglamento', this)">Reglamento</button>
+        </div>
+ 
+        <div id="tab-info" class="tab-contenido visible">
+          <div class="panel-edicion">
+            <h2>Datos del torneo</h2>
+            <div class="campo">
+              <label for="t-nombre">Nombre del torneo</label>
+              <input type="text" id="t-nombre">
+            </div>
+            <div class="fila-dos-campos">
+              <div class="campo">
+                <label for="t-modalidad">Modalidad</label>
+                <select id="t-modalidad" onchange="actualizarModalidadTorneo()">
+                  <option value="equipos">Equipos</option>
+                  <option value="individual">Individual</option>
+                </select>
+              </div>
+              <div class="campo">
+                <label for="t-deporte">Deporte</label>
+                <input type="text" id="t-deporte" list="t-deportes-sugeridos" placeholder="Crea o selecciona un deporte.">
+                <datalist id="t-deportes-sugeridos">
+                  <option value="Fútbol"></option>
+                  <option value="Pádel"></option>
+                  <option value="Tenis"></option>
+                  <option value="Básquetbol"></option>
+                  <option value="Voleibol"></option>
+                  <option value="Videojuego"></option>
+                </datalist>
+              </div>
+            </div>
+            <div class="fila-dos-campos">
+              <div class="campo">
+                <label for="t-categoria">Categoría / Nivel</label>
+                <select id="t-categoria">
+                  <option>Amateur</option>
+                  <option>Semi-Profesional</option>
+                  <option>Profesional</option>
+                </select>
+              </div>
+              <div class="campo">
+                <label for="t-etiquetas">Etiquetas</label>
+                <input type="text" id="t-etiquetas" placeholder="Ej: juvenil, verano">
+              </div>
+            </div>
+            <div class="campo">
+              <label for="t-formato">Formato del torneo</label>
+              <select id="t-formato">
+                <option>Eliminación Simple</option>
+                <option>Doble Eliminación</option>
+                <option>Sistema Suizo</option>
+                <option>Mixto</option>
+                <option>Fase de Grupos + Eliminatoria</option>
+                <option>Todos contra todos (Liga)</option>
+              </select>
+            </div>
+            <div class="fila-dos-campos campo-modo-equipos">
+              <div class="campo">
+                <label for="t-cant-equipos">Cantidad de equipos</label>
+                <select id="t-cant-equipos">
+                  <option value="8">8 equipos</option>
+                  <option value="16">16 equipos</option>
+                  <option value="32">32 equipos</option>
+                </select>
+              </div>
+              <div class="campo">
+                <label for="t-jugadores-por-equipo">Jugadores titulares por equipo</label>
+                <input type="number" id="t-jugadores-por-equipo" min="1" placeholder="Ej: 5 u 11">
+              </div>
+            </div>
+            <div class="campo campo-modo-individual is-hidden">
+              <label for="t-cant-jugadores">Cantidad de jugadores</label>
+              <select id="t-cant-jugadores">
+                <option value="8">8 jugadores</option>
+                <option value="16">16 jugadores</option>
+                <option value="32">32 jugadores</option>
+                <option value="64">64 jugadores</option>
+              </select>
+            </div>
+            <div class="fila-dos-campos">
+              <div class="campo">
+                <label for="t-fecha-inicio">Fecha de inicio</label>
+                <input type="date" id="t-fecha-inicio">
+              </div>
+              <div class="campo">
+                <label for="t-fecha-fin">Fecha de fin</label>
+                <input type="date" id="t-fecha-fin">
+              </div>
+            </div>
+            <div class="campo">
+              <label>Días de los partidos</label>
+              <div class="days-selector" id="t-dias-selector">
+                <button type="button" class="day-btn" data-dia="Lun" onclick="toggleDiaTorneo(this)">Lun</button>
+                <button type="button" class="day-btn" data-dia="Mar" onclick="toggleDiaTorneo(this)">Mar</button>
+                <button type="button" class="day-btn" data-dia="Mié" onclick="toggleDiaTorneo(this)">Mié</button>
+                <button type="button" class="day-btn" data-dia="Jue" onclick="toggleDiaTorneo(this)">Jue</button>
+                <button type="button" class="day-btn" data-dia="Vie" onclick="toggleDiaTorneo(this)">Vie</button>
+                <button type="button" class="day-btn" data-dia="Sáb" onclick="toggleDiaTorneo(this)">Sáb</button>
+                <button type="button" class="day-btn" data-dia="Dom" onclick="toggleDiaTorneo(this)">Dom</button>
+              </div>
+            </div>
+            <div class="fila-dos-campos">
+              <div class="campo">
+                <label for="t-hora-inicio">Hora de inicio</label>
+                <input type="time" id="t-hora-inicio">
+              </div>
+              <div class="campo">
+                <label for="t-hora-fin">Hora de fin</label>
+                <input type="time" id="t-hora-fin">
+              </div>
+            </div>
+            <div class="campo">
+              <label for="t-reglas-generales">Reglas generales</label>
+              <textarea id="t-reglas-generales" rows="2"></textarea>
+            </div>
+            <div class="campo">
+              <label for="t-descripcion">Descripción</label>
+              <textarea id="t-descripcion"></textarea>
+            </div>
+            <div class="botones">
+              <button class="btn btn-guardar" onclick="guardarDatosTorneo()">Guardar cambios</button>
+              <button class="btn btn-cancelar" onclick="volverListadoTorneos()">Cancelar</button>
+            </div>
+          </div>
+        </div>
+ 
+        <div id="tab-equipos" class="tab-contenido">
+          <div class="panel-edicion">
+            <h2>Equipos del torneo</h2>
+            <ul class="lista-simple" id="lista-equipos-torneo"></ul>
+            <div class="botones">
+              <button class="btn btn-guardar">Agregar equipo</button>
+            </div>
+          </div>
+        </div>
+ 
+        <div id="tab-participantes" class="tab-contenido">
+          <div class="panel-edicion">
+            <h2>Participantes del torneo</h2>
+            <ul class="lista-simple" id="lista-participantes-torneo"></ul>
+            <div class="botones">
+              <button class="btn btn-guardar">Agregar participante</button>
+            </div>
+          </div>
+        </div>
+ 
+        <div id="tab-organizadores" class="tab-contenido">
+          <div class="panel-edicion">
+            <h2>Organizadores del torneo</h2>
+            <ul class="lista-simple" id="lista-organizadores-torneo"></ul>
+            <div class="botones">
+              <button class="btn btn-guardar">Agregar organizador</button>
+            </div>
+          </div>
+        </div>
+ 
+        <div id="tab-reglamento" class="tab-contenido">
+          <div class="panel-edicion">
+            <h2>Reglamento de este torneo</h2>
+            <p style="color:#6b7280; font-size: 13px; margin-bottom: 12px;">Los documentos cargados acá aplican únicamente a este torneo.</p>
+            <ul class="lista-simple-editable" id="lista-reglamento-torneo"></ul>
+            <div class="botones">
+              <button class="btn btn-guardar" onclick="agregarDocumentoReglamento()">Agregar documento</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!--EQUIPOS / JUGADORES / PARTIDOS / RESULTADOS-->
+ 
+    <div id="sec-equipos" class="seccion">
+      <h1>Equipos</h1>
+ 
+      <div id="equipos-vista-lista" class="subvista visible">
+        <div class="buscador">
+          <input type="text" id="buscador-equipos" placeholder="Buscar equipo..." onkeyup="filtrarEquipos()">
+        </div>
+        <div class="lista-torneos" id="lista-equipos"></div>
+        <div class="botones" style="margin-top: 15px;">
+          <button class="btn btn-guardar" onclick="crearEquipo()">Agregar equipo</button>
+        </div>
+      </div>
+ 
+      <div id="equipos-vista-detalle" class="subvista">
+        <button class="btn btn-cancelar" onclick="volverListadoEquipos()">&larr; Volver al listado</button> 
+        <!--&larr es una flecha (Left Arrow). También se puede usar &rarr (right arrow), &uarr (up arrow), &darr (down arrow)-->
+        <h2 id="detalle-equipo-nombre" style="margin: 15px 0;"></h2>
+ 
+        <div class="panel-edicion">
+          <h2>Datos del equipo</h2>
+          <div class="campo">
+            <label for="eq-nombre">Nombre del equipo</label>
+            <input type="text" id="eq-nombre">
+          </div>
+          <div class="botones">
+            <button class="btn btn-guardar" onclick="guardarNombreEquipo()">Guardar cambios</button>
+            <button class="btn btn-cancelar" onclick="volverListadoEquipos()">Cancelar</button>
+          </div>
+        </div>
+ 
+        <div class="panel-edicion">
+          <h2>Miembros del equipo</h2>
+          <p style="color:#6b7280; font-size: 13px; margin-bottom: 5px;">Cada miembro podrá vincularse a un ID de usuario más adelante.</p>
+ 
+          <div class="grupo-rol">
+            <h3 class="subgrupo-titulo">Organizador</h3>
+            <ul class="lista-simple-editable" id="lista-eq-miembros-organizador"></ul>
+          </div>
+          <div class="grupo-rol">
+            <h3 class="subgrupo-titulo">Encargado</h3>
+            <ul class="lista-simple-editable" id="lista-eq-miembros-encargado"></ul>
+          </div>
+          <div class="grupo-rol">
+            <h3 class="subgrupo-titulo">Participante</h3>
+            <ul class="lista-simple-editable" id="lista-eq-miembros-participante"></ul>
+          </div>
+          <!--USUARIO NO LOG (CHUSMA) ??-->
+ 
+          <div class="botones">
+            <button class="btn btn-guardar" onclick="agregarMiembroEquipo()">Agregar miembro</button>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <div id="sec-miembros" class="seccion">
+      <h1>Miembros</h1>
+      <div class="panel-edicion" style="max-width: 700px;">
+ 
+        <div class="grupo-rol">
+          <h3 class="subgrupo-titulo">Organizador</h3>
+          <ul class="lista-simple-editable" id="lista-miembros-organizador"></ul>
+        </div>
+        <div class="grupo-rol">
+          <h3 class="subgrupo-titulo">Encargado</h3>
+          <ul class="lista-simple-editable" id="lista-miembros-encargado"></ul>
+        </div>
+        <div class="grupo-rol">
+          <h3 class="subgrupo-titulo">Participante</h3>
+          <ul class="lista-simple-editable" id="lista-miembros-participante"></ul>
+        </div>
+ 
+        <div class="botones">
+          <button class="btn btn-guardar" onclick="agregarMiembro()">Agregar miembro</button>
+        </div>
+      </div>
+    </div>
+ 
+    <div id="sec-partidos" class="seccion">
+      <h1>Partidos</h1>
+      <div class="panel-edicion">
+        <ul class="lista-simple-editable" id="lista-partidos"></ul>
+        <div class="botones">
+          <button class="btn btn-guardar" onclick="agregarItemSimple('partidos')">Agregar partido</button>
+        </div>
+      </div>
+    </div>
+ 
+    <div id="sec-resultados" class="seccion">
+      <h1>Resultados</h1>
+      <div class="panel-edicion">
+        <ul class="lista-simple-editable" id="lista-resultados"></ul>
+        <div class="botones">
+          <button class="btn btn-guardar" onclick="agregarItemSimple('resultados')">Agregar resultado</button>
+        </div>
+      </div>
+    </div>
+ 
+    <!--USUARIOS-->
+    <div id="sec-usuarios" class="seccion">
+      <h1>Usuarios</h1>
+ 
+      <div id="usuarios-vista-lista" class="subvista visible">
+        <div class="buscador">
+          <input type="text" id="buscador-usuarios" placeholder="Buscar por nombre o rol..." onkeyup="filtrarUsuarios()">
+        </div>
+        <div class="lista-torneos" id="lista-usuarios"></div>
+      </div>
+ 
+      <div id="usuarios-vista-detalle" class="subvista">
+        <button class="btn btn-cancelar" onclick="volverListadoUsuarios()">&larr; Volver al listado</button>
+        <h2 id="detalle-usuario-nombre" style="margin: 15px 0;"></h2>
+ 
+        <div class="tabs">
+          <button class="tab-btn activo" onclick="mostrarTabUsuario('perfil', this)">Perfil</button>
+          <button class="tab-btn" onclick="mostrarTabUsuario('sanciones', this)">Sanciones</button>
+          <button class="tab-btn" onclick="mostrarTabUsuario('actividad', this)">Actividad</button>
+        </div>
+ 
+        <div id="tabu-perfil" class="tab-contenido visible">
+          <div class="panel-edicion">
+            <h2>Datos del perfil</h2>
+            <div class="fila-dos-campos">
+              <div class="campo">
+                <label for="u-nombre">Nombre completo</label>
+                <input type="text" id="u-nombre">
+              </div>
+              <div class="campo">
+                <label for="u-rol">Rol</label>
+                <select id="u-rol">
+                  <option>Usuario</option>
+                  <option>Administrador</option>
+                </select>
+              </div>
+            </div>
+            <div class="fila-dos-campos">
+              <div class="campo">
+                <label for="u-email">Correo electrónico</label>
+                <input type="email" id="u-email">
+              </div>
+              <div class="campo">
+                <label for="u-telefono">Teléfono</label>
+                <input type="text" id="u-telefono">
+              </div>
+            </div>
+            <div class="campo">
+              <label for="u-estado">Estado de la cuenta</label>
+              <select id="u-estado">
+                <option>Activo</option>
+                <option>Suspendido</option>
+                <option>Inhabilitado</option>
+              </select>
+            </div>
+            <div class="campo">
+              <label for="u-foto">Foto de perfil</label>
+              <input type="file" id="u-foto" onchange="mostrarNombreArchivo('u-foto', 'u-foto-preview')">
+              <div class="imagen-preview" id="u-foto-preview">Sin imagen</div>
+            </div>
+            <div class="botones">
+              <button class="btn btn-guardar">Guardar cambios</button>
+              <button class="btn btn-cancelar" onclick="volverListadoUsuarios()">Cancelar</button>
+            </div>
+          </div>
+        </div>
+ 
+        <div id="tabu-sanciones" class="tab-contenido">
+          <div class="panel-edicion">
+            <h2>Sanciones aplicadas</h2>
+            <div id="lista-sanciones-usuario"></div>
+ 
+            <h2 style="margin-top: 20px;">Aplicar nueva sanción</h2>
+            <div class="campo">
+              <label for="s-motivo">Motivo</label>
+              <input type="text" id="s-motivo" placeholder="Ej: Conducta antideportiva">
+            </div>
+            <div class="fila-dos-campos">
+              <div class="campo">
+                <label for="s-tipo">Tipo de sanción</label>
+                <select id="s-tipo">
+                  <option>Amonestación</option>
+                  <option>Suspensión temporal</option>
+                  <option>Expulsión</option>
+                </select>
+              </div>
+              <div class="campo">
+                <label for="s-duracion">Duración</label>
+                <input type="text" id="s-duracion" placeholder="Ej: 15 días">
+              </div>
+            </div>
+            <div class="campo">
+              <label for="s-fecha">Fecha</label>
+              <input type="date" id="s-fecha">
+            </div>
+            <div class="botones">
+              <button class="btn btn-peligro" onclick="aplicarSancion()">Aplicar sanción</button>
+            </div>
+          </div>
+        </div>
+ 
+        <div id="tabu-actividad" class="tab-contenido">
+          <div class="panel-edicion">
+            <h2>Historial de actividad</h2>
+            <ul class="lista-simple" id="lista-actividad-usuario"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!--CATEGORÍAS-->
+ 
+    <div id="sec-categorias" class="seccion">
+      <h1>Categorías / Etiquetas</h1>
+      <div class="panel-edicion">
+        <ul class="lista-simple-editable" id="lista-categorias"></ul>
+        <div class="botones">
+          <button class="btn btn-guardar" onclick="agregarItemSimple('categorias')">Agregar etiqueta</button>
+        </div>
+      </div>
+    </div>
+ 
+    <!--NOTIFICACIONES--> <!-- VER SI CONSERVAR O NO -->
+    <div id="sec-notificaciones" class="seccion">
+      <h1>Notificaciones</h1>
+      <div class="panel-edicion">
+        <h2>Plantillas de notificación</h2>
+        <ul class="lista-simple-editable" id="lista-notificaciones"></ul>
+        <div class="botones">
+          <button class="btn btn-guardar" onclick="agregarItemSimple('notificaciones')">Agregar plantilla</button>
+        </div>
+      </div>
+    </div>
+ 
+    <!--INFORMACIÓN DEL SITIO-->
+    <div id="sec-informacion-sitio" class="seccion">
+      <h1>Información del sitio</h1>
+      <p style="margin-bottom: 15px; color:#6b7280;">Estos campos editan directamente el contenido de la página principal (Inicio) del sitio.</p>
+ 
+      <div class="panel-edicion">
+        <h2>Sección principal (Hero)</h2>
+        <div class="fila-dos-campos">
+          <div class="campo">
+            <label for="sitio-titulo1">Título línea 1</label>
+            <input type="text" id="sitio-titulo1">
+          </div>
+          <div class="campo">
+            <label for="sitio-titulo2">Título línea 2</label>
+            <input type="text" id="sitio-titulo2">
+          </div>
+        </div>
+        <div class="campo">
+          <label for="sitio-titulo-destacado">Título destacado</label>
+          <input type="text" id="sitio-titulo-destacado">
+        </div>
+        <div class="campo">
+          <label for="sitio-hero-texto">Texto descriptivo</label>
+          <textarea id="sitio-hero-texto"></textarea>
+        </div>
+        <div class="fila-dos-campos">
+          <div class="campo">
+            <label for="sitio-boton-explorar">Texto del botón "Explorar torneos"</label>
+            <input type="text" id="sitio-boton-explorar">
+          </div>
+          <div class="campo">
+            <label for="sitio-boton-crear">Texto del botón "Crear torneo"</label>
+            <input type="text" id="sitio-boton-crear">
+          </div>
+        </div>
+        <div class="botones">
+          <button class="btn btn-guardar" onclick="guardarHeroSitio()">Guardar cambios</button>
+        </div>
+      </div>
+ 
+      <div class="panel-edicion">
+        <h2>¿Qué es SPL?</h2>
+        <div class="campo">
+          <label for="sitio-que-es-texto">Texto</label>
+          <textarea id="sitio-que-es-texto"></textarea>
+        </div>
+        <div class="botones">
+          <button class="btn btn-guardar" onclick="guardarQueEsSplSitio()">Guardar cambios</button>
+        </div>
+      </div>
+ 
+      <div class="panel-edicion">
+        <h2>¿Cómo funciona?</h2>
+        <ul class="lista-simple-editable" id="lista-comoFunciona"></ul>
+        <div class="botones">
+          <button class="btn btn-guardar" onclick="agregarItemSimple('comoFunciona')">Agregar paso</button>
+        </div>
+      </div>
+ 
+      <div class="panel-edicion">
+        <h2>¿Para quién está destinado SPL?</h2>
+        <ul class="lista-simple-editable" id="lista-paraQuien"></ul>
+        <div class="botones">
+          <button class="btn btn-guardar" onclick="agregarItemSimple('paraQuien')">Agregar tipo de usuario</button>
+        </div>
+      </div>
+ 
+      <div class="panel-edicion">
+        <h2>Sistemas de competición</h2>
+        <ul class="lista-simple-editable" id="lista-sistemasCompeticion"></ul>
+        <div class="botones">
+          <button class="btn btn-guardar" onclick="agregarItemSimple('sistemasCompeticion')">Agregar sistema</button>
+        </div>
+      </div>
+ 
+      <div class="panel-edicion">
+        <h2>Preguntas frecuentes</h2>
+        <div id="lista-faq"></div>
+        <div class="botones">
+          <button class="btn btn-guardar" onclick="agregarFaq()">Agregar pregunta</button>
+        </div>
+      </div>
+ 
+      <div class="panel-edicion">
+        <h2>Pie de página</h2>
+        <div class="campo">
+          <label for="sitio-footer-texto">Texto del footer</label>
+          <input type="text" id="sitio-footer-texto">
+        </div>
+        <div class="botones">
+          <button class="btn btn-guardar" onclick="guardarFooterSitio()">Guardar cambios</button>
+        </div>
+      </div>
+    </div>
+ 
+    <!--ESTADÍSTICAS-->
+    <div id="sec-estadisticas" class="seccion">
+      <h1>Estadísticas</h1>
+      <p style="margin-bottom: 15px; color: #6b7280;">Estos datos se calculan solos a partir de la información cargada; no se editan directamente acá.</p>
+      <div class="tarjetas-stats" id="tarjetas-stats"></div>
+    </div>
+ 
+    <!--CONFIGURACIÓN-->
+    <div id="sec-configuracion" class="seccion">
+      <h1>Configuración</h1>
+      <div class="panel-edicion" style="max-width: 700px;">
+        <div class="opcion-config">
+          <div>
+            <strong>Permitir registro de nuevos usuarios</strong><br>
+            <small style="color:#6b7280;">Cualquiera puede crear una cuenta sin invitación.</small>
+          </div>
+          <input type="checkbox" checked>
+        </div>
+        <div class="opcion-config">
+          <div>
+            <strong>Modo mantenimiento</strong><br>
+            <small style="color:#6b7280;">El sitio muestra un aviso y no se puede usar.</small>
+          </div>
+          <input type="checkbox">
+        </div>
+        <div class="opcion-config">
+          <div>
+            <strong>Notificar por email a los administradores</strong><br>
+            <small style="color:#6b7280;">Avisar cuando se crea un torneo nuevo.</small>
+          </div>
+          <input type="checkbox" checked>
+        </div>
+        <div class="opcion-config">
+          <div>
+            <strong>Aprobación manual de torneos nuevos</strong><br>
+            <small style="color:#6b7280;">Un administrador debe aprobarlos antes de publicarse.</small>
+          </div>
+          <input type="checkbox">
+        </div>
+        <div class="botones">
+          <button class="btn btn-guardar">Guardar configuración</button>
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+ 
+  <script src="../../public/js/vistaadmin.js"></script>
+ 
+</body>
+</html>
+ 
+ 

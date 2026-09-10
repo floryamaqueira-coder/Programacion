@@ -1,0 +1,585 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+ 
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    color: #222;
+  }
+ 
+  /* ---------- ASIDE (menú fijo a la izquierda) ---------- */
+ 
+  .aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100%;
+    background-color: #1f2937;
+    color: #ffffff;
+    padding: 20px;
+    overflow-y: auto;
+  }
+ 
+  .aside h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+ 
+  .grupo-menu {
+    color: #9ca3af;
+    font-size: 12px;
+    margin: 18px 0 6px 5px;
+  }
+ 
+  .aside ul {
+    list-style: none;
+  }
+ 
+  .aside ul li {
+    margin-bottom: 6px;
+  }
+ 
+  .aside ul li a {
+    display: block;
+    padding: 9px 12px;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+ 
+  .aside ul li a:hover,
+  .aside ul li a.activo {
+    background-color: #374151;
+  }
+ 
+  /* ---------- CONTENIDO PRINCIPAL (a la derecha) ---------- */
+ 
+  .contenido {
+    margin-left: 240px;
+    padding: 30px;
+  }
+ 
+  .contenido h1 {
+    margin-bottom: 20px;
+  }
+ 
+  .seccion {
+    display: none;
+  }
+ 
+  .seccion.visible {
+    display: block;
+  }
+ 
+  /* ---------- PANEL DE HERRAMIENTAS DE EDICIÓN ---------- */
+ 
+  .panel-edicion {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 650px;
+    margin-bottom: 20px;
+  }
+ 
+  .panel-edicion h2 {
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+ 
+  .campo {
+    margin-bottom: 15px;
+  }
+ 
+  .campo label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+ 
+  .campo input,
+  .campo select,
+  .campo textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+ 
+  .campo textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+ 
+  .fila-dos-campos {
+    display: flex;
+    gap: 15px;
+  }
+ 
+  .fila-dos-campos .campo {
+    flex: 1;
+  }
+ 
+  .botones {
+    margin-top: 20px;
+  }
+ 
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+ 
+  .btn-guardar {
+    background-color: #2563eb;
+    color: #ffffff;
+  }
+ 
+  .btn-cancelar {
+    background-color: #e5e7eb;
+    color: #222222;
+  }
+ 
+  .btn-peligro {
+    background-color: #dc2626;
+    color: #ffffff;
+  }
+ 
+  .placeholder {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 650px;
+  }
+ 
+  /* ---------- SUB-VISTAS (listado / detalle) ---------- */
+ 
+  .subvista {
+    display: none;
+  }
+ 
+  .subvista.visible {
+    display: block;
+  }
+ 
+  .buscador {
+    margin-bottom: 15px;
+    max-width: 650px;
+  }
+ 
+  .buscador input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+ 
+  .lista-torneos {
+    max-width: 650px;
+  }
+ 
+  .torneo-item {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+ 
+  .torneo-item:hover {
+    background-color: #f0f0f0;
+  }
+ 
+  .etiqueta {
+    display: inline-block;
+    background-color: #e5e7eb;
+    color: #374151;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-left: 5px;
+  }
+ 
+  .badge-estado {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+ 
+  .badge-activo {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+ 
+  .badge-suspendido {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+ 
+  /* Pestañas dentro del detalle */
+ 
+  .tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+ 
+  .tab-btn {
+    padding: 8px 16px;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+ 
+  .tab-btn.activo {
+    background-color: #2563eb;
+    color: #ffffff;
+    border-color: #2563eb;
+  }
+ 
+  .tab-contenido {
+    display: none;
+  }
+ 
+  .tab-contenido.visible {
+    display: block;
+  }
+ 
+  .lista-simple {
+    list-style: none;
+    margin-bottom: 15px;
+  }
+ 
+  .lista-simple li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eeeeee;
+  }
+ 
+  /* ---------- LISTAS EDITABLES GENÉRICAS (equipos, jugadores, etc.) ---------- */
+ 
+  .lista-simple-editable {
+    list-style: none;
+    margin-bottom: 15px;
+  }
+ 
+  .item-simple {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eeeeee;
+  }
+ 
+  .item-simple span {
+    flex: 1;
+  }
+ 
+  .btn-mini {
+    padding: 5px 10px;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-left: 8px;
+  }
+ 
+  .btn-mini-eliminar {
+    color: #dc2626;
+    border-color: #fca5a5;
+  }
+ 
+  /* ---------- GRUPOS POR ROL (Miembros, Equipos, Usuarios) ---------- */
+ 
+  .grupo-rol {
+    margin-bottom: 10px;
+  }
+ 
+  .subgrupo-titulo {
+    font-size: 14px;
+    font-weight: bold;
+    color: #374151;
+    margin: 20px 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+ 
+  .grupo-rol:first-child .subgrupo-titulo {
+    margin-top: 0;
+  }
+ 
+  .sin-miembros {
+    color: #6b7280;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+ 
+  .miembro-info {
+    flex: 1;
+  }
+ 
+  .miembro-info strong {
+    display: block;
+  }
+ 
+  .miembro-userid {
+    display: block;
+    color: #9ca3af;
+    font-size: 11px;
+    margin-top: 2px;
+  }
+ 
+  /* ---------- SANCIONES ---------- */
+ 
+  .sancion-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #eeeeee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+ 
+  .sancion-info strong {
+    display: block;
+  }
+ 
+  .sancion-info small {
+    color: #6b7280;
+  }
+ 
+  /* ---------- IMÁGENES (previews de archivo en formularios) ---------- */
+ 
+  .imagen-preview {
+    width: 100px;
+    height: 100px;
+    background-color: #e5e7eb;
+    border-radius: 8px;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #6b7280;
+    text-align: center;
+    padding: 5px;
+  }
+ 
+  /* ---------- CONFIGURACIÓN (interruptores) ---------- */
+ 
+  .opcion-config {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #eeeeee;
+    max-width: 650px;
+  }
+ 
+  .opcion-config input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+  }
+ 
+  /* ---------- ESTADÍSTICAS ---------- */
+ 
+  .tarjetas-stats {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+ 
+  .stat-box {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 20px;
+    min-width: 160px;
+  }
+ 
+  .stat-box .numero {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2563eb;
+  }
+ 
+  .stat-box .etiqueta-stat {
+    color: #6b7280;
+    font-size: 13px;
+  }
+ 
+  /* ---------- BARRA SUPERIOR MOVIL Y OVERLAY DEL MENU ---------- */
+ 
+  .topbar-movil {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background-color: #1f2937;
+    color: #ffffff;
+    align-items: center;
+    gap: 12px;
+    padding: 0 15px;
+    z-index: 300;
+  }
+ 
+  .btn-menu-movil {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 6px;
+  }
+ 
+  .topbar-titulo {
+    font-size: 16px;
+    font-weight: bold;
+  }
+ 
+  .overlay-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 250;
+  }
+ 
+  .overlay-menu.visible {
+    display: block;
+  }
+ 
+  /* ---------- RESPONSIVE ---------- */
+ 
+  @media (max-width: 768px) {
+ 
+    .topbar-movil {
+      display: flex;
+    }
+ 
+    .aside {
+      transform: translateX(-100%);
+      transition: transform 0.25s ease;
+      z-index: 300;
+      width: 260px;
+      box-shadow: 2px 0 12px rgba(0, 0, 0, 0.25);
+    }
+ 
+    .aside.abierta {
+      transform: translateX(0);
+    }
+ 
+    .contenido {
+      margin-left: 0;
+      padding: 20px 15px;
+      padding-top: 76px;
+    }
+ 
+    .fila-dos-campos {
+      flex-direction: column;
+      gap: 0;
+    }
+ 
+    .tabs {
+      gap: 8px;
+    }
+ 
+    .tab-btn {
+      padding: 7px 12px;
+      font-size: 13px;
+    }
+ 
+    .torneo-item {
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+ 
+    .botones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+ 
+    .botones .btn {
+      margin-right: 0;
+    }
+ 
+    .tarjetas-stats {
+      gap: 10px;
+    }
+ 
+    .stat-box {
+      min-width: 0;
+      flex: 1 1 calc(50% - 10px);
+    }
+ 
+    .panel-edicion,
+    .placeholder,
+    .buscador,
+    .lista-torneos {
+      max-width: 100%;
+    }
+  }
+ 
+  @media (max-width: 420px) {
+ 
+    .stat-box {
+      flex: 1 1 100%;
+    }
+ 
+    .contenido {
+      padding: 16px 12px;
+      padding-top: 72px;
+    }
+  }
+ 
+  /* ---------- SELECTOR DE DIAS Y CAMPOS CONDICIONALES (formulario de torneo) ---------- */
+ 
+  .days-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+ 
+  .day-btn {
+    padding: 8px 14px;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+  }
+ 
+  .day-btn.selected {
+    background-color: #2563eb;
+    color: #ffffff;
+    border-color: #2563eb;
+  }
+ 
+  .is-hidden {
+    display: none !important;
+  }
+ 
