@@ -9,6 +9,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     
     <link rel="stylesheet" href="../../public/css/iniciosesion.css">
+    <script src="../../public/js/login.js" defer></script>
 </head>
 <body>
     <img class="fondoiniciosesion" src="../../public/img/fondoRegistro.png">
@@ -31,12 +32,12 @@
     <section>
         <div class="login-card">
             <h2>Inicia Sesión</h2>
-            <form action="../../apps/views/inicioPostSesion.html">
+            <form action="#" id="formLogin">
                 
                 <!-- Email -->
                 <div class="input-group">
                     <label>Email</label>
-                    <input type="email" required autocomplete="off">
+                    <input type="email" id="email" name="email" required autocomplete="off">
                     <!-- required autocomplete="off": Controla la memoria. Se encarga de no
                      mostrar lo que escribió el usuario en otro momento anterior. (Esto
                      podemos modificarlo)-->
@@ -47,10 +48,13 @@
                 <!-- Contraseña -->
                 <div class="input-group">
                     <label>Contraseña</label>
-                    <input type="password" required>
+                    <input type="password" id="contrasena" name="contrasena" required>
                     <!-- required: indica que el campo no puede quedar vacío-->
                     <ion-icon name="lock-closed-outline"></ion-icon>
                 </div>
+
+                <!-- Mensaje de error -->
+                <p id="mensajeError" style="color: red;"></p>
 
                 <!-- Opciones intermedias -->
                 <div class="options-row">

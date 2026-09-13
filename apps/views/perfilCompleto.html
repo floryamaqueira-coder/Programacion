@@ -8,7 +8,7 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-    <link rel="stylesheet" href="../../public/css/perfil.css">
+    <link rel="stylesheet" href="../../public/css/perfilCompleto.css">
 
 </head>
 <body>
@@ -48,6 +48,9 @@
                     <p class="certificado-medico">Aprobado</p>
                 </div>
             </div>
+            <button id="btn-config" type="button" aria-label="Configuración">
+                <ion-icon name="settings-outline"></ion-icon>
+            </button>
         </header>
 
         <!-- Sección de Estadísticas / Grid -->
@@ -85,11 +88,77 @@
                 </div>
             </div>
         </section>
+
+        <!-- Sección: Información de cuenta -->
+        <div id = "vista-configuracion" class = "vista-oculto ">
+            <div class = "config-card">
+                <div class = "config-fila">
+                    <h3 class = "titulo"> Cuenta </h3>
+                    <button id = "btn-volver"class = "btn-volver"><ion-icon name="close-outline"></ion-icon></button>
+                </div>
+                    
+                <hr class="divisor">
+
+                <section class="section-configPerfil">
+                    <h3 class="titulo">Información de cuenta</h3>
+
+                    <div class="config-fila">
+                        <span class="fila-label">Nombre de usuario</span>
+                            <div class="fila-acciones">
+                                <span class="fila-dato">valerieblanco_</span>
+                                <button id = "btn-editar-nombre" class="btn-editar">Editar</button>
+                            </div>
+                    </div>
+
+                    <div class="config-fila">
+                        <span class="fila-label">Correo electrónico</span>
+                            <div class="fila-acciones">
+                                <span class="fila-dato">**********@gmail.com</span>
+                                <button id = "btn-editar-gmail" class="btn-editar">Editar</button>
+                            </div>
+                    </div>
+                </section>
+
+                <hr class="divisor">
+
+                <!-- Sección: Contraseña y seguridad -->
+                <section class="section-configPerfil">
+                    <h3 class="titulo">Contraseña y seguridad</h3>
+                        <div class="config-fila">
+                            <span class="fila-label">Contraseña</span>
+                                <div class="fila-acciones">
+                                    <button id = "btn-editar-contraseña" class="btn-editar">Restablecer</button>
+                                </div>
+                        </div>
+                </section>
+
+                <section id = "vista-nuevoNombre" class = "vista-oculta-nuevoNombre">
+                    <div class = "form-titulo">
+                        <h2>Cambiar nombre de usuario</h2>
+                        <p>Elige tu nuevo nombre de usuario a continuacion</p>
+                    </div>
+                    <form action = "" id = "cambio-nombre" class = "cambio-nombre">
+                        <div class = "form-nombre">
+                            <label for = "inpt-nombre"> Nombre Actual </label>
+                            <input class = "inpt-nombre" type="text" required>
+                        </div>
+                        <div class = "form-nombre">
+                            <label for = "inpt-nombreNuevo"> Nombre Nuevo </label>
+                            <input class = "inpt-nombreNuevo" type="text" required>
+                            <button class = "btn-confirmar" type="submit">Confirmar</button>
+                        </div>
+                    </form>           
+                </section>
+            </div>
+        </div>
+        
     </main>
 
     <footer>
         <p>© 2026 SPL | Sistema de Gestión de Torneos y Partidos</p>
     </footer>
+
+    <script src="../../public/js/perfilCompleto.js"> </script>
 
 </body>
 </html>

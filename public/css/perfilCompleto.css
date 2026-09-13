@@ -157,11 +157,194 @@ nav a:hover {
     font-weight: 600;
 }
 
-/* Estad e info*/
+/* Botón de configuración (ícono de tuerca) */
+#btn-config {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    margin: 15px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(148, 163, 184, 0.12);
+    color: #cbd5e1;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+#btn-config ion-icon {
+    font-size: 1.25rem;
+    pointer-events: none;
+}
+
+#btn-config:hover {
+    background-color: rgba(148, 163, 184, 0.22);
+    color: #ffffff;
+    transform: rotate(20deg);
+}
+/* Contenedor principal de ajustes */
+.config-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    color: #ffffff;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.config-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+/* Secciones y títulos */
+.section-configPerfil{
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+.vista-oculta-nuevoNombre{
+    display: none !important;
+    background-color: black;
+    z-index: 1000;
+}
+#vista-nuevoNombre{
+    color: white;
+    border-radius: 12px;
+    background-color: rgb(22, 40, 80);
+    border: 1px solid #1e293b;
+    gap: 10px;
+    min-width: 300px;
+    max-width: 500px;
+    max-height: fit-content;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+.form-titulo{
+    height: 100%;
+    padding: 20px 10px 15px 20px ;
+    justify-content: left;
+
+}
+
+.inpt-nombre{
+    background-color: transparent;
+    border: 1px solid #3f444e;
+    border-radius: 12px;
+    height: 37px;
+    
+}
+
+.inpt-nombreNuevo{
+    background-color: transparent;
+    border: 1px solid #3f444e;
+    border-radius: 12px;
+    height: 37px;
+    padding: 0px ;
+    
+}
+
+.form-nombre{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 15px;
+}
+
+.form-nombre label{
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+
+.form-nombre p{
+    padding-top: 10px;
+}
+
+.btn-confirmar{
+    height: 37px;
+    background-color: rgb(35, 35, 78);
+    color: white;
+    border: 1px solid white;
+    border-radius: 12px;
+    transition: border-color 1s ease, color 1s ease;
+    margin-top: 40px;
+
+}
+
+.btn-confirmar:hover{
+    border-color: red;
+    color: red;
+}
+
+.titulo {
+    font-size: 1.2rem;
+    color: #e2e8f0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+
+.config-fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.fila-label {
+    font-size: 0.95rem;
+    color: #f1f5f9;
+    font-weight: 500;
+}
+
+.fila-acciones {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.fila-dato{
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+
+.btn-editar {
+    background-color: #2a2d34;
+    color: #ffffff;
+    border: 1px solid #3f444e;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-editar:hover {
+    background-color: #383c46;
+    border-color: #525866;
+}
+
+
+hr {
+    border: none;
+    border-top: 1px solid #2d3139;
+    margin: 2rem 0;
+}
+
+
 .estad-grid {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    height: 400px;
     width: 100%;
 }
 
@@ -181,6 +364,53 @@ nav a:hover {
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
+.vista-oculto{
+    display: none !important;
+}
+
+#vista-configuracion {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.75);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+    backdrop-filter: blur(4px); 
+}
+
+/* Contenedor Overlay */
+.config-card {
+    position: relative;
+    background-color: rgb(17, 27, 51);
+    border: 1px solid #33435c;
+    color: #f2f3f5;
+    width: 100%;
+    max-width: 1000px;
+    height: fit-content;
+    max-height: 800px;
+    padding: 30px 24px 24px 24px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+.btn-volver{
+    background-color: transparent;
+    border: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    border-radius: 8px;
+}
+.btn-volver ion-icon{
+    color: white;
+    font-size: 1.8rem;
+    
+}
+.btn-volver:hover{
+    background-color: #383c46;
+}
+
 
 .estad-valor {
     font-size: 1.3rem;
@@ -189,9 +419,7 @@ nav a:hover {
 }
 
 /* Encabezados */
-.info-deportes h3, 
-.info-equipo h3, 
-.info-historial h3 {
+.info-deportes h3, .info-equipo h3, .info-historial h3 {
     font-size: 0.8rem;
     color: #AEBF2A; 
     letter-spacing: 0.05em;
@@ -217,8 +445,7 @@ nav a:hover {
     gap: 6px;
 }
 
-.club-item, 
-.historial-item {
+.club-item, .historial-item {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -226,8 +453,7 @@ nav a:hover {
     font-size: 0.9rem;
 }
 
-.club-item ion-icon, 
-.historial-item ion-icon {
+.club-item ion-icon, .historial-item ion-icon {
     font-size: 18px;
     color: #64748b;
 }
@@ -314,6 +540,7 @@ footer {
         padding: 10px 5px;
         font-size: 0.85rem;
     }
+
 }
 
 /* Pantallas Grandes / PC */
